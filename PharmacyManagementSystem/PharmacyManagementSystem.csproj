@@ -79,12 +79,6 @@
     <Compile Include="UcDashboard.Designer.cs">
       <DependentUpon>UcDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="UcProfile.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UcProfile.Designer.cs">
-      <DependentUpon>UcProfile.cs</DependentUpon>
-    </Compile>
     <Compile Include="UcSignUp.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,9 +115,6 @@
     </Compile>
     <EmbeddedResource Include="UcDashboard.resx">
       <DependentUpon>UcDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UcProfile.resx">
-      <DependentUpon>UcProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcSignUp.resx">
       <DependentUpon>UcSignUp.cs</DependentUpon>

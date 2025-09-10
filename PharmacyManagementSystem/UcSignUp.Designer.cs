@@ -62,10 +62,10 @@
             this.pnlSignUpDetails.Controls.Add(this.lblUserName);
             this.pnlSignUpDetails.Controls.Add(this.lblUserId);
             this.pnlSignUpDetails.Controls.Add(this.lblAccType);
-            this.pnlSignUpDetails.Location = new System.Drawing.Point(3, 3);
+            this.pnlSignUpDetails.Location = new System.Drawing.Point(8, 8);
             this.pnlSignUpDetails.Name = "pnlSignUpDetails";
             this.pnlSignUpDetails.Size = new System.Drawing.Size(795, 386);
-            this.pnlSignUpDetails.TabIndex = 4;
+            this.pnlSignUpDetails.TabIndex = 5;
             // 
             // lblSignUp
             // 

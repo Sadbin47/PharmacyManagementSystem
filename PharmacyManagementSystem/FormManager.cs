@@ -38,24 +38,19 @@ namespace PharmacyManagementSystem
             LoadUserControl(dashboard);
         }
 
-        private void btnAddUser_Click(object sender, EventArgs e)
+        private void btnSignUp_Click(object sender, EventArgs e)
         {
-            UcSignUp addUser = new UcSignUp();
-            LoadUserControl(addUser);
+            UcSignUp signUp = new UcSignUp();
+            LoadUserControl(signUp);
         }
 
         private void btnViewUser_Click(object sender, EventArgs e)
         {
             UcViewUser viewUser = new UcViewUser();
-            // Pass the DataAccess instance to load user data
             viewUser.LoadUserData(this.Da);
             LoadUserControl(viewUser);
         }
 
-        private void btnProfile_Click(object sender, EventArgs e)
-        {
-
-        }
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             Application.Exit();

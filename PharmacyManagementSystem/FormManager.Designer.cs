@@ -28,22 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlInfoPlace = new System.Windows.Forms.Panel();
             this.headerPanel = new System.Windows.Forms.Panel();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
             this.pnlManagement = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
-            this.btnProfile = new System.Windows.Forms.Button();
             this.btnViewUser = new System.Windows.Forms.Button();
             this.btnSignUp = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.pnlInfoPlace = new System.Windows.Forms.Panel();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.headerPanel.SuspendLayout();
-            this.pnlManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
+            this.pnlManagement.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlInfoPlace
+            // 
+            this.pnlInfoPlace.Location = new System.Drawing.Point(209, 105);
+            this.pnlInfoPlace.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlInfoPlace.Name = "pnlInfoPlace";
+            this.pnlInfoPlace.Size = new System.Drawing.Size(795, 386);
+            this.pnlInfoPlace.TabIndex = 10;
             // 
             // headerPanel
             // 
@@ -56,7 +63,18 @@
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(1015, 100);
-            this.headerPanel.TabIndex = 5;
+            this.headerPanel.TabIndex = 8;
+            // 
+            // logoImageBox
+            // 
+            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
+            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Name = "logoImageBox";
+            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoImageBox.TabIndex = 0;
+            this.logoImageBox.TabStop = false;
             // 
             // lblTitle
             // 
@@ -93,7 +111,6 @@
             // 
             this.pnlManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.pnlManagement.Controls.Add(this.btnLogOut);
-            this.pnlManagement.Controls.Add(this.btnProfile);
             this.pnlManagement.Controls.Add(this.btnViewUser);
             this.pnlManagement.Controls.Add(this.btnSignUp);
             this.pnlManagement.Controls.Add(this.btnDashboard);
@@ -101,7 +118,7 @@
             this.pnlManagement.Margin = new System.Windows.Forms.Padding(2);
             this.pnlManagement.Name = "pnlManagement";
             this.pnlManagement.Size = new System.Drawing.Size(194, 404);
-            this.pnlManagement.TabIndex = 6;
+            this.pnlManagement.TabIndex = 9;
             // 
             // btnLogOut
             // 
@@ -115,19 +132,6 @@
             this.btnLogOut.Text = "Exit";
             this.btnLogOut.UseVisualStyleBackColor = false;
             this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // btnProfile
-            // 
-            this.btnProfile.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.btnProfile.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProfile.Location = new System.Drawing.Point(32, 231);
-            this.btnProfile.Margin = new System.Windows.Forms.Padding(2);
-            this.btnProfile.Name = "btnProfile";
-            this.btnProfile.Size = new System.Drawing.Size(130, 39);
-            this.btnProfile.TabIndex = 3;
-            this.btnProfile.Text = "Profile";
-            this.btnProfile.UseVisualStyleBackColor = false;
-            this.btnProfile.Click += new System.EventHandler(this.btnProfile_Click);
             // 
             // btnViewUser
             // 
@@ -153,7 +157,7 @@
             this.btnSignUp.TabIndex = 1;
             this.btnSignUp.Text = "Add User";
             this.btnSignUp.UseVisualStyleBackColor = false;
-            this.btnSignUp.Click += new System.EventHandler(this.btnAddUser_Click);
+            this.btnSignUp.Click += new System.EventHandler(this.btnSignUp_Click);
             // 
             // btnDashboard
             // 
@@ -168,25 +172,6 @@
             this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
-            // pnlInfoPlace
-            // 
-            this.pnlInfoPlace.Location = new System.Drawing.Point(209, 105);
-            this.pnlInfoPlace.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlInfoPlace.Name = "pnlInfoPlace";
-            this.pnlInfoPlace.Size = new System.Drawing.Size(795, 386);
-            this.pnlInfoPlace.TabIndex = 7;
-            // 
-            // logoImageBox
-            // 
-            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
-            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
-            this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
-            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoImageBox.TabIndex = 0;
-            this.logoImageBox.TabStop = false;
-            // 
             // FormManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,32 +179,31 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1015, 502);
             this.Controls.Add(this.pnlInfoPlace);
-            this.Controls.Add(this.pnlManagement);
             this.Controls.Add(this.headerPanel);
+            this.Controls.Add(this.pnlManagement);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormManager";
             this.Text = "FormManager";
             this.headerPanel.ResumeLayout(false);
             this.headerPanel.PerformLayout();
-            this.pnlManagement.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
+            this.pnlManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel pnlInfoPlace;
         private System.Windows.Forms.Panel headerPanel;
         private System.Windows.Forms.PictureBox logoImageBox;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSubTitle;
         private System.Windows.Forms.Panel accentPanel;
         private System.Windows.Forms.Panel pnlManagement;
-        private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Button btnProfile;
+        private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnViewUser;
         private System.Windows.Forms.Button btnSignUp;
-        private System.Windows.Forms.Button btnLogOut;
-        private System.Windows.Forms.Panel pnlInfoPlace;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }
