@@ -71,25 +71,43 @@
     <Compile Include="FormSalesman.Designer.cs">
       <DependentUpon>FormSalesman.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSignUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormSignUp.Designer.cs">
-      <DependentUpon>FormSignUp.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UcDashboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcDashboard.Designer.cs">
+      <DependentUpon>UcDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcProfile.Designer.cs">
+      <DependentUpon>UcProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcSignUp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcSignUp.Designer.cs">
+      <DependentUpon>UcSignUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcViewUser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcViewUser.Designer.cs">
+      <DependentUpon>UcViewUser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormLoading.resx">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormManager.resx">
+      <DependentUpon>FormManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormSalesman.resx">
       <DependentUpon>FormSalesman.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormSignUp.resx">
-      <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,6 +119,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UcDashboard.resx">
+      <DependentUpon>UcDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcProfile.resx">
+      <DependentUpon>UcProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcSignUp.resx">
+      <DependentUpon>UcSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcViewUser.resx">
+      <DependentUpon>UcViewUser.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
