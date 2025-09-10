@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesman));
-            this.headerPanel = new System.Windows.Forms.Panel();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pnlCRUD = new System.Windows.Forms.Panel();
             this.btnClear = new System.Windows.Forms.Button();
             this.searchButton = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
@@ -69,25 +70,35 @@
             this.txtManuFacturer = new System.Windows.Forms.TextBox();
             this.dtpExpiryDate = new System.Windows.Forms.DateTimePicker();
             this.cmbCatagory = new System.Windows.Forms.ComboBox();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
-            this.headerPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
+            this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
+            this.pnlCRUD.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
             this.SuspendLayout();
             // 
-            // headerPanel
+            // pnlHeader
             // 
-            this.headerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.headerPanel.Controls.Add(this.logoImageBox);
-            this.headerPanel.Controls.Add(this.lblTitle);
-            this.headerPanel.Controls.Add(this.lblSubTitle);
-            this.headerPanel.Controls.Add(this.accentPanel);
-            this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.headerPanel.Location = new System.Drawing.Point(0, 0);
-            this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(760, 100);
-            this.headerPanel.TabIndex = 4;
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.pnlHeader.Controls.Add(this.logoImageBox);
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Controls.Add(this.lblSubTitle);
+            this.pnlHeader.Controls.Add(this.accentPanel);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(760, 100);
+            this.pnlHeader.TabIndex = 4;
+            // 
+            // logoImageBox
+            // 
+            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
+            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Name = "logoImageBox";
+            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoImageBox.TabIndex = 0;
+            this.logoImageBox.TabStop = false;
             // 
             // lblTitle
             // 
@@ -120,22 +131,22 @@
             this.accentPanel.Size = new System.Drawing.Size(760, 5);
             this.accentPanel.TabIndex = 3;
             // 
-            // panel2
+            // pnlCRUD
             // 
-            this.panel2.Controls.Add(this.btnClear);
-            this.panel2.Controls.Add(this.searchButton);
-            this.panel2.Controls.Add(this.searchLabel);
-            this.panel2.Controls.Add(this.sortLabel);
-            this.panel2.Controls.Add(this.btnAdd);
-            this.panel2.Controls.Add(this.txtSearch);
-            this.panel2.Controls.Add(this.btnShowALL);
-            this.panel2.Controls.Add(this.sortComboBox);
-            this.panel2.Controls.Add(this.btnEdit);
-            this.panel2.Controls.Add(this.btnDelete);
-            this.panel2.Location = new System.Drawing.Point(362, 138);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(364, 175);
-            this.panel2.TabIndex = 9;
+            this.pnlCRUD.Controls.Add(this.btnClear);
+            this.pnlCRUD.Controls.Add(this.searchButton);
+            this.pnlCRUD.Controls.Add(this.searchLabel);
+            this.pnlCRUD.Controls.Add(this.sortLabel);
+            this.pnlCRUD.Controls.Add(this.btnAdd);
+            this.pnlCRUD.Controls.Add(this.txtSearch);
+            this.pnlCRUD.Controls.Add(this.btnShowALL);
+            this.pnlCRUD.Controls.Add(this.sortComboBox);
+            this.pnlCRUD.Controls.Add(this.btnEdit);
+            this.pnlCRUD.Controls.Add(this.btnDelete);
+            this.pnlCRUD.Location = new System.Drawing.Point(362, 138);
+            this.pnlCRUD.Name = "pnlCRUD";
+            this.pnlCRUD.Size = new System.Drawing.Size(364, 175);
+            this.pnlCRUD.TabIndex = 9;
             // 
             // btnClear
             // 
@@ -544,17 +555,6 @@
             this.cmbCatagory.Size = new System.Drawing.Size(166, 23);
             this.cmbCatagory.TabIndex = 30;
             // 
-            // logoImageBox
-            // 
-            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
-            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
-            this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
-            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoImageBox.TabIndex = 0;
-            this.logoImageBox.TabStop = false;
-            // 
             // FormSalesman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -578,17 +578,17 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblMedicineID);
             this.Controls.Add(this.dgvMedicineList);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.headerPanel);
+            this.Controls.Add(this.pnlCRUD);
+            this.Controls.Add(this.pnlHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormSalesman";
             this.Text = "FormSalesman";
-            this.headerPanel.ResumeLayout(false);
-            this.headerPanel.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).EndInit();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
+            this.pnlCRUD.ResumeLayout(false);
+            this.pnlCRUD.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -596,12 +596,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel headerPanel;
+        private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.PictureBox logoImageBox;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSubTitle;
         private System.Windows.Forms.Panel accentPanel;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pnlCRUD;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchLabel;
         private System.Windows.Forms.Label sortLabel;
