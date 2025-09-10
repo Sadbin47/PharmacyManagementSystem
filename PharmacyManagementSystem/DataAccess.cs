@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WFADBCRUDN
+namespace PharmacyManagementSystem // Changed to match your project namespace
 {
     public class DataAccess
     {

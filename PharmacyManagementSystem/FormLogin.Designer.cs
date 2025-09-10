@@ -33,6 +33,7 @@
             this.pnlLogin = new System.Windows.Forms.Panel();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.accentPanel = new System.Windows.Forms.Panel();
+            this.pbLoginLogo = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.pnlSignIn = new System.Windows.Forms.Panel();
@@ -43,12 +44,11 @@
             this.txtUserId = new System.Windows.Forms.TextBox();
             this.pnlPassword = new System.Windows.Forms.Label();
             this.pnlUserId = new System.Windows.Forms.Label();
-            this.pbLoginLogo = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             this.pnlHeader.SuspendLayout();
-            this.pnlSignIn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLoginLogo)).BeginInit();
+            this.pnlSignIn.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -89,6 +89,17 @@
             this.accentPanel.Name = "accentPanel";
             this.accentPanel.Size = new System.Drawing.Size(975, 10);
             this.accentPanel.TabIndex = 4;
+            // 
+            // pbLoginLogo
+            // 
+            this.pbLoginLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pbLoginLogo.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
+            this.pbLoginLogo.Location = new System.Drawing.Point(60, 40);
+            this.pbLoginLogo.Name = "pbLoginLogo";
+            this.pbLoginLogo.Size = new System.Drawing.Size(100, 100);
+            this.pbLoginLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLoginLogo.TabIndex = 0;
+            this.pbLoginLogo.TabStop = false;
             // 
             // lblTitle
             // 
@@ -195,7 +206,6 @@
             // 
             this.txtUserId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.txtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtUserId.Enabled = true;
             this.txtUserId.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserId.ForeColor = System.Drawing.Color.White;
             this.txtUserId.Location = new System.Drawing.Point(60, 115);
@@ -226,17 +236,6 @@
             this.pnlUserId.TabIndex = 3;
             this.pnlUserId.Text = "UserID";
             // 
-            // pbLoginLogo
-            // 
-            this.pbLoginLogo.BackColor = System.Drawing.Color.Transparent;
-            this.pbLoginLogo.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.pbLoginLogo.Location = new System.Drawing.Point(60, 40);
-            this.pbLoginLogo.Name = "pbLoginLogo";
-            this.pbLoginLogo.Size = new System.Drawing.Size(100, 100);
-            this.pbLoginLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbLoginLogo.TabIndex = 0;
-            this.pbLoginLogo.TabStop = false;
-            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,14 +247,15 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormLogin";
             this.panel1.ResumeLayout(false);
             this.pnlLogin.ResumeLayout(false);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLoginLogo)).EndInit();
             this.pnlSignIn.ResumeLayout(false);
             this.pnlSignIn.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLoginLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -106,6 +106,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormLoading";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FormLoading_Load);
             this.panel1.ResumeLayout(false);
