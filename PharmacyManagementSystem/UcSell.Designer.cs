@@ -41,18 +41,19 @@
             this.btnClearCart = new System.Windows.Forms.Button();
             this.btnRemoveFromCart = new System.Windows.Forms.Button();
             this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.cartMedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCart = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
-            this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblSubTitle = new System.Windows.Forms.Label();
             this.btnShowAll = new System.Windows.Forms.Button();
             this.btnback = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.cmbCatagory = new System.Windows.Forms.ComboBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -60,25 +61,24 @@
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMedicineID = new System.Windows.Forms.Label();
-            this.accentPanel = new System.Windows.Forms.Panel();
             this.lblUnitPrice = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvMedicineList = new System.Windows.Forms.DataGridView();
+            this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.cartMedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cartUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cartQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cartTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSubTitle = new System.Windows.Forms.Label();
+            this.accentPanel = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,9 +114,10 @@
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.dgvMedicineList);
             this.panel1.Controls.Add(this.pnlHeader);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1061, 539);
+            this.panel1.Size = new System.Drawing.Size(1075, 551);
             this.panel1.TabIndex = 0;
             // 
             // lblPaymentMethod
@@ -214,9 +215,9 @@
             this.lblTotalAmount.ForeColor = System.Drawing.Color.LimeGreen;
             this.lblTotalAmount.Location = new System.Drawing.Point(583, 390);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(92, 21);
+            this.lblTotalAmount.Size = new System.Drawing.Size(96, 21);
             this.lblTotalAmount.TabIndex = 149;
-            this.lblTotalAmount.Text = "💰 Total: $";
+            this.lblTotalAmount.Text = "💰 Total: ৳";
             // 
             // btnClearCart
             // 
@@ -271,6 +272,41 @@
             this.dgvCart.Size = new System.Drawing.Size(470, 170);
             this.dgvCart.TabIndex = 146;
             // 
+            // cartMedicineId
+            // 
+            this.cartMedicineId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartMedicineId.HeaderText = "ID";
+            this.cartMedicineId.Name = "cartMedicineId";
+            this.cartMedicineId.ReadOnly = true;
+            // 
+            // cartName
+            // 
+            this.cartName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartName.HeaderText = "Medicine";
+            this.cartName.Name = "cartName";
+            this.cartName.ReadOnly = true;
+            // 
+            // cartUnitPrice
+            // 
+            this.cartUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartUnitPrice.HeaderText = "Unit Price";
+            this.cartUnitPrice.Name = "cartUnitPrice";
+            this.cartUnitPrice.ReadOnly = true;
+            // 
+            // cartQuantity
+            // 
+            this.cartQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartQuantity.HeaderText = "Quantity";
+            this.cartQuantity.Name = "cartQuantity";
+            this.cartQuantity.ReadOnly = true;
+            // 
+            // cartTotal
+            // 
+            this.cartTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartTotal.HeaderText = "Total";
+            this.cartTotal.Name = "cartTotal";
+            this.cartTotal.ReadOnly = true;
+            // 
             // lblCart
             // 
             this.lblCart.AutoSize = true;
@@ -316,24 +352,6 @@
             this.lblQuantity.Size = new System.Drawing.Size(61, 17);
             this.lblQuantity.TabIndex = 142;
             this.lblQuantity.Text = "Quantity";
-            // 
-            // medicineId
-            // 
-            this.medicineId.DataPropertyName = "MedicineId";
-            this.medicineId.HeaderText = "ID";
-            this.medicineId.Name = "medicineId";
-            this.medicineId.ReadOnly = true;
-            // 
-            // lblSubTitle
-            // 
-            this.lblSubTitle.AutoSize = true;
-            this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
-            this.lblSubTitle.Location = new System.Drawing.Point(115, 65);
-            this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(380, 21);
-            this.lblSubTitle.TabIndex = 2;
-            this.lblSubTitle.Text = "Process Sales • Manage Cart • Transaction Processing";
             // 
             // btnShowAll
             // 
@@ -384,28 +402,6 @@
             this.lblSearch.Size = new System.Drawing.Size(48, 17);
             this.lblSearch.TabIndex = 138;
             this.lblSearch.Text = "Search";
-            // 
-            // logoImageBox
-            // 
-            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
-            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
-            this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
-            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoImageBox.TabIndex = 0;
-            this.logoImageBox.TabStop = false;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblTitle.Location = new System.Drawing.Point(110, 20);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(274, 45);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "💊 Sales Module";
             // 
             // cmbCatagory
             // 
@@ -480,15 +476,6 @@
             this.lblMedicineID.TabIndex = 130;
             this.lblMedicineID.Text = "Medicine ID";
             // 
-            // accentPanel
-            // 
-            this.accentPanel.BackColor = System.Drawing.Color.BlueViolet;
-            this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.accentPanel.Location = new System.Drawing.Point(0, 95);
-            this.accentPanel.Name = "accentPanel";
-            this.accentPanel.Size = new System.Drawing.Size(1061, 5);
-            this.accentPanel.TabIndex = 3;
-            // 
             // lblUnitPrice
             // 
             this.lblUnitPrice.AutoSize = true;
@@ -539,6 +526,13 @@
             this.dgvMedicineList.TabIndex = 128;
             this.dgvMedicineList.DoubleClick += new System.EventHandler(this.dgvMedicineList_DoubleClick);
             // 
+            // medicineId
+            // 
+            this.medicineId.DataPropertyName = "MedicineId";
+            this.medicineId.HeaderText = "ID";
+            this.medicineId.Name = "medicineId";
+            this.medicineId.ReadOnly = true;
+            // 
             // name
             // 
             this.name.DataPropertyName = "Name";
@@ -577,43 +571,50 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1061, 100);
+            this.pnlHeader.Size = new System.Drawing.Size(1075, 100);
             this.pnlHeader.TabIndex = 127;
             // 
-            // cartMedicineId
+            // logoImageBox
             // 
-            this.cartMedicineId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cartMedicineId.HeaderText = "ID";
-            this.cartMedicineId.Name = "cartMedicineId";
-            this.cartMedicineId.ReadOnly = true;
+            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
+            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Name = "logoImageBox";
+            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoImageBox.TabIndex = 0;
+            this.logoImageBox.TabStop = false;
             // 
-            // cartName
+            // lblTitle
             // 
-            this.cartName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cartName.HeaderText = "Medicine";
-            this.cartName.Name = "cartName";
-            this.cartName.ReadOnly = true;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.lblTitle.Location = new System.Drawing.Point(110, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(274, 45);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "💊 Sales Module";
             // 
-            // cartUnitPrice
+            // lblSubTitle
             // 
-            this.cartUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cartUnitPrice.HeaderText = "Unit Price";
-            this.cartUnitPrice.Name = "cartUnitPrice";
-            this.cartUnitPrice.ReadOnly = true;
+            this.lblSubTitle.AutoSize = true;
+            this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
+            this.lblSubTitle.Location = new System.Drawing.Point(115, 65);
+            this.lblSubTitle.Name = "lblSubTitle";
+            this.lblSubTitle.Size = new System.Drawing.Size(380, 21);
+            this.lblSubTitle.TabIndex = 2;
+            this.lblSubTitle.Text = "Process Sales • Manage Cart • Transaction Processing";
             // 
-            // cartQuantity
+            // accentPanel
             // 
-            this.cartQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cartQuantity.HeaderText = "Quantity";
-            this.cartQuantity.Name = "cartQuantity";
-            this.cartQuantity.ReadOnly = true;
-            // 
-            // cartTotal
-            // 
-            this.cartTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.cartTotal.HeaderText = "Total";
-            this.cartTotal.Name = "cartTotal";
-            this.cartTotal.ReadOnly = true;
+            this.accentPanel.BackColor = System.Drawing.Color.BlueViolet;
+            this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.accentPanel.Location = new System.Drawing.Point(0, 95);
+            this.accentPanel.Name = "accentPanel";
+            this.accentPanel.Size = new System.Drawing.Size(1075, 5);
+            this.accentPanel.TabIndex = 3;
             // 
             // UcSell
             // 
@@ -626,10 +627,10 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).EndInit();
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             this.ResumeLayout(false);
 
         }

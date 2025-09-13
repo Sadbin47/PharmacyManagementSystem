@@ -510,6 +510,8 @@ namespace PharmacyManagementSystem
             try
             {
                 UcSell sell = new UcSell();
+                sell.Size = new Size(1075, 551); // Set the intended size
+                sell.Dock = DockStyle.Fill; // Make it fill the form
                 this.Controls.Clear();
                 this.Controls.Add(sell);
             }

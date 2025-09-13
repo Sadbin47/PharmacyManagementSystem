@@ -375,7 +375,7 @@ namespace PharmacyManagementSystem
 
                 decimal totalAmount = cartItems.Sum(item => item.Total);
                 string customerName = txtCustomerName.Text.Trim();
-                int salesmanId = int.Parse(txtSalesmanID.Text);
+                string salesmanId = txtSalesmanID.Text.Trim(); // Fix: Use string for salesmanId
                 string paymentMethod = cmbPaymentMethod.SelectedItem.ToString();
 
                 var confirmResult = MessageBox.Show(
@@ -396,6 +396,11 @@ namespace PharmacyManagementSystem
                         ClearSaleForm();
                     }
                 }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show($"Data format error: {ex.Message}\nPlease check all numeric fields.", "Format Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
@@ -424,7 +429,7 @@ namespace PharmacyManagementSystem
         #endregion
 
         #region Sale Processing
-        private bool ProcessSaleTransaction(int salesmanId, string customerName, decimal totalAmount, string paymentMethod)
+        private bool ProcessSaleTransaction(string salesmanId, string customerName, decimal totalAmount, string paymentMethod)
         {
             try
             {
@@ -432,9 +437,15 @@ namespace PharmacyManagementSystem
                 int saleId = GenerateSaleId();
                 DateTime saleDate = DateTime.Now;
 
-                // Insert into Sales table
+                // Escape single quotes in strings to prevent SQL injection
+                string safeSalesmanId = salesmanId.Replace("'", "''");
+                string safeCustomerName = customerName.Replace("'", "''");
+                string safePaymentMethod = paymentMethod.Replace("'", "''");
+                string safeTotalAmount = totalAmount.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+
+                // Insert into Sales table - Note: SalesmanID now treated as string
                 string salesSql = $@"INSERT INTO Sales (SaleId, SaleDate, SalesmanID, CustomerName, TotalAmount, PaymentMethod) 
-                                   VALUES ({saleId}, '{saleDate:yyyy-MM-dd HH:mm:ss}', {salesmanId}, '{customerName}', {totalAmount}, '{paymentMethod}')";
+                                   VALUES ({saleId}, '{saleDate:yyyy-MM-dd HH:mm:ss}', '{safeSalesmanId}', '{safeCustomerName}', {safeTotalAmount}, '{safePaymentMethod}')";
 
                 int salesResult = this.Da.ExecuteDMLQuery(salesSql);
 
@@ -446,8 +457,16 @@ namespace PharmacyManagementSystem
                     foreach (var item in cartItems)
                     {
                         int saleDetailId = GenerateSaleDetailId();
-                        string detailSql = $@"INSERT INTO SaleDetails (SaleDetailsID, SaleID, MedicineID, Quantity, UnitPrice, Subtotal) 
-                                            VALUES ({saleDetailId}, {saleId}, {item.MedicineId}, {item.Quantity}, {item.UnitPrice}, {item.Total})";
+                        
+                        // Convert values to safe strings
+                        string safeMedicineId = item.MedicineId.ToString();
+                        string safeQuantity = item.Quantity.ToString();
+                        string safeUnitPrice = item.UnitPrice.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+                        string safeSubtotal = item.Total.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
+                        
+                        // Fixed: Use correct table name 'SalesDetails' and column name 'SaleDetailID'
+                        string detailSql = $@"INSERT INTO SalesDetails (SaleDetailID, SaleID, MedicineID, Quantity, UnitPrice, Subtotal) 
+                                            VALUES ({saleDetailId}, {saleId}, {safeMedicineId}, {safeQuantity}, {safeUnitPrice}, {safeSubtotal})";
                         
                         int detailResult = this.Da.ExecuteDMLQuery(detailSql);
                         if (detailResult <= 0)
@@ -472,6 +491,12 @@ namespace PharmacyManagementSystem
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show($"Data format error in sale processing: {ex.Message}", "Format Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
             catch (Exception ex)
             {
@@ -619,10 +644,21 @@ namespace PharmacyManagementSystem
             {
                 var query = "SELECT ISNULL(MAX(SaleId), 0) + 1 FROM Sales";
                 var result = this.Da.ExecuteQueryTable(query);
-                return Convert.ToInt32(result.Rows[0][0]);
+                
+                if (result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value)
+                {
+                    if (int.TryParse(result.Rows[0][0].ToString(), out int saleId))
+                    {
+                        return saleId;
+                    }
+                }
+                
+                // Fallback to timestamp-based ID if database query fails
+                return DateTime.Now.Millisecond + new Random().Next(1000, 9999);
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"Error generating Sale ID: {ex.Message}");
                 return DateTime.Now.Millisecond + new Random().Next(1000, 9999);
             }
         }
@@ -631,12 +667,24 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                var query = "SELECT ISNULL(MAX(SaleDetailsID), 0) + 1 FROM SaleDetails";
+                // Fixed: Use correct table name 'SalesDetails' and column name 'SaleDetailID'
+                var query = "SELECT ISNULL(MAX(SaleDetailID), 0) + 1 FROM SalesDetails";
                 var result = this.Da.ExecuteQueryTable(query);
-                return Convert.ToInt32(result.Rows[0][0]);
+                
+                if (result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value)
+                {
+                    if (int.TryParse(result.Rows[0][0].ToString(), out int saleDetailId))
+                    {
+                        return saleDetailId;
+                    }
+                }
+                
+                // Fallback to timestamp-based ID if database query fails
+                return DateTime.Now.Millisecond + new Random().Next(10000, 99999);
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine($"Error generating Sale Detail ID: {ex.Message}");
                 return DateTime.Now.Millisecond + new Random().Next(10000, 99999);
             }
         }
