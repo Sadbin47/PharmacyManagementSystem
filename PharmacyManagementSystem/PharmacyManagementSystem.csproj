@@ -79,6 +79,18 @@
     <Compile Include="UcDashboard.Designer.cs">
       <DependentUpon>UcDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UcsalesInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcsalesInfo.Designer.cs">
+      <DependentUpon>UcsalesInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UcSell.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UcSell.Designer.cs">
+      <DependentUpon>UcSell.cs</DependentUpon>
+    </Compile>
     <Compile Include="UcSignUp.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -115,6 +127,12 @@
     </Compile>
     <EmbeddedResource Include="UcDashboard.resx">
       <DependentUpon>UcDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcsalesInfo.resx">
+      <DependentUpon>UcsalesInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UcSell.resx">
+      <DependentUpon>UcSell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UcSignUp.resx">
       <DependentUpon>UcSignUp.cs</DependentUpon>

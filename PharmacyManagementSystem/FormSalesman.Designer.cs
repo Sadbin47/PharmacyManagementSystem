@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesman));
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
@@ -69,11 +68,14 @@
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMedicineID = new System.Windows.Forms.Label();
+            this.btnSellItems = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.pnlCRUD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
             this.pnledit.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -88,17 +90,6 @@
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(760, 100);
             this.pnlHeader.TabIndex = 4;
-            // 
-            // logoImageBox
-            // 
-            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
-            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
-            this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
-            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoImageBox.TabIndex = 0;
-            this.logoImageBox.TabStop = false;
             // 
             // lblTitle
             // 
@@ -118,9 +109,9 @@
             this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
             this.lblSubTitle.Location = new System.Drawing.Point(115, 65);
             this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(385, 21);
+            this.lblSubTitle.Size = new System.Drawing.Size(459, 21);
             this.lblSubTitle.TabIndex = 2;
-            this.lblSubTitle.Text = "Manage System • Shop Control • Analytics Dashboard";
+            this.lblSubTitle.Text = "Manage System • Inventory Management\' • Analytics Dashboard";
             // 
             // accentPanel
             // 
@@ -133,6 +124,8 @@
             // 
             // pnlCRUD
             // 
+            this.pnlCRUD.Controls.Add(this.btnLogOut);
+            this.pnlCRUD.Controls.Add(this.btnSellItems);
             this.pnlCRUD.Controls.Add(this.btnClear);
             this.pnlCRUD.Controls.Add(this.searchLabel);
             this.pnlCRUD.Controls.Add(this.sortLabel);
@@ -156,7 +149,7 @@
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Location = new System.Drawing.Point(3, 129);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(100, 35);
+            this.btnClear.Size = new System.Drawing.Size(111, 35);
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "⬜ Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -167,7 +160,7 @@
             this.searchLabel.AutoSize = true;
             this.searchLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLabel.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.searchLabel.Location = new System.Drawing.Point(109, 3);
+            this.searchLabel.Location = new System.Drawing.Point(121, 3);
             this.searchLabel.Name = "searchLabel";
             this.searchLabel.Size = new System.Drawing.Size(58, 19);
             this.searchLabel.TabIndex = 0;
@@ -178,7 +171,7 @@
             this.sortLabel.AutoSize = true;
             this.sortLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortLabel.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.sortLabel.Location = new System.Drawing.Point(109, 73);
+            this.sortLabel.Location = new System.Drawing.Point(121, 73);
             this.sortLabel.Name = "sortLabel";
             this.sortLabel.Size = new System.Drawing.Size(62, 19);
             this.sortLabel.TabIndex = 3;
@@ -194,7 +187,7 @@
             this.btnAdd.ForeColor = System.Drawing.Color.White;
             this.btnAdd.Location = new System.Drawing.Point(3, 6);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 35);
+            this.btnAdd.Size = new System.Drawing.Size(111, 35);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "➕ Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -206,7 +199,7 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(109, 25);
+            this.txtSearch.Location = new System.Drawing.Point(125, 25);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(180, 27);
             this.txtSearch.TabIndex = 1;
@@ -222,7 +215,7 @@
             this.btnShowALL.ForeColor = System.Drawing.Color.White;
             this.btnShowALL.Location = new System.Drawing.Point(3, 47);
             this.btnShowALL.Name = "btnShowALL";
-            this.btnShowALL.Size = new System.Drawing.Size(100, 35);
+            this.btnShowALL.Size = new System.Drawing.Size(111, 35);
             this.btnShowALL.TabIndex = 8;
             this.btnShowALL.Text = "🔄 Show All";
             this.btnShowALL.UseVisualStyleBackColor = false;
@@ -236,7 +229,7 @@
             this.sortComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortComboBox.ForeColor = System.Drawing.Color.White;
             this.sortComboBox.FormattingEnabled = true;
-            this.sortComboBox.Location = new System.Drawing.Point(109, 95);
+            this.sortComboBox.Location = new System.Drawing.Point(125, 95);
             this.sortComboBox.Name = "sortComboBox";
             this.sortComboBox.Size = new System.Drawing.Size(180, 28);
             this.sortComboBox.TabIndex = 4;
@@ -252,7 +245,7 @@
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(3, 88);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 35);
+            this.btnDelete.Size = new System.Drawing.Size(111, 35);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "🗑️ Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -562,6 +555,49 @@
             this.lblMedicineID.TabIndex = 31;
             this.lblMedicineID.Text = "Medicine ID";
             // 
+            // btnSellItems
+            // 
+            this.btnSellItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnSellItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSellItems.FlatAppearance.BorderSize = 0;
+            this.btnSellItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSellItems.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSellItems.ForeColor = System.Drawing.Color.White;
+            this.btnSellItems.Location = new System.Drawing.Point(3, 170);
+            this.btnSellItems.Name = "btnSellItems";
+            this.btnSellItems.Size = new System.Drawing.Size(111, 35);
+            this.btnSellItems.TabIndex = 10;
+            this.btnSellItems.Text = "💵 Sell Items";
+            this.btnSellItems.UseVisualStyleBackColor = false;
+            this.btnSellItems.Click += new System.EventHandler(this.btnSell_Click);
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Location = new System.Drawing.Point(286, 224);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(100, 35);
+            this.btnLogOut.TabIndex = 11;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // logoImageBox
+            // 
+            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
+            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Name = "logoImageBox";
+            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoImageBox.TabIndex = 0;
+            this.logoImageBox.TabStop = false;
+            // 
             // FormSalesman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,12 +615,12 @@
             this.Load += new System.EventHandler(this.FormSalesman_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             this.pnlCRUD.ResumeLayout(false);
             this.pnlCRUD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).EndInit();
             this.pnledit.ResumeLayout(false);
             this.pnledit.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -631,5 +667,7 @@
         private System.Windows.Forms.Label lblCatagory;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblMedicineID;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Button btnSellItems;
     }
 }

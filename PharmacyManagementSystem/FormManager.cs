@@ -19,6 +19,8 @@ namespace PharmacyManagementSystem
             this.Da = new DataAccess();
             LoadDashboard();
         }
+      
+
 
         private void LoadUserControl(UserControl userControl)
         {
@@ -47,7 +49,7 @@ namespace PharmacyManagementSystem
         private void btnViewUser_Click(object sender, EventArgs e)
         {
             UcViewUser viewUser = new UcViewUser();
-            viewUser.LoadUserData(this.Da);
+            
             LoadUserControl(viewUser);
         }
 
@@ -55,5 +57,17 @@ namespace PharmacyManagementSystem
         {
             Application.Exit();
         }
+
+        private void btnSalesInfo_Click(object sender, EventArgs e)
+        {
+            UcsalesInfo salesInfo = new UcsalesInfo();
+            LoadUserControl(salesInfo);
+        }
+
+        private void FormManager_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }

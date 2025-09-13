@@ -501,6 +501,33 @@ namespace PharmacyManagementSystem
                 return false;
             }
         }
+
+        #endregion
+
+        #region Sell Button
+        private void btnSell_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UcSell sell = new UcSell();
+                this.Controls.Clear();
+                this.Controls.Add(sell);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading sell module: {ex.Message}", "Navigation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        #endregion
+
+        #region Exit and Logout
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
         #endregion
     }
 }
