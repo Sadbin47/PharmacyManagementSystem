@@ -30,10 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSalesman));
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
             this.pnlCRUD = new System.Windows.Forms.Panel();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.btnSellItems = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.searchLabel = new System.Windows.Forms.Label();
             this.sortLabel = new System.Windows.Forms.Label();
@@ -68,14 +71,11 @@
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMedicineID = new System.Windows.Forms.Label();
-            this.btnSellItems = new System.Windows.Forms.Button();
-            this.btnLogOut = new System.Windows.Forms.Button();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.pnlCRUD.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
             this.pnledit.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -88,8 +88,19 @@
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(760, 100);
+            this.pnlHeader.Size = new System.Drawing.Size(1074, 100);
             this.pnlHeader.TabIndex = 4;
+            // 
+            // logoImageBox
+            // 
+            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
+            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Name = "logoImageBox";
+            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoImageBox.TabIndex = 0;
+            this.logoImageBox.TabStop = false;
             // 
             // lblTitle
             // 
@@ -119,7 +130,7 @@
             this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.accentPanel.Location = new System.Drawing.Point(0, 95);
             this.accentPanel.Name = "accentPanel";
-            this.accentPanel.Size = new System.Drawing.Size(760, 5);
+            this.accentPanel.Size = new System.Drawing.Size(1074, 5);
             this.accentPanel.TabIndex = 3;
             // 
             // pnlCRUD
@@ -136,8 +147,40 @@
             this.pnlCRUD.Controls.Add(this.btnDelete);
             this.pnlCRUD.Location = new System.Drawing.Point(362, 100);
             this.pnlCRUD.Name = "pnlCRUD";
-            this.pnlCRUD.Size = new System.Drawing.Size(395, 267);
+            this.pnlCRUD.Size = new System.Drawing.Size(395, 247);
             this.pnlCRUD.TabIndex = 9;
+            // 
+            // btnLogOut
+            // 
+            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogOut.FlatAppearance.BorderSize = 0;
+            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.ForeColor = System.Drawing.Color.White;
+            this.btnLogOut.Location = new System.Drawing.Point(292, 192);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(100, 35);
+            this.btnLogOut.TabIndex = 11;
+            this.btnLogOut.Text = "Log Out";
+            this.btnLogOut.UseVisualStyleBackColor = false;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // btnSellItems
+            // 
+            this.btnSellItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnSellItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSellItems.FlatAppearance.BorderSize = 0;
+            this.btnSellItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSellItems.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSellItems.ForeColor = System.Drawing.Color.White;
+            this.btnSellItems.Location = new System.Drawing.Point(3, 170);
+            this.btnSellItems.Name = "btnSellItems";
+            this.btnSellItems.Size = new System.Drawing.Size(111, 35);
+            this.btnSellItems.TabIndex = 10;
+            this.btnSellItems.Text = "💵 Sell Items";
+            this.btnSellItems.UseVisualStyleBackColor = false;
+            this.btnSellItems.Click += new System.EventHandler(this.btnSell_Click);
             // 
             // btnClear
             // 
@@ -270,14 +313,14 @@
             this.expirydate});
             this.dgvMedicineList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMedicineList.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvMedicineList.Location = new System.Drawing.Point(0, 367);
+            this.dgvMedicineList.Location = new System.Drawing.Point(0, 362);
             this.dgvMedicineList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMedicineList.Name = "dgvMedicineList";
             this.dgvMedicineList.ReadOnly = true;
             this.dgvMedicineList.RowHeadersWidth = 62;
             this.dgvMedicineList.RowTemplate.Height = 28;
             this.dgvMedicineList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicineList.Size = new System.Drawing.Size(760, 262);
+            this.dgvMedicineList.Size = new System.Drawing.Size(1074, 262);
             this.dgvMedicineList.TabIndex = 13;
             this.dgvMedicineList.DoubleClick += new System.EventHandler(this.dgvMedicineList_DoubleClick);
             // 
@@ -367,7 +410,7 @@
             this.pnledit.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnledit.Location = new System.Drawing.Point(0, 100);
             this.pnledit.Name = "pnledit";
-            this.pnledit.Size = new System.Drawing.Size(348, 267);
+            this.pnledit.Size = new System.Drawing.Size(348, 262);
             this.pnledit.TabIndex = 14;
             // 
             // cmbCatagory
@@ -555,55 +598,12 @@
             this.lblMedicineID.TabIndex = 31;
             this.lblMedicineID.Text = "Medicine ID";
             // 
-            // btnSellItems
-            // 
-            this.btnSellItems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnSellItems.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSellItems.FlatAppearance.BorderSize = 0;
-            this.btnSellItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSellItems.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSellItems.ForeColor = System.Drawing.Color.White;
-            this.btnSellItems.Location = new System.Drawing.Point(3, 170);
-            this.btnSellItems.Name = "btnSellItems";
-            this.btnSellItems.Size = new System.Drawing.Size(111, 35);
-            this.btnSellItems.TabIndex = 10;
-            this.btnSellItems.Text = "💵 Sell Items";
-            this.btnSellItems.UseVisualStyleBackColor = false;
-            this.btnSellItems.Click += new System.EventHandler(this.btnSell_Click);
-            // 
-            // btnLogOut
-            // 
-            this.btnLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogOut.FlatAppearance.BorderSize = 0;
-            this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Location = new System.Drawing.Point(286, 224);
-            this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(100, 35);
-            this.btnLogOut.TabIndex = 11;
-            this.btnLogOut.Text = "Log Out";
-            this.btnLogOut.UseVisualStyleBackColor = false;
-            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
-            // 
-            // logoImageBox
-            // 
-            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
-            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
-            this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
-            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoImageBox.TabIndex = 0;
-            this.logoImageBox.TabStop = false;
-            // 
             // FormSalesman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(760, 629);
+            this.ClientSize = new System.Drawing.Size(1074, 624);
             this.Controls.Add(this.pnledit);
             this.Controls.Add(this.dgvMedicineList);
             this.Controls.Add(this.pnlCRUD);
@@ -615,12 +615,12 @@
             this.Load += new System.EventHandler(this.FormSalesman_Load);
             this.pnlHeader.ResumeLayout(false);
             this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             this.pnlCRUD.ResumeLayout(false);
             this.pnlCRUD.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).EndInit();
             this.pnledit.ResumeLayout(false);
             this.pnledit.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             this.ResumeLayout(false);
 
         }

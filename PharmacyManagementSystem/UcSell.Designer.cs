@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlSalesModule = new System.Windows.Forms.Panel();
             this.lblPaymentMethod = new System.Windows.Forms.Label();
             this.txtSalesmanID = new System.Windows.Forms.TextBox();
             this.lblSalesmanID = new System.Windows.Forms.Label();
@@ -74,58 +74,58 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.pnlSalesModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlSalesModule
             // 
-            this.panel1.Controls.Add(this.lblPaymentMethod);
-            this.panel1.Controls.Add(this.txtSalesmanID);
-            this.panel1.Controls.Add(this.lblSalesmanID);
-            this.panel1.Controls.Add(this.txtCustomerName);
-            this.panel1.Controls.Add(this.lblCustomerName);
-            this.panel1.Controls.Add(this.btnProcessSale);
-            this.panel1.Controls.Add(this.cmbPaymentMethod);
-            this.panel1.Controls.Add(this.txtTotalAmount);
-            this.panel1.Controls.Add(this.lblTotalAmount);
-            this.panel1.Controls.Add(this.btnClearCart);
-            this.panel1.Controls.Add(this.btnRemoveFromCart);
-            this.panel1.Controls.Add(this.dgvCart);
-            this.panel1.Controls.Add(this.lblCart);
-            this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Controls.Add(this.txtQuantity);
-            this.panel1.Controls.Add(this.lblQuantity);
-            this.panel1.Controls.Add(this.btnShowAll);
-            this.panel1.Controls.Add(this.btnback);
-            this.panel1.Controls.Add(this.txtSearch);
-            this.panel1.Controls.Add(this.lblSearch);
-            this.panel1.Controls.Add(this.cmbCatagory);
-            this.panel1.Controls.Add(this.txtUnitPrice);
-            this.panel1.Controls.Add(this.txtName);
-            this.panel1.Controls.Add(this.txtMedID);
-            this.panel1.Controls.Add(this.lblCatagory);
-            this.panel1.Controls.Add(this.lblName);
-            this.panel1.Controls.Add(this.lblMedicineID);
-            this.panel1.Controls.Add(this.lblUnitPrice);
-            this.panel1.Controls.Add(this.btnAdd);
-            this.panel1.Controls.Add(this.dgvMedicineList);
-            this.panel1.Controls.Add(this.pnlHeader);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1075, 551);
-            this.panel1.TabIndex = 0;
+            this.pnlSalesModule.Controls.Add(this.lblPaymentMethod);
+            this.pnlSalesModule.Controls.Add(this.txtSalesmanID);
+            this.pnlSalesModule.Controls.Add(this.lblSalesmanID);
+            this.pnlSalesModule.Controls.Add(this.txtCustomerName);
+            this.pnlSalesModule.Controls.Add(this.lblCustomerName);
+            this.pnlSalesModule.Controls.Add(this.btnProcessSale);
+            this.pnlSalesModule.Controls.Add(this.cmbPaymentMethod);
+            this.pnlSalesModule.Controls.Add(this.txtTotalAmount);
+            this.pnlSalesModule.Controls.Add(this.lblTotalAmount);
+            this.pnlSalesModule.Controls.Add(this.btnClearCart);
+            this.pnlSalesModule.Controls.Add(this.btnRemoveFromCart);
+            this.pnlSalesModule.Controls.Add(this.dgvCart);
+            this.pnlSalesModule.Controls.Add(this.lblCart);
+            this.pnlSalesModule.Controls.Add(this.btnClear);
+            this.pnlSalesModule.Controls.Add(this.txtQuantity);
+            this.pnlSalesModule.Controls.Add(this.lblQuantity);
+            this.pnlSalesModule.Controls.Add(this.btnShowAll);
+            this.pnlSalesModule.Controls.Add(this.btnback);
+            this.pnlSalesModule.Controls.Add(this.txtSearch);
+            this.pnlSalesModule.Controls.Add(this.lblSearch);
+            this.pnlSalesModule.Controls.Add(this.cmbCatagory);
+            this.pnlSalesModule.Controls.Add(this.txtUnitPrice);
+            this.pnlSalesModule.Controls.Add(this.txtName);
+            this.pnlSalesModule.Controls.Add(this.txtMedID);
+            this.pnlSalesModule.Controls.Add(this.lblCatagory);
+            this.pnlSalesModule.Controls.Add(this.lblName);
+            this.pnlSalesModule.Controls.Add(this.lblMedicineID);
+            this.pnlSalesModule.Controls.Add(this.lblUnitPrice);
+            this.pnlSalesModule.Controls.Add(this.btnAdd);
+            this.pnlSalesModule.Controls.Add(this.dgvMedicineList);
+            this.pnlSalesModule.Controls.Add(this.pnlHeader);
+            this.pnlSalesModule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSalesModule.Location = new System.Drawing.Point(0, 0);
+            this.pnlSalesModule.Name = "pnlSalesModule";
+            this.pnlSalesModule.Size = new System.Drawing.Size(1075, 551);
+            this.pnlSalesModule.TabIndex = 0;
             // 
             // lblPaymentMethod
             // 
             this.lblPaymentMethod.AutoSize = true;
             this.lblPaymentMethod.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPaymentMethod.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblPaymentMethod.Location = new System.Drawing.Point(855, 360);
+            this.lblPaymentMethod.Location = new System.Drawing.Point(490, 392);
             this.lblPaymentMethod.Name = "lblPaymentMethod";
             this.lblPaymentMethod.Size = new System.Drawing.Size(60, 17);
             this.lblPaymentMethod.TabIndex = 156;
@@ -134,7 +134,7 @@
             // txtSalesmanID
             // 
             this.txtSalesmanID.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSalesmanID.Location = new System.Drawing.Point(693, 357);
+            this.txtSalesmanID.Location = new System.Drawing.Point(598, 357);
             this.txtSalesmanID.Name = "txtSalesmanID";
             this.txtSalesmanID.Size = new System.Drawing.Size(100, 23);
             this.txtSalesmanID.TabIndex = 155;
@@ -144,7 +144,7 @@
             this.lblSalesmanID.AutoSize = true;
             this.lblSalesmanID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSalesmanID.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblSalesmanID.Location = new System.Drawing.Point(583, 360);
+            this.lblSalesmanID.Location = new System.Drawing.Point(490, 360);
             this.lblSalesmanID.Name = "lblSalesmanID";
             this.lblSalesmanID.Size = new System.Drawing.Size(80, 17);
             this.lblSalesmanID.TabIndex = 154;
@@ -153,7 +153,7 @@
             // txtCustomerName
             // 
             this.txtCustomerName.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCustomerName.Location = new System.Drawing.Point(693, 327);
+            this.txtCustomerName.Location = new System.Drawing.Point(598, 328);
             this.txtCustomerName.Name = "txtCustomerName";
             this.txtCustomerName.Size = new System.Drawing.Size(150, 23);
             this.txtCustomerName.TabIndex = 153;
@@ -163,7 +163,7 @@
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCustomerName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblCustomerName.Location = new System.Drawing.Point(583, 330);
+            this.lblCustomerName.Location = new System.Drawing.Point(490, 327);
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(102, 17);
             this.lblCustomerName.TabIndex = 152;
@@ -176,9 +176,9 @@
             this.btnProcessSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnProcessSale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.btnProcessSale.ForeColor = System.Drawing.Color.White;
-            this.btnProcessSale.Location = new System.Drawing.Point(583, 430);
+            this.btnProcessSale.Location = new System.Drawing.Point(493, 460);
             this.btnProcessSale.Name = "btnProcessSale";
-            this.btnProcessSale.Size = new System.Drawing.Size(200, 40);
+            this.btnProcessSale.Size = new System.Drawing.Size(205, 40);
             this.btnProcessSale.TabIndex = 151;
             this.btnProcessSale.Text = "💳 Process Sale";
             this.btnProcessSale.UseVisualStyleBackColor = false;
@@ -192,7 +192,7 @@
             this.cmbPaymentMethod.Items.AddRange(new object[] {
             "CASH",
             "CARD"});
-            this.cmbPaymentMethod.Location = new System.Drawing.Point(925, 357);
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(598, 386);
             this.cmbPaymentMethod.Name = "cmbPaymentMethod";
             this.cmbPaymentMethod.Size = new System.Drawing.Size(80, 23);
             this.cmbPaymentMethod.TabIndex = 157;
@@ -200,7 +200,7 @@
             // txtTotalAmount
             // 
             this.txtTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.txtTotalAmount.Location = new System.Drawing.Point(681, 387);
+            this.txtTotalAmount.Location = new System.Drawing.Point(598, 415);
             this.txtTotalAmount.Name = "txtTotalAmount";
             this.txtTotalAmount.ReadOnly = true;
             this.txtTotalAmount.Size = new System.Drawing.Size(100, 29);
@@ -213,7 +213,7 @@
             this.lblTotalAmount.AutoSize = true;
             this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblTotalAmount.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lblTotalAmount.Location = new System.Drawing.Point(583, 390);
+            this.lblTotalAmount.Location = new System.Drawing.Point(489, 423);
             this.lblTotalAmount.Name = "lblTotalAmount";
             this.lblTotalAmount.Size = new System.Drawing.Size(96, 21);
             this.lblTotalAmount.TabIndex = 149;
@@ -226,9 +226,9 @@
             this.btnClearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClearCart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnClearCart.ForeColor = System.Drawing.Color.White;
-            this.btnClearCart.Location = new System.Drawing.Point(959, 320);
+            this.btnClearCart.Location = new System.Drawing.Point(938, 324);
             this.btnClearCart.Name = "btnClearCart";
-            this.btnClearCart.Size = new System.Drawing.Size(100, 30);
+            this.btnClearCart.Size = new System.Drawing.Size(99, 30);
             this.btnClearCart.TabIndex = 148;
             this.btnClearCart.Text = "🗑️ Clear Cart";
             this.btnClearCart.UseVisualStyleBackColor = false;
@@ -241,9 +241,9 @@
             this.btnRemoveFromCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemoveFromCart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnRemoveFromCart.ForeColor = System.Drawing.Color.White;
-            this.btnRemoveFromCart.Location = new System.Drawing.Point(853, 320);
+            this.btnRemoveFromCart.Location = new System.Drawing.Point(847, 323);
             this.btnRemoveFromCart.Name = "btnRemoveFromCart";
-            this.btnRemoveFromCart.Size = new System.Drawing.Size(100, 30);
+            this.btnRemoveFromCart.Size = new System.Drawing.Size(85, 30);
             this.btnRemoveFromCart.TabIndex = 147;
             this.btnRemoveFromCart.Text = "❌ Remove";
             this.btnRemoveFromCart.UseVisualStyleBackColor = false;
@@ -264,7 +264,7 @@
             this.cartQuantity,
             this.cartTotal});
             this.dgvCart.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvCart.Location = new System.Drawing.Point(583, 144);
+            this.dgvCart.Location = new System.Drawing.Point(567, 148);
             this.dgvCart.Name = "dgvCart";
             this.dgvCart.ReadOnly = true;
             this.dgvCart.RowHeadersWidth = 25;
@@ -312,7 +312,7 @@
             this.lblCart.AutoSize = true;
             this.lblCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.lblCart.ForeColor = System.Drawing.Color.Orange;
-            this.lblCart.Location = new System.Drawing.Point(579, 120);
+            this.lblCart.Location = new System.Drawing.Point(563, 118);
             this.lblCart.Name = "lblCart";
             this.lblCart.Size = new System.Drawing.Size(146, 21);
             this.lblCart.TabIndex = 145;
@@ -325,7 +325,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(461, 201);
+            this.btnClear.Location = new System.Drawing.Point(310, 271);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 30);
             this.btnClear.TabIndex = 144;
@@ -375,7 +375,7 @@
             this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnback.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnback.ForeColor = System.Drawing.Color.White;
-            this.btnback.Location = new System.Drawing.Point(947, 490);
+            this.btnback.Location = new System.Drawing.Point(945, 464);
             this.btnback.Name = "btnback";
             this.btnback.Size = new System.Drawing.Size(92, 36);
             this.btnback.TabIndex = 140;
@@ -494,7 +494,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(461, 165);
+            this.btnAdd.Location = new System.Drawing.Point(310, 235);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 30);
             this.btnAdd.TabIndex = 129;
@@ -621,11 +621,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlSalesModule);
             this.Name = "UcSell";
             this.Size = new System.Drawing.Size(1075, 551);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlSalesModule.ResumeLayout(false);
+            this.pnlSalesModule.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).EndInit();
             this.pnlHeader.ResumeLayout(false);
@@ -637,7 +637,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlSalesModule;
         private System.Windows.Forms.Label lblPaymentMethod;
         private System.Windows.Forms.TextBox txtSalesmanID;
         private System.Windows.Forms.Label lblSalesmanID;

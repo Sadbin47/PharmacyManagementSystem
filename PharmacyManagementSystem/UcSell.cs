@@ -413,17 +413,66 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Find the parent form and remove this user control
+                // Find the parent form (which should be FormSalesman)
                 Form parentForm = this.FindForm();
-                if (parentForm != null)
+                if (parentForm != null && parentForm is FormSalesman)
                 {
+                    // Remove this UserControl from FormSalesman
                     parentForm.Controls.Remove(this);
+                    
+                    // Show all the original FormSalesman controls that were hidden
+                    foreach (Control control in parentForm.Controls)
+                    {
+                        control.Visible = true;
+                    }
+                    
+                    // Refresh the FormSalesman to ensure proper display
+                    parentForm.Refresh();
+                }
+                else
+                {
+                    // If we can't find FormSalesman, create a new instance
+                    FormSalesman salesmanForm = new FormSalesman();
+                    
+                    // Close current form if it exists
+                    if (parentForm != null)
+                    {
+                        parentForm.Hide();
+                        salesmanForm.Show();
+                        parentForm.Close();
+                    }
+                    else
+                    {
+                        salesmanForm.Show();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error going back: {ex.Message}", "Navigation Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                // Fallback: Create new FormSalesman
+                try
+                {
+                    FormSalesman salesmanForm = new FormSalesman();
+                    Form currentForm = this.FindForm();
+                    if (currentForm != null)
+                    {
+                        currentForm.Hide();
+                        salesmanForm.Show();
+                        currentForm.Close();
+                    }
+                    else
+                    {
+                        salesmanForm.Show();
+                    }
+                }
+                catch (Exception fallbackEx)
+                {
+                    MessageBox.Show($"Critical navigation error: {fallbackEx.Message}", "Critical Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         #endregion

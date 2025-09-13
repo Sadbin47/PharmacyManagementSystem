@@ -509,11 +509,18 @@ namespace PharmacyManagementSystem
         {
             try
             {
+                // Hide all FormSalesman controls instead of clearing them
+                foreach (Control control in this.Controls)
+                {
+                    control.Visible = false;
+                }
+                
+                // Create and add UcSell
                 UcSell sell = new UcSell();
                 sell.Size = new Size(1075, 551); // Set the intended size
                 sell.Dock = DockStyle.Fill; // Make it fill the form
-                this.Controls.Clear();
                 this.Controls.Add(sell);
+                sell.BringToFront(); // Ensure it's on top
             }
             catch (Exception ex)
             {
