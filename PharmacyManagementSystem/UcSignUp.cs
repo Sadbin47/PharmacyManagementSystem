@@ -15,6 +15,10 @@ namespace PharmacyManagementSystem
     {
         private DataAccess Da { get; set; }
 
+        // Database field length constraints
+        private const int MAX_USERNAME_LENGTH = 30;
+        private const int MAX_USERID_LENGTH = 50;
+
         public UcSignUp()
         {
             InitializeComponent();
@@ -27,7 +31,7 @@ namespace PharmacyManagementSystem
         private void InitializeEvents()
         {
             this.btnCancel.Click += btnCancel_Click;
-            this.txtEmail.Leave += txtEmail_Leave;
+            this.txtUserId.Leave += txtUserId_Leave;
             this.txtUserName.Leave += txtUserName_Leave;
             this.txtPassword.Leave += txtPassword_Leave;
             this.txtConfirmPassword.Leave += txtConfirmPassword_Leave;
@@ -44,6 +48,15 @@ namespace PharmacyManagementSystem
                     return;
                 }
 
+                // Check if UserId already exists
+                if (IsUserIdExists(txtUserId.Text.Trim()))
+                {
+                    MessageBox.Show("User ID already exists. Please choose a different User ID.", 
+                        "User ID Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUserId.Focus();
+                    return;
+                }
+
                 // Check if username already exists
                 if (IsUsernameExists(txtUserName.Text.Trim()))
                 {
@@ -53,28 +66,15 @@ namespace PharmacyManagementSystem
                     return;
                 }
 
-                // Check if email already exists
-                if (IsEmailExists(txtEmail.Text.Trim()))
-                {
-                    MessageBox.Show("Email already exists. Please use a different email address.", 
-                        "Email Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtEmail.Focus();
-                    return;
-                }
-
-                // Generate new User ID
-                int newUserId = GenerateNewUserId();
-
                 // Create user account
-                string sql = $@"INSERT INTO SignIn (UserId, UserName, Password, Role, Email, CreatedDate) 
-                               VALUES ({newUserId}, '{txtUserName.Text.Trim()}', '{txtPassword.Text}', 
-                                      '{cmbUserSelect.Text}', '{txtEmail.Text.Trim()}', '{DateTime.Now:yyyy-MM-dd HH:mm:ss}')";
+                string sql = string.Format("INSERT INTO SignIn (UserId, UserName, Password, Role) VALUES ('{0}', '{1}', '{2}', '{3}')",
+                    txtUserId.Text.Trim(), txtUserName.Text.Trim(), txtPassword.Text, cmbUserSelect.Text);
 
                 int result = this.Da.ExecuteDMLQuery(sql);
 
                 if (result > 0)
                 {
-                    MessageBox.Show($"Account created successfully!\nUser ID: {newUserId}\nUsername: {txtUserName.Text}\nRole: {cmbUserSelect.Text}", 
+                    MessageBox.Show("Account created successfully!\nUser ID: " + txtUserId.Text + "\nUsername: " + txtUserName.Text + "\nRole: " + cmbUserSelect.Text, 
                         "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.ClearAll();
                 }
@@ -86,7 +86,7 @@ namespace PharmacyManagementSystem
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error creating account: {ex.Message}", 
+                MessageBox.Show("Error creating account: " + ex.Message, 
                     "Account Creation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -101,19 +101,19 @@ namespace PharmacyManagementSystem
         private bool ValidateAllFields()
         {
             // Check if all required fields are filled
+            if (string.IsNullOrWhiteSpace(txtUserId.Text))
+            {
+                MessageBox.Show("Please enter a User ID.", "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUserId.Focus();
+                return false;
+            }
+
             if (cmbUserSelect.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select an account type.", "Validation Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 cmbUserSelect.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                MessageBox.Show("Please enter an email address.", "Validation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtEmail.Focus();
                 return false;
             }
 
@@ -141,26 +141,26 @@ namespace PharmacyManagementSystem
                 return false;
             }
 
-            // Validate individual fields
-            if (!IsValidEmail(txtEmail.Text.Trim()))
+            // Basic field validation
+            if (!IsValidUserId(txtUserId.Text.Trim()))
             {
-                MessageBox.Show("Please enter a valid email address.", "Validation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtEmail.Focus();
+                MessageBox.Show("User ID must follow the format p-XX (like p-01, p-02, etc.)", 
+                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUserId.Focus();
                 return false;
             }
 
             if (!IsValidUsername(txtUserName.Text.Trim()))
             {
-                MessageBox.Show("Username must be 3-20 characters long and contain only letters, numbers, and underscores.", 
+                MessageBox.Show("Username must be 3-" + MAX_USERNAME_LENGTH + " characters long and contain only letters, numbers, and underscores.", 
                     "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtUserName.Focus();
                 return false;
             }
 
-            if (!IsValidPassword(txtPassword.Text))
+            if (txtPassword.Text.Length < 6)
             {
-                MessageBox.Show("Password must be at least 6 characters long and contain at least one letter and one number.", 
+                MessageBox.Show("Password must be at least 6 characters long.", 
                     "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtPassword.Focus();
                 return false;
@@ -177,54 +177,39 @@ namespace PharmacyManagementSystem
             return true;
         }
 
-        private bool IsValidEmail(string email)
+        private bool IsValidUserId(string userId)
         {
-            try
-            {
-                string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-                return Regex.IsMatch(email, pattern);
-            }
-            catch
-            {
+            if (userId.Length < 4 || userId.Length > MAX_USERID_LENGTH)
                 return false;
-            }
+
+            // Check if it follows p-XX format (p- followed by at least 2 digits)
+            string pattern = @"^p-\d{2,}$";
+            return Regex.IsMatch(userId, pattern);
         }
 
         private bool IsValidUsername(string username)
         {
-            if (username.Length < 3 || username.Length > 20)
+            if (username.Length < 3 || username.Length > MAX_USERNAME_LENGTH)
                 return false;
 
             string pattern = @"^[a-zA-Z0-9_]+$";
             return Regex.IsMatch(username, pattern);
         }
-
-        private bool IsValidPassword(string password)
-        {
-            if (password.Length < 6)
-                return false;
-
-            bool hasLetter = password.Any(char.IsLetter);
-            bool hasDigit = password.Any(char.IsDigit);
-
-            return hasLetter && hasDigit;
-        }
         #endregion
 
         #region Real-time Validation Event Handlers
-        private void txtEmail_Leave(object sender, EventArgs e)
+        private void txtUserId_Leave(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtEmail.Text))
+            if (!string.IsNullOrWhiteSpace(txtUserId.Text))
             {
-                if (!IsValidEmail(txtEmail.Text.Trim()))
+                string userId = txtUserId.Text.Trim();
+                if (!IsValidUserId(userId))
                 {
-                    txtEmail.BackColor = Color.FromArgb(60, 30, 30);
-                    MessageBox.Show("Please enter a valid email address.", "Invalid Email", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUserId.BackColor = Color.FromArgb(60, 30, 30);
                 }
                 else
                 {
-                    txtEmail.BackColor = Color.FromArgb(30, 30, 30);
+                    txtUserId.BackColor = Color.FromArgb(30, 30, 30);
                 }
             }
         }
@@ -233,11 +218,10 @@ namespace PharmacyManagementSystem
         {
             if (!string.IsNullOrWhiteSpace(txtUserName.Text))
             {
-                if (!IsValidUsername(txtUserName.Text.Trim()))
+                string username = txtUserName.Text.Trim();
+                if (!IsValidUsername(username))
                 {
                     txtUserName.BackColor = Color.FromArgb(60, 30, 30);
-                    MessageBox.Show("Username must be 3-20 characters long and contain only letters, numbers, and underscores.", 
-                        "Invalid Username", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -250,11 +234,9 @@ namespace PharmacyManagementSystem
         {
             if (!string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                if (!IsValidPassword(txtPassword.Text))
+                if (txtPassword.Text.Length < 6)
                 {
                     txtPassword.BackColor = Color.FromArgb(60, 30, 30);
-                    MessageBox.Show("Password must be at least 6 characters long and contain at least one letter and one number.", 
-                        "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -270,8 +252,6 @@ namespace PharmacyManagementSystem
                 if (txtPassword.Text != txtConfirmPassword.Text)
                 {
                     txtConfirmPassword.BackColor = Color.FromArgb(60, 30, 30);
-                    MessageBox.Show("Passwords do not match.", "Password Mismatch", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -282,60 +262,37 @@ namespace PharmacyManagementSystem
         #endregion
 
         #region Database Helper Methods
+        private bool IsUserIdExists(string userId)
+        {
+            try
+            {
+                string sql = "SELECT COUNT(*) FROM SignIn WHERE UserId = '" + userId + "'";
+                DataTable dt = this.Da.ExecuteQueryTable(sql);
+                int count = Convert.ToInt32(dt.Rows[0][0]);
+                return count > 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error checking User ID: " + ex.Message, "Database Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return true;
+            }
+        }
+
         private bool IsUsernameExists(string username)
         {
             try
             {
-                string sql = $"SELECT COUNT(*) FROM SignIn WHERE UserName = '{username}'";
+                string sql = "SELECT COUNT(*) FROM SignIn WHERE UserName = '" + username + "'";
                 DataTable dt = this.Da.ExecuteQueryTable(sql);
                 int count = Convert.ToInt32(dt.Rows[0][0]);
                 return count > 0;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error checking username: {ex.Message}", "Database Error", 
+                MessageBox.Show("Error checking username: " + ex.Message, "Database Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true; // Assume it exists to prevent duplicate creation
-            }
-        }
-
-        private bool IsEmailExists(string email)
-        {
-            try
-            {
-                string sql = $"SELECT COUNT(*) FROM SignIn WHERE Email = '{email}'";
-                DataTable dt = this.Da.ExecuteQueryTable(sql);
-                int count = Convert.ToInt32(dt.Rows[0][0]);
-                return count > 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error checking email: {ex.Message}", "Database Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true; // Assume it exists to prevent duplicate creation
-            }
-        }
-
-        private int GenerateNewUserId()
-        {
-            try
-            {
-                string sql = "SELECT MAX(UserId) FROM SignIn";
-                DataTable dt = this.Da.ExecuteQueryTable(sql);
-                
-                int newId = 1;
-                if (dt.Rows.Count > 0 && dt.Rows[0][0] != DBNull.Value)
-                {
-                    newId = Convert.ToInt32(dt.Rows[0][0]) + 1;
-                }
-                
-                return newId;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error generating user ID: {ex.Message}", "Database Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 1; // Default fallback
+                return true;
             }
         }
         #endregion
@@ -345,24 +302,23 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                cmbUserSelect.SelectedIndex = 0; // Default to first option
-                txtEmail.Clear();
+                cmbUserSelect.SelectedIndex = 0;
+                txtUserId.Clear();
                 txtUserName.Clear();
                 txtPassword.Clear();
                 txtConfirmPassword.Clear();
 
                 // Reset background colors
-                txtEmail.BackColor = Color.FromArgb(30, 30, 30);
+                txtUserId.BackColor = Color.FromArgb(30, 30, 30);
                 txtUserName.BackColor = Color.FromArgb(30, 30, 30);
                 txtPassword.BackColor = Color.FromArgb(30, 30, 30);
                 txtConfirmPassword.BackColor = Color.FromArgb(30, 30, 30);
 
-                // Focus on first field
-                cmbUserSelect.Focus();
+                txtUserId.Focus();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error clearing form: {ex.Message}", "Clear Error", 
+                MessageBox.Show("Error clearing form: " + ex.Message, "Clear Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }

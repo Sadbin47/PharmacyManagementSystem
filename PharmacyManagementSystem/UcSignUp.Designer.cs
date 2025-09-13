@@ -35,7 +35,7 @@
             this.txtConfirmPassword = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtUserId = new System.Windows.Forms.TextBox();
             this.cmbUserSelect = new System.Windows.Forms.ComboBox();
             this.lblConfirmPassword = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
@@ -55,7 +55,7 @@
             this.pnlSignUpDetails.Controls.Add(this.txtConfirmPassword);
             this.pnlSignUpDetails.Controls.Add(this.txtPassword);
             this.pnlSignUpDetails.Controls.Add(this.txtUserName);
-            this.pnlSignUpDetails.Controls.Add(this.txtEmail);
+            this.pnlSignUpDetails.Controls.Add(this.txtUserId);
             this.pnlSignUpDetails.Controls.Add(this.cmbUserSelect);
             this.pnlSignUpDetails.Controls.Add(this.lblConfirmPassword);
             this.pnlSignUpDetails.Controls.Add(this.lblPassword);
@@ -159,18 +159,18 @@
             this.txtUserName.Size = new System.Drawing.Size(519, 36);
             this.txtUserName.TabIndex = 13;
             // 
-            // txtEmail
+            // txtUserId
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmail.ForeColor = System.Drawing.Color.White;
-            this.txtEmail.Location = new System.Drawing.Point(227, 117);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtEmail.Multiline = true;
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(519, 36);
-            this.txtEmail.TabIndex = 12;
+            this.txtUserId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.txtUserId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtUserId.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserId.ForeColor = System.Drawing.Color.White;
+            this.txtUserId.Location = new System.Drawing.Point(227, 117);
+            this.txtUserId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUserId.Multiline = true;
+            this.txtUserId.Name = "txtUserId";
+            this.txtUserId.Size = new System.Drawing.Size(519, 36);
+            this.txtUserId.TabIndex = 12;
             // 
             // cmbUserSelect
             // 
@@ -273,7 +273,7 @@
         private System.Windows.Forms.TextBox txtConfirmPassword;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtUserId;
         private System.Windows.Forms.ComboBox cmbUserSelect;
         private System.Windows.Forms.Label lblConfirmPassword;
         private System.Windows.Forms.Label lblPassword;
