@@ -13,6 +13,10 @@ namespace PharmacyManagementSystem
     public partial class FormLogin : Form
     {
         private DataAccess Da { get; set; }
+        
+        // Static property to track logged-in user
+        public static string LoggedInUserId { get; private set; } = string.Empty;
+        
         public FormLogin()
         {
             InitializeComponent();
@@ -36,6 +40,10 @@ namespace PharmacyManagementSystem
                 if (dt.Rows.Count > 0)
                 {
                     string role = dt.Rows[0]["role"].ToString().ToLower();
+                    string userId = dt.Rows[0]["userId"].ToString();
+                    
+                    // Set the logged-in user ID
+                    LoggedInUserId = userId;
                     
                     this.Hide();
                     
@@ -71,6 +79,22 @@ namespace PharmacyManagementSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+        
+        /// <summary>
+        /// Clear the logged-in user when logging out
+        /// </summary>
+        public static void Logout()
+        {
+            LoggedInUserId = string.Empty;
+        }
+        
+        /// <summary>
+        /// Check if a user is currently logged in
+        /// </summary>
+        public static bool IsUserLoggedIn()
+        {
+            return !string.IsNullOrEmpty(LoggedInUserId);
         }
     }
 }

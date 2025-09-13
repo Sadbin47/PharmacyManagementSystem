@@ -28,44 +28,362 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblPaymentMethod = new System.Windows.Forms.Label();
+            this.txtSalesmanID = new System.Windows.Forms.TextBox();
+            this.lblSalesmanID = new System.Windows.Forms.Label();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.lblCustomerName = new System.Windows.Forms.Label();
+            this.btnProcessSale = new System.Windows.Forms.Button();
+            this.cmbPaymentMethod = new System.Windows.Forms.ComboBox();
+            this.txtTotalAmount = new System.Windows.Forms.TextBox();
+            this.lblTotalAmount = new System.Windows.Forms.Label();
+            this.btnClearCart = new System.Windows.Forms.Button();
+            this.btnRemoveFromCart = new System.Windows.Forms.Button();
+            this.dgvCart = new System.Windows.Forms.DataGridView();
+            this.lblCart = new System.Windows.Forms.Label();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtQuantity = new System.Windows.Forms.TextBox();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblSubTitle = new System.Windows.Forms.Label();
+            this.btnShowAll = new System.Windows.Forms.Button();
+            this.btnback = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblSubTitle = new System.Windows.Forms.Label();
-            this.accentPanel = new System.Windows.Forms.Panel();
-            this.dgvMedicineList = new System.Windows.Forms.DataGridView();
             this.cmbCatagory = new System.Windows.Forms.ComboBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtMedID = new System.Windows.Forms.TextBox();
-            this.lblUnitPrice = new System.Windows.Forms.Label();
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMedicineID = new System.Windows.Forms.Label();
+            this.accentPanel = new System.Windows.Forms.Panel();
+            this.lblUnitPrice = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnSell = new System.Windows.Forms.Button();
-            this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvMedicineList = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlHeader.SuspendLayout();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.cartMedicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartUnitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cartTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
+            this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlHeader
+            // panel1
             // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.pnlHeader.Controls.Add(this.logoImageBox);
-            this.pnlHeader.Controls.Add(this.lblTitle);
-            this.pnlHeader.Controls.Add(this.lblSubTitle);
-            this.pnlHeader.Controls.Add(this.accentPanel);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(776, 100);
-            this.pnlHeader.TabIndex = 5;
+            this.panel1.Controls.Add(this.lblPaymentMethod);
+            this.panel1.Controls.Add(this.txtSalesmanID);
+            this.panel1.Controls.Add(this.lblSalesmanID);
+            this.panel1.Controls.Add(this.txtCustomerName);
+            this.panel1.Controls.Add(this.lblCustomerName);
+            this.panel1.Controls.Add(this.btnProcessSale);
+            this.panel1.Controls.Add(this.cmbPaymentMethod);
+            this.panel1.Controls.Add(this.txtTotalAmount);
+            this.panel1.Controls.Add(this.lblTotalAmount);
+            this.panel1.Controls.Add(this.btnClearCart);
+            this.panel1.Controls.Add(this.btnRemoveFromCart);
+            this.panel1.Controls.Add(this.dgvCart);
+            this.panel1.Controls.Add(this.lblCart);
+            this.panel1.Controls.Add(this.btnClear);
+            this.panel1.Controls.Add(this.txtQuantity);
+            this.panel1.Controls.Add(this.lblQuantity);
+            this.panel1.Controls.Add(this.btnShowAll);
+            this.panel1.Controls.Add(this.btnback);
+            this.panel1.Controls.Add(this.txtSearch);
+            this.panel1.Controls.Add(this.lblSearch);
+            this.panel1.Controls.Add(this.cmbCatagory);
+            this.panel1.Controls.Add(this.txtUnitPrice);
+            this.panel1.Controls.Add(this.txtName);
+            this.panel1.Controls.Add(this.txtMedID);
+            this.panel1.Controls.Add(this.lblCatagory);
+            this.panel1.Controls.Add(this.lblName);
+            this.panel1.Controls.Add(this.lblMedicineID);
+            this.panel1.Controls.Add(this.lblUnitPrice);
+            this.panel1.Controls.Add(this.btnAdd);
+            this.panel1.Controls.Add(this.dgvMedicineList);
+            this.panel1.Controls.Add(this.pnlHeader);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1061, 539);
+            this.panel1.TabIndex = 0;
+            // 
+            // lblPaymentMethod
+            // 
+            this.lblPaymentMethod.AutoSize = true;
+            this.lblPaymentMethod.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPaymentMethod.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblPaymentMethod.Location = new System.Drawing.Point(855, 360);
+            this.lblPaymentMethod.Name = "lblPaymentMethod";
+            this.lblPaymentMethod.Size = new System.Drawing.Size(60, 17);
+            this.lblPaymentMethod.TabIndex = 156;
+            this.lblPaymentMethod.Text = "Payment";
+            // 
+            // txtSalesmanID
+            // 
+            this.txtSalesmanID.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalesmanID.Location = new System.Drawing.Point(693, 357);
+            this.txtSalesmanID.Name = "txtSalesmanID";
+            this.txtSalesmanID.Size = new System.Drawing.Size(100, 23);
+            this.txtSalesmanID.TabIndex = 155;
+            // 
+            // lblSalesmanID
+            // 
+            this.lblSalesmanID.AutoSize = true;
+            this.lblSalesmanID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalesmanID.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblSalesmanID.Location = new System.Drawing.Point(583, 360);
+            this.lblSalesmanID.Name = "lblSalesmanID";
+            this.lblSalesmanID.Size = new System.Drawing.Size(80, 17);
+            this.lblSalesmanID.TabIndex = 154;
+            this.lblSalesmanID.Text = "Salesman ID";
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerName.Location = new System.Drawing.Point(693, 327);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(150, 23);
+            this.txtCustomerName.TabIndex = 153;
+            // 
+            // lblCustomerName
+            // 
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCustomerName.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblCustomerName.Location = new System.Drawing.Point(583, 330);
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(102, 17);
+            this.lblCustomerName.TabIndex = 152;
+            this.lblCustomerName.Text = "Customer Name";
+            // 
+            // btnProcessSale
+            // 
+            this.btnProcessSale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnProcessSale.FlatAppearance.BorderSize = 0;
+            this.btnProcessSale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProcessSale.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnProcessSale.ForeColor = System.Drawing.Color.White;
+            this.btnProcessSale.Location = new System.Drawing.Point(583, 430);
+            this.btnProcessSale.Name = "btnProcessSale";
+            this.btnProcessSale.Size = new System.Drawing.Size(200, 40);
+            this.btnProcessSale.TabIndex = 151;
+            this.btnProcessSale.Text = "💳 Process Sale";
+            this.btnProcessSale.UseVisualStyleBackColor = false;
+            this.btnProcessSale.Click += new System.EventHandler(this.btnProcessSale_Click);
+            // 
+            // cmbPaymentMethod
+            // 
+            this.cmbPaymentMethod.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPaymentMethod.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPaymentMethod.FormattingEnabled = true;
+            this.cmbPaymentMethod.Items.AddRange(new object[] {
+            "CASH",
+            "CARD"});
+            this.cmbPaymentMethod.Location = new System.Drawing.Point(925, 357);
+            this.cmbPaymentMethod.Name = "cmbPaymentMethod";
+            this.cmbPaymentMethod.Size = new System.Drawing.Size(80, 23);
+            this.cmbPaymentMethod.TabIndex = 157;
+            // 
+            // txtTotalAmount
+            // 
+            this.txtTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.txtTotalAmount.Location = new System.Drawing.Point(681, 387);
+            this.txtTotalAmount.Name = "txtTotalAmount";
+            this.txtTotalAmount.ReadOnly = true;
+            this.txtTotalAmount.Size = new System.Drawing.Size(100, 29);
+            this.txtTotalAmount.TabIndex = 150;
+            this.txtTotalAmount.Text = "0.00";
+            this.txtTotalAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // lblTotalAmount
+            // 
+            this.lblTotalAmount.AutoSize = true;
+            this.lblTotalAmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTotalAmount.ForeColor = System.Drawing.Color.LimeGreen;
+            this.lblTotalAmount.Location = new System.Drawing.Point(583, 390);
+            this.lblTotalAmount.Name = "lblTotalAmount";
+            this.lblTotalAmount.Size = new System.Drawing.Size(92, 21);
+            this.lblTotalAmount.TabIndex = 149;
+            this.lblTotalAmount.Text = "💰 Total: $";
+            // 
+            // btnClearCart
+            // 
+            this.btnClearCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.btnClearCart.FlatAppearance.BorderSize = 0;
+            this.btnClearCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearCart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnClearCart.ForeColor = System.Drawing.Color.White;
+            this.btnClearCart.Location = new System.Drawing.Point(959, 320);
+            this.btnClearCart.Name = "btnClearCart";
+            this.btnClearCart.Size = new System.Drawing.Size(100, 30);
+            this.btnClearCart.TabIndex = 148;
+            this.btnClearCart.Text = "🗑️ Clear Cart";
+            this.btnClearCart.UseVisualStyleBackColor = false;
+            this.btnClearCart.Click += new System.EventHandler(this.btnClearCart_Click);
+            // 
+            // btnRemoveFromCart
+            // 
+            this.btnRemoveFromCart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+            this.btnRemoveFromCart.FlatAppearance.BorderSize = 0;
+            this.btnRemoveFromCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveFromCart.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnRemoveFromCart.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveFromCart.Location = new System.Drawing.Point(853, 320);
+            this.btnRemoveFromCart.Name = "btnRemoveFromCart";
+            this.btnRemoveFromCart.Size = new System.Drawing.Size(100, 30);
+            this.btnRemoveFromCart.TabIndex = 147;
+            this.btnRemoveFromCart.Text = "❌ Remove";
+            this.btnRemoveFromCart.UseVisualStyleBackColor = false;
+            this.btnRemoveFromCart.Click += new System.EventHandler(this.btnRemoveFromCart_Click);
+            // 
+            // dgvCart
+            // 
+            this.dgvCart.AllowUserToAddRows = false;
+            this.dgvCart.AllowUserToDeleteRows = false;
+            this.dgvCart.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCart.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(45)))));
+            this.dgvCart.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cartMedicineId,
+            this.cartName,
+            this.cartUnitPrice,
+            this.cartQuantity,
+            this.cartTotal});
+            this.dgvCart.GridColor = System.Drawing.SystemColors.ButtonShadow;
+            this.dgvCart.Location = new System.Drawing.Point(583, 144);
+            this.dgvCart.Name = "dgvCart";
+            this.dgvCart.ReadOnly = true;
+            this.dgvCart.RowHeadersWidth = 25;
+            this.dgvCart.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCart.Size = new System.Drawing.Size(470, 170);
+            this.dgvCart.TabIndex = 146;
+            // 
+            // lblCart
+            // 
+            this.lblCart.AutoSize = true;
+            this.lblCart.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblCart.ForeColor = System.Drawing.Color.Orange;
+            this.lblCart.Location = new System.Drawing.Point(579, 120);
+            this.lblCart.Name = "lblCart";
+            this.lblCart.Size = new System.Drawing.Size(146, 21);
+            this.lblCart.TabIndex = 145;
+            this.lblCart.Text = "🛒 Shopping Cart";
+            // 
+            // btnClear
+            // 
+            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(149)))), ((int)(((byte)(165)))), ((int)(((byte)(166)))));
+            this.btnClear.FlatAppearance.BorderSize = 0;
+            this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnClear.ForeColor = System.Drawing.Color.White;
+            this.btnClear.Location = new System.Drawing.Point(461, 201);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(100, 30);
+            this.btnClear.TabIndex = 144;
+            this.btnClear.Text = "🗑️ Clear";
+            this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // txtQuantity
+            // 
+            this.txtQuantity.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantity.Location = new System.Drawing.Point(120, 235);
+            this.txtQuantity.Name = "txtQuantity";
+            this.txtQuantity.Size = new System.Drawing.Size(60, 23);
+            this.txtQuantity.TabIndex = 143;
+            this.txtQuantity.Text = "1";
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblQuantity.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblQuantity.Location = new System.Drawing.Point(30, 235);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(61, 17);
+            this.lblQuantity.TabIndex = 142;
+            this.lblQuantity.Text = "Quantity";
+            // 
+            // medicineId
+            // 
+            this.medicineId.DataPropertyName = "MedicineId";
+            this.medicineId.HeaderText = "ID";
+            this.medicineId.Name = "medicineId";
+            this.medicineId.ReadOnly = true;
+            // 
+            // lblSubTitle
+            // 
+            this.lblSubTitle.AutoSize = true;
+            this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
+            this.lblSubTitle.Location = new System.Drawing.Point(115, 65);
+            this.lblSubTitle.Name = "lblSubTitle";
+            this.lblSubTitle.Size = new System.Drawing.Size(380, 21);
+            this.lblSubTitle.TabIndex = 2;
+            this.lblSubTitle.Text = "Process Sales • Manage Cart • Transaction Processing";
+            // 
+            // btnShowAll
+            // 
+            this.btnShowAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
+            this.btnShowAll.FlatAppearance.BorderSize = 0;
+            this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShowAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnShowAll.ForeColor = System.Drawing.Color.White;
+            this.btnShowAll.Location = new System.Drawing.Point(350, 118);
+            this.btnShowAll.Name = "btnShowAll";
+            this.btnShowAll.Size = new System.Drawing.Size(90, 28);
+            this.btnShowAll.TabIndex = 141;
+            this.btnShowAll.Text = "📋 Show All";
+            this.btnShowAll.UseVisualStyleBackColor = false;
+            this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
+            // 
+            // btnback
+            // 
+            this.btnback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnback.FlatAppearance.BorderSize = 0;
+            this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnback.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnback.ForeColor = System.Drawing.Color.White;
+            this.btnback.Location = new System.Drawing.Point(947, 490);
+            this.btnback.Name = "btnback";
+            this.btnback.Size = new System.Drawing.Size(92, 36);
+            this.btnback.TabIndex = 140;
+            this.btnback.Text = "Go Back";
+            this.btnback.UseVisualStyleBackColor = false;
+            this.btnback.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.Location = new System.Drawing.Point(118, 122);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(200, 23);
+            this.txtSearch.TabIndex = 139;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblSearch.Location = new System.Drawing.Point(30, 125);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(48, 17);
+            this.lblSearch.TabIndex = 138;
+            this.lblSearch.Text = "Search";
             // 
             // logoImageBox
             // 
@@ -85,20 +403,82 @@
             this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
             this.lblTitle.Location = new System.Drawing.Point(110, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(288, 45);
+            this.lblTitle.Size = new System.Drawing.Size(274, 45);
             this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "◆ Salesman Panel";
+            this.lblTitle.Text = "💊 Sales Module";
             // 
-            // lblSubTitle
+            // cmbCatagory
             // 
-            this.lblSubTitle.AutoSize = true;
-            this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
-            this.lblSubTitle.Location = new System.Drawing.Point(115, 65);
-            this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(385, 21);
-            this.lblSubTitle.TabIndex = 2;
-            this.lblSubTitle.Text = "Manage System • Shop Control • Analytics Dashboard";
+            this.cmbCatagory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCatagory.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbCatagory.FormattingEnabled = true;
+            this.cmbCatagory.Items.AddRange(new object[] {
+            "Tablets",
+            "Liquids",
+            "Injections",
+            "Creams",
+            "Inhalers"});
+            this.cmbCatagory.Location = new System.Drawing.Point(120, 197);
+            this.cmbCatagory.Name = "cmbCatagory";
+            this.cmbCatagory.Size = new System.Drawing.Size(100, 23);
+            this.cmbCatagory.TabIndex = 137;
+            // 
+            // txtUnitPrice
+            // 
+            this.txtUnitPrice.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitPrice.Location = new System.Drawing.Point(310, 197);
+            this.txtUnitPrice.Name = "txtUnitPrice";
+            this.txtUnitPrice.Size = new System.Drawing.Size(80, 23);
+            this.txtUnitPrice.TabIndex = 136;
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(290, 162);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(150, 23);
+            this.txtName.TabIndex = 135;
+            // 
+            // txtMedID
+            // 
+            this.txtMedID.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMedID.Location = new System.Drawing.Point(120, 162);
+            this.txtMedID.Name = "txtMedID";
+            this.txtMedID.Size = new System.Drawing.Size(100, 23);
+            this.txtMedID.TabIndex = 134;
+            // 
+            // lblCatagory
+            // 
+            this.lblCatagory.AutoSize = true;
+            this.lblCatagory.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCatagory.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblCatagory.Location = new System.Drawing.Point(30, 200);
+            this.lblCatagory.Name = "lblCatagory";
+            this.lblCatagory.Size = new System.Drawing.Size(61, 17);
+            this.lblCatagory.TabIndex = 132;
+            this.lblCatagory.Text = "Category";
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblName.Location = new System.Drawing.Point(240, 165);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(42, 17);
+            this.lblName.TabIndex = 131;
+            this.lblName.Text = "Name";
+            // 
+            // lblMedicineID
+            // 
+            this.lblMedicineID.AutoSize = true;
+            this.lblMedicineID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicineID.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblMedicineID.Location = new System.Drawing.Point(30, 165);
+            this.lblMedicineID.Name = "lblMedicineID";
+            this.lblMedicineID.Size = new System.Drawing.Size(78, 17);
+            this.lblMedicineID.TabIndex = 130;
+            this.lblMedicineID.Text = "Medicine ID";
             // 
             // accentPanel
             // 
@@ -106,8 +486,34 @@
             this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.accentPanel.Location = new System.Drawing.Point(0, 95);
             this.accentPanel.Name = "accentPanel";
-            this.accentPanel.Size = new System.Drawing.Size(776, 5);
+            this.accentPanel.Size = new System.Drawing.Size(1061, 5);
             this.accentPanel.TabIndex = 3;
+            // 
+            // lblUnitPrice
+            // 
+            this.lblUnitPrice.AutoSize = true;
+            this.lblUnitPrice.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnitPrice.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblUnitPrice.Location = new System.Drawing.Point(240, 200);
+            this.lblUnitPrice.Name = "lblUnitPrice";
+            this.lblUnitPrice.Size = new System.Drawing.Size(64, 17);
+            this.lblUnitPrice.TabIndex = 133;
+            this.lblUnitPrice.Text = "Unit Price";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.BlueViolet;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Location = new System.Drawing.Point(461, 165);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(100, 30);
+            this.btnAdd.TabIndex = 129;
+            this.btnAdd.Text = "➕ Add to Cart";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // dgvMedicineList
             // 
@@ -123,166 +529,25 @@
             this.category,
             this.unitprice,
             this.expirydate});
-            this.dgvMedicineList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMedicineList.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvMedicineList.Location = new System.Drawing.Point(0, 406);
-            this.dgvMedicineList.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMedicineList.Location = new System.Drawing.Point(30, 320);
             this.dgvMedicineList.Name = "dgvMedicineList";
             this.dgvMedicineList.ReadOnly = true;
-            this.dgvMedicineList.RowHeadersWidth = 62;
-            this.dgvMedicineList.RowTemplate.Height = 28;
+            this.dgvMedicineList.RowHeadersWidth = 25;
             this.dgvMedicineList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicineList.Size = new System.Drawing.Size(776, 262);
-            this.dgvMedicineList.TabIndex = 14;
-            // 
-            // cmbCatagory
-            // 
-            this.cmbCatagory.AutoCompleteCustomSource.AddRange(new string[] {
-            "Tablets",
-            "Liquids",
-            "Injections ",
-            "Creams",
-            "Inhalers"});
-            this.cmbCatagory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCatagory.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbCatagory.FormattingEnabled = true;
-            this.cmbCatagory.Items.AddRange(new object[] {
-            "Tablets",
-            "Liquids",
-            "Injections ",
-            "Creams",
-            "Inhalers"});
-            this.cmbCatagory.Location = new System.Drawing.Point(163, 177);
-            this.cmbCatagory.Name = "cmbCatagory";
-            this.cmbCatagory.Size = new System.Drawing.Size(166, 23);
-            this.cmbCatagory.TabIndex = 56;
-            // 
-            // txtUnitPrice
-            // 
-            this.txtUnitPrice.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(163, 205);
-            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(2);
-            this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(166, 23);
-            this.txtUnitPrice.TabIndex = 55;
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(163, 146);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(166, 23);
-            this.txtName.TabIndex = 54;
-            // 
-            // txtMedID
-            // 
-            this.txtMedID.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedID.Location = new System.Drawing.Point(163, 116);
-            this.txtMedID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtMedID.Name = "txtMedID";
-            this.txtMedID.ReadOnly = true;
-            this.txtMedID.Size = new System.Drawing.Size(166, 23);
-            this.txtMedID.TabIndex = 53;
-            // 
-            // lblUnitPrice
-            // 
-            this.lblUnitPrice.AutoSize = true;
-            this.lblUnitPrice.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnitPrice.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblUnitPrice.Location = new System.Drawing.Point(39, 208);
-            this.lblUnitPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblUnitPrice.Name = "lblUnitPrice";
-            this.lblUnitPrice.Size = new System.Drawing.Size(61, 17);
-            this.lblUnitPrice.TabIndex = 52;
-            this.lblUnitPrice.Text = "UnitPrice";
-            // 
-            // lblCatagory
-            // 
-            this.lblCatagory.AutoSize = true;
-            this.lblCatagory.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCatagory.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblCatagory.Location = new System.Drawing.Point(39, 177);
-            this.lblCatagory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblCatagory.Name = "lblCatagory";
-            this.lblCatagory.Size = new System.Drawing.Size(61, 17);
-            this.lblCatagory.TabIndex = 51;
-            this.lblCatagory.Text = "Catagory";
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblName.Location = new System.Drawing.Point(39, 149);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(42, 17);
-            this.lblName.TabIndex = 50;
-            this.lblName.Text = "Name";
-            // 
-            // lblMedicineID
-            // 
-            this.lblMedicineID.AutoSize = true;
-            this.lblMedicineID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedicineID.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMedicineID.Location = new System.Drawing.Point(39, 119);
-            this.lblMedicineID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMedicineID.Name = "lblMedicineID";
-            this.lblMedicineID.Size = new System.Drawing.Size(78, 17);
-            this.lblMedicineID.TabIndex = 49;
-            this.lblMedicineID.Text = "Medicine ID";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.BlueViolet;
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(432, 119);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(100, 35);
-            this.btnAdd.TabIndex = 47;
-            this.btnAdd.Text = "➕ Add";
-            this.btnAdd.UseVisualStyleBackColor = false;
-            // 
-            // btnSell
-            // 
-            this.btnSell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-            this.btnSell.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSell.FlatAppearance.BorderSize = 0;
-            this.btnSell.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSell.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSell.ForeColor = System.Drawing.Color.White;
-            this.btnSell.Location = new System.Drawing.Point(432, 166);
-            this.btnSell.Name = "btnSell";
-            this.btnSell.Size = new System.Drawing.Size(100, 35);
-            this.btnSell.TabIndex = 48;
-            this.btnSell.Text = "🗑️ Sell";
-            this.btnSell.UseVisualStyleBackColor = false;
-            // 
-            // medicineId
-            // 
-            this.medicineId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.medicineId.DataPropertyName = "MedicineId";
-            this.medicineId.HeaderText = "Medicine ID";
-            this.medicineId.MinimumWidth = 8;
-            this.medicineId.Name = "medicineId";
-            this.medicineId.ReadOnly = true;
+            this.dgvMedicineList.Size = new System.Drawing.Size(450, 206);
+            this.dgvMedicineList.TabIndex = 128;
+            this.dgvMedicineList.DoubleClick += new System.EventHandler(this.dgvMedicineList_DoubleClick);
             // 
             // name
             // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.name.DataPropertyName = "Name";
-            this.name.HeaderText = "Name";
+            this.name.HeaderText = "Medicine Name";
             this.name.Name = "name";
             this.name.ReadOnly = true;
             // 
             // category
             // 
-            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.category.DataPropertyName = "Category";
             this.category.HeaderText = "Category";
             this.category.Name = "category";
@@ -290,69 +555,132 @@
             // 
             // unitprice
             // 
-            this.unitprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.unitprice.DataPropertyName = "UnitPrice";
-            this.unitprice.HeaderText = "UnitPrice";
+            this.unitprice.HeaderText = "Price";
             this.unitprice.Name = "unitprice";
             this.unitprice.ReadOnly = true;
             // 
             // expirydate
             // 
-            this.expirydate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.expirydate.DataPropertyName = "ExpiryDate";
-            this.expirydate.HeaderText = "ExpiryDate";
+            this.expirydate.HeaderText = "Expiry Date";
             this.expirydate.Name = "expirydate";
             this.expirydate.ReadOnly = true;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.pnlHeader.Controls.Add(this.logoImageBox);
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Controls.Add(this.lblSubTitle);
+            this.pnlHeader.Controls.Add(this.accentPanel);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1061, 100);
+            this.pnlHeader.TabIndex = 127;
+            // 
+            // cartMedicineId
+            // 
+            this.cartMedicineId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartMedicineId.HeaderText = "ID";
+            this.cartMedicineId.Name = "cartMedicineId";
+            this.cartMedicineId.ReadOnly = true;
+            // 
+            // cartName
+            // 
+            this.cartName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartName.HeaderText = "Medicine";
+            this.cartName.Name = "cartName";
+            this.cartName.ReadOnly = true;
+            // 
+            // cartUnitPrice
+            // 
+            this.cartUnitPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartUnitPrice.HeaderText = "Unit Price";
+            this.cartUnitPrice.Name = "cartUnitPrice";
+            this.cartUnitPrice.ReadOnly = true;
+            // 
+            // cartQuantity
+            // 
+            this.cartQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartQuantity.HeaderText = "Quantity";
+            this.cartQuantity.Name = "cartQuantity";
+            this.cartQuantity.ReadOnly = true;
+            // 
+            // cartTotal
+            // 
+            this.cartTotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.cartTotal.HeaderText = "Total";
+            this.cartTotal.Name = "cartTotal";
+            this.cartTotal.ReadOnly = true;
             // 
             // UcSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.Controls.Add(this.cmbCatagory);
-            this.Controls.Add(this.txtUnitPrice);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtMedID);
-            this.Controls.Add(this.lblUnitPrice);
-            this.Controls.Add(this.lblCatagory);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.lblMedicineID);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnSell);
-            this.Controls.Add(this.dgvMedicineList);
-            this.Controls.Add(this.pnlHeader);
+            this.Controls.Add(this.panel1);
             this.Name = "UcSell";
-            this.Size = new System.Drawing.Size(776, 668);
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
+            this.Size = new System.Drawing.Size(1075, 551);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).EndInit();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.PictureBox logoImageBox;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblSubTitle;
-        private System.Windows.Forms.Panel accentPanel;
-        private System.Windows.Forms.DataGridView dgvMedicineList;
+
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label lblPaymentMethod;
+        private System.Windows.Forms.TextBox txtSalesmanID;
+        private System.Windows.Forms.Label lblSalesmanID;
+        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.Label lblCustomerName;
+        private System.Windows.Forms.Button btnProcessSale;
+        private System.Windows.Forms.ComboBox cmbPaymentMethod;
+        private System.Windows.Forms.TextBox txtTotalAmount;
+        private System.Windows.Forms.Label lblTotalAmount;
+        private System.Windows.Forms.Button btnClearCart;
+        private System.Windows.Forms.Button btnRemoveFromCart;
+        private System.Windows.Forms.DataGridView dgvCart;
+        private System.Windows.Forms.Label lblCart;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox txtQuantity;
+        private System.Windows.Forms.Label lblQuantity;
+        private System.Windows.Forms.Button btnShowAll;
+        private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.ComboBox cmbCatagory;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtMedID;
-        private System.Windows.Forms.Label lblUnitPrice;
         private System.Windows.Forms.Label lblCatagory;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblMedicineID;
+        private System.Windows.Forms.Label lblUnitPrice;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnSell;
+        private System.Windows.Forms.DataGridView dgvMedicineList;
         private System.Windows.Forms.DataGridViewTextBoxColumn medicineId;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitprice;
         private System.Windows.Forms.DataGridViewTextBoxColumn expirydate;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.PictureBox logoImageBox;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Label lblSubTitle;
+        private System.Windows.Forms.Panel accentPanel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartMedicineId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartUnitPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cartTotal;
     }
 }

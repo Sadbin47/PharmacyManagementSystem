@@ -524,6 +524,9 @@ namespace PharmacyManagementSystem
         #region Exit and Logout
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            // Clear the logged-in user
+            FormLogin.Logout();
+            
             this.Hide();
             FormLogin login = new FormLogin();
             login.Show();
