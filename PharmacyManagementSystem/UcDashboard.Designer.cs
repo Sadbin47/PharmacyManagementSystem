@@ -28,78 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblDashboard = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblDashboardTitle = new System.Windows.Forms.Label();
+            this.lblManagerCount = new System.Windows.Forms.Label();
+            this.lblManagerDescription = new System.Windows.Forms.Label();
+            this.lblProfileManagement = new System.Windows.Forms.Label();
             this.lblViewUser = new System.Windows.Forms.Label();
-            this.lblAdduser = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblManager = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.lblSalesman = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblMediComCount = new System.Windows.Forms.Label();
-            this.lblMedicineSold = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.lblAddUser = new System.Windows.Forms.Label();
+            this.lblSalesmanCount = new System.Windows.Forms.Label();
+            this.lblSalesmanDescription = new System.Windows.Forms.Label();
+            this.lblAddMedicine = new System.Windows.Forms.Label();
+            this.pnlUserManagement = new System.Windows.Forms.Panel();
+            this.lblManagerTitle = new System.Windows.Forms.Label();
+            this.lblSellMedicine = new System.Windows.Forms.Label();
+            this.lblSalesmanTitle = new System.Windows.Forms.Label();
+            this.pnlSalesManagement = new System.Windows.Forms.Panel();
+            this.lblUpdateMedicine = new System.Windows.Forms.Label();
+            this.lblMedicineCount = new System.Windows.Forms.Label();
+            this.lblMedicineDescription = new System.Windows.Forms.Label();
+            this.lblMedicineCompanyCount = new System.Windows.Forms.Label();
+            this.lblInventoryTitle = new System.Windows.Forms.Label();
+            this.pnlInventoryManagement = new System.Windows.Forms.Panel();
+            this.pnlUserManagement.SuspendLayout();
+            this.pnlSalesManagement.SuspendLayout();
+            this.pnlInventoryManagement.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblDashboard
+            // lblDashboardTitle
             // 
-            this.lblDashboard.AutoSize = true;
-            this.lblDashboard.BackColor = System.Drawing.Color.MediumAquamarine;
-            this.lblDashboard.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDashboard.Location = new System.Drawing.Point(23, 8);
-            this.lblDashboard.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblDashboard.Name = "lblDashboard";
-            this.lblDashboard.Size = new System.Drawing.Size(154, 37);
-            this.lblDashboard.TabIndex = 7;
-            this.lblDashboard.Text = "DashBoard";
+            this.lblDashboardTitle.AutoSize = true;
+            this.lblDashboardTitle.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.lblDashboardTitle.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDashboardTitle.Location = new System.Drawing.Point(23, 8);
+            this.lblDashboardTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDashboardTitle.Name = "lblDashboardTitle";
+            this.lblDashboardTitle.Size = new System.Drawing.Size(154, 37);
+            this.lblDashboardTitle.TabIndex = 7;
+            this.lblDashboardTitle.Text = "DashBoard";
             // 
-            // label9
+            // lblManagerCount
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label9.Location = new System.Drawing.Point(92, 254);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(32, 37);
-            this.label9.TabIndex = 5;
-            this.label9.Text = "0";
+            this.lblManagerCount.AutoSize = true;
+            this.lblManagerCount.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManagerCount.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblManagerCount.Location = new System.Drawing.Point(92, 254);
+            this.lblManagerCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblManagerCount.Name = "lblManagerCount";
+            this.lblManagerCount.Size = new System.Drawing.Size(32, 37);
+            this.lblManagerCount.TabIndex = 5;
+            this.lblManagerCount.Text = "0";
             // 
-            // label2
+            // lblManagerDescription
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label2.Location = new System.Drawing.Point(38, 214);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Total number of Manager";
+            this.lblManagerDescription.AutoSize = true;
+            this.lblManagerDescription.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManagerDescription.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblManagerDescription.Location = new System.Drawing.Point(16, 214);
+            this.lblManagerDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblManagerDescription.Name = "lblManagerDescription";
+            this.lblManagerDescription.Size = new System.Drawing.Size(173, 19);
+            this.lblManagerDescription.TabIndex = 4;
+            this.lblManagerDescription.Text = "Total number of Manager";
             // 
-            // label3
+            // lblProfileManagement
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label3.Location = new System.Drawing.Point(16, 135);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 19);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "◆Profile Management";
+            this.lblProfileManagement.AutoSize = true;
+            this.lblProfileManagement.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfileManagement.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblProfileManagement.Location = new System.Drawing.Point(16, 135);
+            this.lblProfileManagement.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblProfileManagement.Name = "lblProfileManagement";
+            this.lblProfileManagement.Size = new System.Drawing.Size(150, 19);
+            this.lblProfileManagement.TabIndex = 3;
+            this.lblProfileManagement.Text = "◆Profile Management";
             // 
             // lblViewUser
             // 
@@ -113,207 +113,207 @@
             this.lblViewUser.TabIndex = 2;
             this.lblViewUser.Text = "◆View User";
             // 
-            // lblAdduser
+            // lblAddUser
             // 
-            this.lblAdduser.AutoSize = true;
-            this.lblAdduser.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAdduser.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblAdduser.Location = new System.Drawing.Point(16, 63);
-            this.lblAdduser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblAdduser.Name = "lblAdduser";
-            this.lblAdduser.Size = new System.Drawing.Size(78, 19);
-            this.lblAdduser.TabIndex = 1;
-            this.lblAdduser.Text = "◆Add User";
+            this.lblAddUser.AutoSize = true;
+            this.lblAddUser.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddUser.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblAddUser.Location = new System.Drawing.Point(16, 63);
+            this.lblAddUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAddUser.Name = "lblAddUser";
+            this.lblAddUser.Size = new System.Drawing.Size(78, 19);
+            this.lblAddUser.TabIndex = 1;
+            this.lblAddUser.Text = "◆Add User";
             // 
-            // label10
+            // lblSalesmanCount
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label10.Location = new System.Drawing.Point(100, 262);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 37);
-            this.label10.TabIndex = 6;
-            this.label10.Text = "0";
+            this.lblSalesmanCount.AutoSize = true;
+            this.lblSalesmanCount.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalesmanCount.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblSalesmanCount.Location = new System.Drawing.Point(100, 262);
+            this.lblSalesmanCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSalesmanCount.Name = "lblSalesmanCount";
+            this.lblSalesmanCount.Size = new System.Drawing.Size(32, 37);
+            this.lblSalesmanCount.TabIndex = 6;
+            this.lblSalesmanCount.Text = "0";
             // 
-            // label7
+            // lblSalesmanDescription
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label7.Location = new System.Drawing.Point(26, 214);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(179, 19);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Total Number of Salesman";
+            this.lblSalesmanDescription.AutoSize = true;
+            this.lblSalesmanDescription.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalesmanDescription.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblSalesmanDescription.Location = new System.Drawing.Point(17, 214);
+            this.lblSalesmanDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSalesmanDescription.Name = "lblSalesmanDescription";
+            this.lblSalesmanDescription.Size = new System.Drawing.Size(179, 19);
+            this.lblSalesmanDescription.TabIndex = 5;
+            this.lblSalesmanDescription.Text = "Total Number of Salesman";
             // 
-            // label6
+            // lblAddMedicine
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label6.Location = new System.Drawing.Point(17, 63);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 19);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "◆Add Medicine";
+            this.lblAddMedicine.AutoSize = true;
+            this.lblAddMedicine.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddMedicine.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblAddMedicine.Location = new System.Drawing.Point(17, 63);
+            this.lblAddMedicine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblAddMedicine.Name = "lblAddMedicine";
+            this.lblAddMedicine.Size = new System.Drawing.Size(108, 19);
+            this.lblAddMedicine.TabIndex = 5;
+            this.lblAddMedicine.Text = "◆Add Medicine";
             // 
-            // panel1
+            // pnlUserManagement
             // 
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.lblViewUser);
-            this.panel1.Controls.Add(this.lblAdduser);
-            this.panel1.Controls.Add(this.lblManager);
-            this.panel1.Location = new System.Drawing.Point(43, 53);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(244, 325);
-            this.panel1.TabIndex = 8;
+            this.pnlUserManagement.Controls.Add(this.lblManagerCount);
+            this.pnlUserManagement.Controls.Add(this.lblManagerDescription);
+            this.pnlUserManagement.Controls.Add(this.lblProfileManagement);
+            this.pnlUserManagement.Controls.Add(this.lblViewUser);
+            this.pnlUserManagement.Controls.Add(this.lblAddUser);
+            this.pnlUserManagement.Controls.Add(this.lblManagerTitle);
+            this.pnlUserManagement.Location = new System.Drawing.Point(43, 53);
+            this.pnlUserManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlUserManagement.Name = "pnlUserManagement";
+            this.pnlUserManagement.Size = new System.Drawing.Size(244, 325);
+            this.pnlUserManagement.TabIndex = 8;
             // 
-            // lblManager
+            // lblManagerTitle
             // 
-            this.lblManager.AutoSize = true;
-            this.lblManager.BackColor = System.Drawing.Color.Cyan;
-            this.lblManager.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManager.Location = new System.Drawing.Point(14, 14);
-            this.lblManager.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblManager.Name = "lblManager";
-            this.lblManager.Size = new System.Drawing.Size(103, 29);
-            this.lblManager.TabIndex = 0;
-            this.lblManager.Text = "Manager";
+            this.lblManagerTitle.AutoSize = true;
+            this.lblManagerTitle.BackColor = System.Drawing.Color.Cyan;
+            this.lblManagerTitle.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManagerTitle.Location = new System.Drawing.Point(14, 14);
+            this.lblManagerTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblManagerTitle.Name = "lblManagerTitle";
+            this.lblManagerTitle.Size = new System.Drawing.Size(103, 29);
+            this.lblManagerTitle.TabIndex = 0;
+            this.lblManagerTitle.Text = "Manager";
             // 
-            // label5
+            // lblSellMedicine
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label5.Location = new System.Drawing.Point(17, 98);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(106, 19);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "◆Sell Medicine";
+            this.lblSellMedicine.AutoSize = true;
+            this.lblSellMedicine.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSellMedicine.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblSellMedicine.Location = new System.Drawing.Point(17, 98);
+            this.lblSellMedicine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSellMedicine.Name = "lblSellMedicine";
+            this.lblSellMedicine.Size = new System.Drawing.Size(106, 19);
+            this.lblSellMedicine.TabIndex = 4;
+            this.lblSellMedicine.Text = "◆Sell Medicine";
             // 
-            // lblSalesman
+            // lblSalesmanTitle
             // 
-            this.lblSalesman.AutoSize = true;
-            this.lblSalesman.BackColor = System.Drawing.Color.Red;
-            this.lblSalesman.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalesman.Location = new System.Drawing.Point(4, 14);
-            this.lblSalesman.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSalesman.Name = "lblSalesman";
-            this.lblSalesman.Size = new System.Drawing.Size(109, 29);
-            this.lblSalesman.TabIndex = 0;
-            this.lblSalesman.Text = "Salesman";
+            this.lblSalesmanTitle.AutoSize = true;
+            this.lblSalesmanTitle.BackColor = System.Drawing.Color.Red;
+            this.lblSalesmanTitle.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalesmanTitle.Location = new System.Drawing.Point(4, 14);
+            this.lblSalesmanTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSalesmanTitle.Name = "lblSalesmanTitle";
+            this.lblSalesmanTitle.Size = new System.Drawing.Size(109, 29);
+            this.lblSalesmanTitle.TabIndex = 0;
+            this.lblSalesmanTitle.Text = "Salesman";
             // 
-            // panel2
+            // pnlSalesManagement
             // 
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.lblSalesman);
-            this.panel2.Location = new System.Drawing.Point(287, 53);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(240, 325);
-            this.panel2.TabIndex = 10;
+            this.pnlSalesManagement.Controls.Add(this.lblSalesmanCount);
+            this.pnlSalesManagement.Controls.Add(this.lblSalesmanDescription);
+            this.pnlSalesManagement.Controls.Add(this.lblAddMedicine);
+            this.pnlSalesManagement.Controls.Add(this.lblSellMedicine);
+            this.pnlSalesManagement.Controls.Add(this.lblUpdateMedicine);
+            this.pnlSalesManagement.Controls.Add(this.lblSalesmanTitle);
+            this.pnlSalesManagement.Location = new System.Drawing.Point(287, 53);
+            this.pnlSalesManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlSalesManagement.Name = "pnlSalesManagement";
+            this.pnlSalesManagement.Size = new System.Drawing.Size(240, 325);
+            this.pnlSalesManagement.TabIndex = 10;
             // 
-            // label4
+            // lblUpdateMedicine
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label4.Location = new System.Drawing.Point(17, 133);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(130, 19);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "◆Update Medicine";
+            this.lblUpdateMedicine.AutoSize = true;
+            this.lblUpdateMedicine.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateMedicine.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblUpdateMedicine.Location = new System.Drawing.Point(17, 133);
+            this.lblUpdateMedicine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUpdateMedicine.Name = "lblUpdateMedicine";
+            this.lblUpdateMedicine.Size = new System.Drawing.Size(130, 19);
+            this.lblUpdateMedicine.TabIndex = 3;
+            this.lblUpdateMedicine.Text = "◆Update Medicine";
             // 
-            // label11
+            // lblMedicineCount
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label11.Location = new System.Drawing.Point(104, 262);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(32, 37);
-            this.label11.TabIndex = 8;
-            this.label11.Text = "0";
+            this.lblMedicineCount.AutoSize = true;
+            this.lblMedicineCount.Font = new System.Drawing.Font("Calibri", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicineCount.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblMedicineCount.Location = new System.Drawing.Point(104, 262);
+            this.lblMedicineCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMedicineCount.Name = "lblMedicineCount";
+            this.lblMedicineCount.Size = new System.Drawing.Size(32, 37);
+            this.lblMedicineCount.TabIndex = 8;
+            this.lblMedicineCount.Text = "0";
             // 
-            // label8
+            // lblMedicineDescription
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label8.Location = new System.Drawing.Point(6, 214);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(241, 19);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Total number of Mediciine company";
+            this.lblMedicineDescription.AutoSize = true;
+            this.lblMedicineDescription.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicineDescription.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblMedicineDescription.Location = new System.Drawing.Point(8, 214);
+            this.lblMedicineDescription.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMedicineDescription.Name = "lblMedicineDescription";
+            this.lblMedicineDescription.Size = new System.Drawing.Size(179, 19);
+            this.lblMedicineDescription.TabIndex = 7;
+            this.lblMedicineDescription.Text = "Total number of Mediciine";
             // 
-            // lblMediComCount
+            // lblMedicineCompanyCount
             // 
-            this.lblMediComCount.AutoSize = true;
-            this.lblMediComCount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMediComCount.ForeColor = System.Drawing.Color.Cornsilk;
-            this.lblMediComCount.Location = new System.Drawing.Point(8, 63);
-            this.lblMediComCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMediComCount.Name = "lblMediComCount";
-            this.lblMediComCount.Size = new System.Drawing.Size(185, 19);
-            this.lblMediComCount.TabIndex = 6;
-            this.lblMediComCount.Text = "◆Medicine Company Count";
+            this.lblMedicineCompanyCount.AutoSize = true;
+            this.lblMedicineCompanyCount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMedicineCompanyCount.ForeColor = System.Drawing.Color.Cornsilk;
+            this.lblMedicineCompanyCount.Location = new System.Drawing.Point(8, 63);
+            this.lblMedicineCompanyCount.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMedicineCompanyCount.Name = "lblMedicineCompanyCount";
+            this.lblMedicineCompanyCount.Size = new System.Drawing.Size(185, 19);
+            this.lblMedicineCompanyCount.TabIndex = 6;
+            this.lblMedicineCompanyCount.Text = "◆Medicine Company Count";
             // 
-            // lblMedicineSold
+            // lblInventoryTitle
             // 
-            this.lblMedicineSold.AutoSize = true;
-            this.lblMedicineSold.BackColor = System.Drawing.Color.Green;
-            this.lblMedicineSold.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMedicineSold.Location = new System.Drawing.Point(6, 14);
-            this.lblMedicineSold.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblMedicineSold.Name = "lblMedicineSold";
-            this.lblMedicineSold.Size = new System.Drawing.Size(111, 29);
-            this.lblMedicineSold.TabIndex = 0;
-            this.lblMedicineSold.Text = "Medicine ";
+            this.lblInventoryTitle.AutoSize = true;
+            this.lblInventoryTitle.BackColor = System.Drawing.Color.Green;
+            this.lblInventoryTitle.Font = new System.Drawing.Font("Calibri", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInventoryTitle.Location = new System.Drawing.Point(6, 14);
+            this.lblInventoryTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInventoryTitle.Name = "lblInventoryTitle";
+            this.lblInventoryTitle.Size = new System.Drawing.Size(111, 29);
+            this.lblInventoryTitle.TabIndex = 0;
+            this.lblInventoryTitle.Text = "Medicine ";
             // 
-            // panel3
+            // pnlInventoryManagement
             // 
-            this.panel3.Controls.Add(this.label11);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.lblMediComCount);
-            this.panel3.Controls.Add(this.lblMedicineSold);
-            this.panel3.Location = new System.Drawing.Point(525, 53);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(246, 325);
-            this.panel3.TabIndex = 9;
+            this.pnlInventoryManagement.Controls.Add(this.lblMedicineCount);
+            this.pnlInventoryManagement.Controls.Add(this.lblMedicineDescription);
+            this.pnlInventoryManagement.Controls.Add(this.lblMedicineCompanyCount);
+            this.pnlInventoryManagement.Controls.Add(this.lblInventoryTitle);
+            this.pnlInventoryManagement.Location = new System.Drawing.Point(525, 53);
+            this.pnlInventoryManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.pnlInventoryManagement.Name = "pnlInventoryManagement";
+            this.pnlInventoryManagement.Size = new System.Drawing.Size(246, 325);
+            this.pnlInventoryManagement.TabIndex = 9;
             // 
             // UcDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.Controls.Add(this.lblDashboard);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.lblDashboardTitle);
+            this.Controls.Add(this.pnlUserManagement);
+            this.Controls.Add(this.pnlSalesManagement);
+            this.Controls.Add(this.pnlInventoryManagement);
             this.Name = "UcDashboard";
             this.Size = new System.Drawing.Size(925, 670);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlUserManagement.ResumeLayout(false);
+            this.pnlUserManagement.PerformLayout();
+            this.pnlSalesManagement.ResumeLayout(false);
+            this.pnlSalesManagement.PerformLayout();
+            this.pnlInventoryManagement.ResumeLayout(false);
+            this.pnlInventoryManagement.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -321,25 +321,25 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblDashboard;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDashboardTitle;
+        private System.Windows.Forms.Label lblManagerCount;
+        private System.Windows.Forms.Label lblManagerDescription;
+        private System.Windows.Forms.Label lblProfileManagement;
         private System.Windows.Forms.Label lblViewUser;
-        private System.Windows.Forms.Label lblAdduser;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblManager;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblSalesman;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblMediComCount;
-        private System.Windows.Forms.Label lblMedicineSold;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label lblAddUser;
+        private System.Windows.Forms.Label lblSalesmanCount;
+        private System.Windows.Forms.Label lblSalesmanDescription;
+        private System.Windows.Forms.Label lblAddMedicine;
+        private System.Windows.Forms.Panel pnlUserManagement;
+        private System.Windows.Forms.Label lblManagerTitle;
+        private System.Windows.Forms.Label lblSellMedicine;
+        private System.Windows.Forms.Label lblSalesmanTitle;
+        private System.Windows.Forms.Panel pnlSalesManagement;
+        private System.Windows.Forms.Label lblUpdateMedicine;
+        private System.Windows.Forms.Label lblMedicineCount;
+        private System.Windows.Forms.Label lblMedicineDescription;
+        private System.Windows.Forms.Label lblMedicineCompanyCount;
+        private System.Windows.Forms.Label lblInventoryTitle;
+        private System.Windows.Forms.Panel pnlInventoryManagement;
     }
 }
