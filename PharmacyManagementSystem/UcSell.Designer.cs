@@ -53,7 +53,6 @@
             this.btnShowAll = new System.Windows.Forms.Button();
             this.btnback = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.lblSearch = new System.Windows.Forms.Label();
             this.cmbCatagory = new System.Windows.Forms.ComboBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -74,6 +73,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.pnlSalesModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
@@ -83,6 +83,7 @@
             // 
             // pnlSalesModule
             // 
+            this.pnlSalesModule.Controls.Add(this.lblSearch);
             this.pnlSalesModule.Controls.Add(this.lblPaymentMethod);
             this.pnlSalesModule.Controls.Add(this.txtSalesmanID);
             this.pnlSalesModule.Controls.Add(this.lblSalesmanID);
@@ -102,7 +103,6 @@
             this.pnlSalesModule.Controls.Add(this.btnShowAll);
             this.pnlSalesModule.Controls.Add(this.btnback);
             this.pnlSalesModule.Controls.Add(this.txtSearch);
-            this.pnlSalesModule.Controls.Add(this.lblSearch);
             this.pnlSalesModule.Controls.Add(this.cmbCatagory);
             this.pnlSalesModule.Controls.Add(this.txtUnitPrice);
             this.pnlSalesModule.Controls.Add(this.txtName);
@@ -325,7 +325,7 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(310, 271);
+            this.btnClear.Location = new System.Drawing.Point(418, 271);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(100, 30);
             this.btnClear.TabIndex = 144;
@@ -336,7 +336,7 @@
             // txtQuantity
             // 
             this.txtQuantity.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(120, 235);
+            this.txtQuantity.Location = new System.Drawing.Point(120, 257);
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(60, 23);
             this.txtQuantity.TabIndex = 143;
@@ -347,7 +347,7 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblQuantity.Location = new System.Drawing.Point(30, 235);
+            this.lblQuantity.Location = new System.Drawing.Point(30, 260);
             this.lblQuantity.Name = "lblQuantity";
             this.lblQuantity.Size = new System.Drawing.Size(61, 17);
             this.lblQuantity.TabIndex = 142;
@@ -360,7 +360,7 @@
             this.btnShowAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowAll.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btnShowAll.ForeColor = System.Drawing.Color.White;
-            this.btnShowAll.Location = new System.Drawing.Point(350, 118);
+            this.btnShowAll.Location = new System.Drawing.Point(216, 271);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(90, 28);
             this.btnShowAll.TabIndex = 141;
@@ -386,22 +386,11 @@
             // txtSearch
             // 
             this.txtSearch.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(118, 122);
+            this.txtSearch.Location = new System.Drawing.Point(120, 140);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(200, 23);
             this.txtSearch.TabIndex = 139;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblSearch.Location = new System.Drawing.Point(30, 125);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(48, 17);
-            this.lblSearch.TabIndex = 138;
-            this.lblSearch.Text = "Search";
             // 
             // cmbCatagory
             // 
@@ -414,7 +403,7 @@
             "Injections",
             "Creams",
             "Inhalers"});
-            this.cmbCatagory.Location = new System.Drawing.Point(120, 197);
+            this.cmbCatagory.Location = new System.Drawing.Point(120, 225);
             this.cmbCatagory.Name = "cmbCatagory";
             this.cmbCatagory.Size = new System.Drawing.Size(100, 23);
             this.cmbCatagory.TabIndex = 137;
@@ -422,7 +411,7 @@
             // txtUnitPrice
             // 
             this.txtUnitPrice.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(310, 197);
+            this.txtUnitPrice.Location = new System.Drawing.Point(310, 222);
             this.txtUnitPrice.Name = "txtUnitPrice";
             this.txtUnitPrice.Size = new System.Drawing.Size(80, 23);
             this.txtUnitPrice.TabIndex = 136;
@@ -430,7 +419,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(290, 162);
+            this.txtName.Location = new System.Drawing.Point(290, 191);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(150, 23);
             this.txtName.TabIndex = 135;
@@ -438,7 +427,7 @@
             // txtMedID
             // 
             this.txtMedID.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedID.Location = new System.Drawing.Point(120, 162);
+            this.txtMedID.Location = new System.Drawing.Point(120, 193);
             this.txtMedID.Name = "txtMedID";
             this.txtMedID.Size = new System.Drawing.Size(100, 23);
             this.txtMedID.TabIndex = 134;
@@ -448,7 +437,7 @@
             this.lblCatagory.AutoSize = true;
             this.lblCatagory.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCatagory.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblCatagory.Location = new System.Drawing.Point(30, 200);
+            this.lblCatagory.Location = new System.Drawing.Point(30, 225);
             this.lblCatagory.Name = "lblCatagory";
             this.lblCatagory.Size = new System.Drawing.Size(61, 17);
             this.lblCatagory.TabIndex = 132;
@@ -459,7 +448,7 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblName.Location = new System.Drawing.Point(240, 165);
+            this.lblName.Location = new System.Drawing.Point(240, 197);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(42, 17);
             this.lblName.TabIndex = 131;
@@ -470,7 +459,7 @@
             this.lblMedicineID.AutoSize = true;
             this.lblMedicineID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMedicineID.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMedicineID.Location = new System.Drawing.Point(30, 165);
+            this.lblMedicineID.Location = new System.Drawing.Point(30, 197);
             this.lblMedicineID.Name = "lblMedicineID";
             this.lblMedicineID.Size = new System.Drawing.Size(78, 17);
             this.lblMedicineID.TabIndex = 130;
@@ -481,7 +470,7 @@
             this.lblUnitPrice.AutoSize = true;
             this.lblUnitPrice.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitPrice.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblUnitPrice.Location = new System.Drawing.Point(240, 200);
+            this.lblUnitPrice.Location = new System.Drawing.Point(240, 222);
             this.lblUnitPrice.Name = "lblUnitPrice";
             this.lblUnitPrice.Size = new System.Drawing.Size(64, 17);
             this.lblUnitPrice.TabIndex = 133;
@@ -494,7 +483,7 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(310, 235);
+            this.btnAdd.Location = new System.Drawing.Point(312, 271);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 30);
             this.btnAdd.TabIndex = 129;
@@ -616,6 +605,17 @@
             this.accentPanel.Size = new System.Drawing.Size(1075, 5);
             this.accentPanel.TabIndex = 3;
             // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.lblSearch.Location = new System.Drawing.Point(116, 118);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(120, 19);
+            this.lblSearch.TabIndex = 158;
+            this.lblSearch.Text = "🔍 Quick Search";
+            // 
             // UcSell
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -657,7 +657,6 @@
         private System.Windows.Forms.Button btnShowAll;
         private System.Windows.Forms.Button btnback;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label lblSearch;
         private System.Windows.Forms.ComboBox cmbCatagory;
         private System.Windows.Forms.TextBox txtUnitPrice;
         private System.Windows.Forms.TextBox txtName;
@@ -683,5 +682,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cartUnitPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn cartQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn cartTotal;
+        private System.Windows.Forms.Label lblSearch;
     }
 }

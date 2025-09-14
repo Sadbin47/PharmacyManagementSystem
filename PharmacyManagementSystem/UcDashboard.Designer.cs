@@ -307,7 +307,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Name = "UcDashboard";
-            this.Size = new System.Drawing.Size(795, 386);
+            this.Size = new System.Drawing.Size(925, 670);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

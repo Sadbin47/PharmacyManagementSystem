@@ -28,16 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.accentPanel = new System.Windows.Forms.Panel();
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlViewUser = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.cmbRole = new System.Windows.Forms.Label();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUserId = new System.Windows.Forms.Label();
@@ -51,128 +42,33 @@
             this.btnShowALL = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
-            this.lblInfo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
-            this.pnlHeader.SuspendLayout();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.accentPanel = new System.Windows.Forms.Panel();
+            this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlViewUser = new System.Windows.Forms.Panel();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.dgvUsers = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.pnlViewUser.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.SuspendLayout();
             // 
-            // dgvUsers
+            // lblInfo
             // 
-            this.dgvUsers.AllowUserToAddRows = false;
-            this.dgvUsers.AllowUserToDeleteRows = false;
-            this.dgvUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UserId,
-            this.UserName,
-            this.Password,
-            this.Role});
-            this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvUsers.Location = new System.Drawing.Point(0, 396);
-            this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.ReadOnly = true;
-            this.dgvUsers.RowHeadersWidth = 51;
-            this.dgvUsers.Size = new System.Drawing.Size(719, 102);
-            this.dgvUsers.TabIndex = 5;
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.pnlHeader.Controls.Add(this.logoImageBox);
-            this.pnlHeader.Controls.Add(this.lblTitle);
-            this.pnlHeader.Controls.Add(this.accentPanel);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(719, 100);
-            this.pnlHeader.TabIndex = 128;
-            // 
-            // logoImageBox
-            // 
-            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
-            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
-            this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
-            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoImageBox.TabIndex = 0;
-            this.logoImageBox.TabStop = false;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblTitle.Location = new System.Drawing.Point(110, 20);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(223, 45);
-            this.lblTitle.TabIndex = 1;
-            this.lblTitle.Text = "💊 View User";
-            // 
-            // accentPanel
-            // 
-            this.accentPanel.BackColor = System.Drawing.Color.BlueViolet;
-            this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.accentPanel.Location = new System.Drawing.Point(0, 95);
-            this.accentPanel.Name = "accentPanel";
-            this.accentPanel.Size = new System.Drawing.Size(719, 5);
-            this.accentPanel.TabIndex = 3;
-            // 
-            // UserId
-            // 
-            this.UserId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UserId.HeaderText = "UserId";
-            this.UserId.MinimumWidth = 6;
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            // 
-            // UserName
-            // 
-            this.UserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UserName.HeaderText = "UserName";
-            this.UserName.MinimumWidth = 6;
-            this.UserName.Name = "UserName";
-            this.UserName.ReadOnly = true;
-            // 
-            // Password
-            // 
-            this.Password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Password.HeaderText = "Password";
-            this.Password.MinimumWidth = 6;
-            this.Password.Name = "Password";
-            this.Password.ReadOnly = true;
-            // 
-            // Role
-            // 
-            this.Role.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Role.HeaderText = "Role";
-            this.Role.MinimumWidth = 6;
-            this.Role.Name = "Role";
-            this.Role.ReadOnly = true;
-            // 
-            // pnlViewUser
-            // 
-            this.pnlViewUser.Controls.Add(this.lblInfo);
-            this.pnlViewUser.Controls.Add(this.cmbRole);
-            this.pnlViewUser.Controls.Add(this.lblPassword);
-            this.pnlViewUser.Controls.Add(this.lblUserId);
-            this.pnlViewUser.Controls.Add(this.lblUserName);
-            this.pnlViewUser.Controls.Add(this.txtPassword);
-            this.pnlViewUser.Controls.Add(this.txtUserName);
-            this.pnlViewUser.Controls.Add(this.cmbUserSelect);
-            this.pnlViewUser.Controls.Add(this.txtUserId);
-            this.pnlViewUser.Controls.Add(this.lblSearch);
-            this.pnlViewUser.Controls.Add(this.btnSave);
-            this.pnlViewUser.Controls.Add(this.btnShowALL);
-            this.pnlViewUser.Controls.Add(this.btnDelete);
-            this.pnlViewUser.Controls.Add(this.tbSearch);
-            this.pnlViewUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlViewUser.Location = new System.Drawing.Point(0, 100);
-            this.pnlViewUser.Name = "pnlViewUser";
-            this.pnlViewUser.Size = new System.Drawing.Size(719, 296);
-            this.pnlViewUser.TabIndex = 129;
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblInfo.Location = new System.Drawing.Point(372, 126);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(182, 17);
+            this.lblInfo.TabIndex = 154;
+            this.lblInfo.Text = "Click Left Side To Select a User";
             // 
             // cmbRole
             // 
@@ -332,17 +228,121 @@
             this.tbSearch.Size = new System.Drawing.Size(180, 24);
             this.tbSearch.TabIndex = 141;
             // 
-            // lblInfo
+            // logoImageBox
             // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblInfo.Location = new System.Drawing.Point(372, 126);
-            this.lblInfo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(182, 17);
-            this.lblInfo.TabIndex = 154;
-            this.lblInfo.Text = "Click Left Side To Select a User";
+            this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
+            this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
+            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Name = "logoImageBox";
+            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoImageBox.TabIndex = 0;
+            this.logoImageBox.TabStop = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.lblTitle.Location = new System.Drawing.Point(110, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(223, 45);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "💊 View User";
+            // 
+            // accentPanel
+            // 
+            this.accentPanel.BackColor = System.Drawing.Color.BlueViolet;
+            this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.accentPanel.Location = new System.Drawing.Point(0, 95);
+            this.accentPanel.Name = "accentPanel";
+            this.accentPanel.Size = new System.Drawing.Size(1280, 5);
+            this.accentPanel.TabIndex = 3;
+            // 
+            // Role
+            // 
+            this.Role.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Role.HeaderText = "Role";
+            this.Role.MinimumWidth = 6;
+            this.Role.Name = "Role";
+            this.Role.ReadOnly = true;
+            // 
+            // Password
+            // 
+            this.Password.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Password.HeaderText = "Password";
+            this.Password.MinimumWidth = 6;
+            this.Password.Name = "Password";
+            this.Password.ReadOnly = true;
+            // 
+            // UserName
+            // 
+            this.UserName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UserName.HeaderText = "UserName";
+            this.UserName.MinimumWidth = 6;
+            this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
+            // 
+            // UserId
+            // 
+            this.UserId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UserId.HeaderText = "UserId";
+            this.UserId.MinimumWidth = 6;
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            // 
+            // pnlViewUser
+            // 
+            this.pnlViewUser.Controls.Add(this.lblInfo);
+            this.pnlViewUser.Controls.Add(this.cmbRole);
+            this.pnlViewUser.Controls.Add(this.lblPassword);
+            this.pnlViewUser.Controls.Add(this.lblUserId);
+            this.pnlViewUser.Controls.Add(this.lblUserName);
+            this.pnlViewUser.Controls.Add(this.txtPassword);
+            this.pnlViewUser.Controls.Add(this.txtUserName);
+            this.pnlViewUser.Controls.Add(this.cmbUserSelect);
+            this.pnlViewUser.Controls.Add(this.txtUserId);
+            this.pnlViewUser.Controls.Add(this.lblSearch);
+            this.pnlViewUser.Controls.Add(this.btnSave);
+            this.pnlViewUser.Controls.Add(this.btnShowALL);
+            this.pnlViewUser.Controls.Add(this.btnDelete);
+            this.pnlViewUser.Controls.Add(this.tbSearch);
+            this.pnlViewUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlViewUser.Location = new System.Drawing.Point(0, 100);
+            this.pnlViewUser.Name = "pnlViewUser";
+            this.pnlViewUser.Size = new System.Drawing.Size(1280, 315);
+            this.pnlViewUser.TabIndex = 132;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.pnlHeader.Controls.Add(this.logoImageBox);
+            this.pnlHeader.Controls.Add(this.lblTitle);
+            this.pnlHeader.Controls.Add(this.accentPanel);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1280, 100);
+            this.pnlHeader.TabIndex = 131;
+            // 
+            // dgvUsers
+            // 
+            this.dgvUsers.AllowUserToAddRows = false;
+            this.dgvUsers.AllowUserToDeleteRows = false;
+            this.dgvUsers.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UserId,
+            this.UserName,
+            this.Password,
+            this.Role});
+            this.dgvUsers.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvUsers.Location = new System.Drawing.Point(0, 415);
+            this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
+            this.dgvUsers.RowHeadersWidth = 51;
+            this.dgvUsers.Size = new System.Drawing.Size(1280, 225);
+            this.dgvUsers.TabIndex = 130;
             // 
             // UcViewUser
             // 
@@ -353,28 +353,20 @@
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.dgvUsers);
             this.Name = "UcViewUser";
-            this.Size = new System.Drawing.Size(719, 498);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
+            this.Size = new System.Drawing.Size(925, 670);
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).EndInit();
             this.pnlViewUser.ResumeLayout(false);
             this.pnlViewUser.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dgvUsers;
-        private System.Windows.Forms.Panel pnlHeader;
-        private System.Windows.Forms.PictureBox logoImageBox;
-        private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Panel accentPanel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
-        private System.Windows.Forms.Panel pnlViewUser;
+
+        private System.Windows.Forms.Label lblInfo;
         private System.Windows.Forms.Label cmbRole;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUserId;
@@ -388,6 +380,15 @@
         private System.Windows.Forms.Button btnShowALL;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TextBox tbSearch;
-        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.PictureBox logoImageBox;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel accentPanel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Role;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Password;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UserId;
+        private System.Windows.Forms.Panel pnlViewUser;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.DataGridView dgvUsers;
     }
 }
