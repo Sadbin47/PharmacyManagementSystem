@@ -97,7 +97,8 @@ namespace PharmacyManagementSystem
                     "UnitCost",
                     "BatchNumber",
                     "Manufacturer",
-                    "ExpiryDate"
+                    "ExpiryDate",
+                    "UnitAvailable"
                 });
                 sortComboBox.SelectedIndex = 0;
             }
@@ -119,6 +120,7 @@ namespace PharmacyManagementSystem
                 this.txtUnitCost.Clear();
                 this.txtBatchNo.Clear();
                 this.txtManuFacturer.Clear();
+                this.txtUnitAvailable.Clear();
                 this.dtpExpiryDate.Value = DateTime.Now.AddYears(1);
                 this.txtSearch.Clear();
                 GenerateMedicineID();
@@ -139,6 +141,7 @@ namespace PharmacyManagementSystem
                     string.IsNullOrWhiteSpace(txtUnitCost.Text) ||
                     string.IsNullOrWhiteSpace(txtBatchNo.Text) ||
                     string.IsNullOrWhiteSpace(txtManuFacturer.Text) ||
+                    string.IsNullOrWhiteSpace(txtUnitAvailable.Text) ||
                     cmbCatagory.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please fill all required fields.", "Validation Error", 
@@ -164,10 +167,18 @@ namespace PharmacyManagementSystem
 
                 if (!int.TryParse(txtBatchNo.Text, out int batchNumber) || batchNumber <= 0)
                 {
-                MessageBox.Show("Please enter a valid Batch Number.", "Validation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtBatchNo.Focus();
-                return false;
+                    MessageBox.Show("Please enter a valid Batch Number.", "Validation Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBatchNo.Focus();
+                    return false;
+                }
+
+                if (!int.TryParse(txtUnitAvailable.Text, out int unitAvailable) || unitAvailable < 0)
+                {
+                    MessageBox.Show("Please enter a valid Unit Available quantity.", "Validation Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUnitAvailable.Focus();
+                    return false;
                 }
 
                 return true;
@@ -198,7 +209,8 @@ namespace PharmacyManagementSystem
                               "UnitCost = '" + txtUnitCost.Text + "', " +
                               "BatchNumber = '" + txtBatchNo.Text + "', " +
                               "Manufacturer = '" + txtManuFacturer.Text.Trim() + "', " +
-                              "ExpiryDate = '" + dtpExpiryDate.Value.ToString("yyyy-MM-dd") + "' " +
+                              "ExpiryDate = '" + dtpExpiryDate.Value.ToString("yyyy-MM-dd") + "', " +
+                              "UnitAvailable = '" + txtUnitAvailable.Text + "' " +
                               "WHERE MedicineId = '" + txtMedID.Text + "'";
 
                     int count = this.Da.ExecuteDMLQuery(this.Sql);
@@ -212,8 +224,9 @@ namespace PharmacyManagementSystem
                     }
                 }
                 else
-                {//here its inserting new data's to the table if there is no data is existing.//
-                    this.Sql = "INSERT INTO Medicine (MedicineId, Name, Category, UnitPrice, UnitCost, BatchNumber, Manufacturer, ExpiryDate) " +
+                {
+                    // Insert new record
+                    this.Sql = "INSERT INTO Medicine (MedicineId, Name, Category, UnitPrice, UnitCost, BatchNumber, Manufacturer, ExpiryDate, UnitAvailable) " +
                               "VALUES ('" + txtMedID.Text + "', " +
                               "'" + txtName.Text.Trim() + "', " +
                               "'" + cmbCatagory.Text + "', " +
@@ -221,7 +234,8 @@ namespace PharmacyManagementSystem
                               "'" + txtUnitCost.Text + "', " +
                               "'" + txtBatchNo.Text + "', " +
                               "'" + txtManuFacturer.Text.Trim() + "', " +
-                              "'" + dtpExpiryDate.Value.ToString("yyyy-MM-dd") + "')";
+                              "'" + dtpExpiryDate.Value.ToString("yyyy-MM-dd") + "', " +
+                              "'" + txtUnitAvailable.Text + "')";
 
                     int count = this.Da.ExecuteDMLQuery(this.Sql);
                     if (count == 1)
@@ -340,6 +354,7 @@ namespace PharmacyManagementSystem
                     this.txtUnitCost.Text = dgvMedicineList.CurrentRow.Cells["unitcost"].Value?.ToString();
                     this.txtBatchNo.Text = dgvMedicineList.CurrentRow.Cells["batchnumber"].Value?.ToString();
                     this.txtManuFacturer.Text = dgvMedicineList.CurrentRow.Cells["manufacturer"].Value?.ToString();
+                    this.txtUnitAvailable.Text = dgvMedicineList.CurrentRow.Cells["unitavailable"].Value?.ToString();
                 }
                 catch (Exception ex)
                 {

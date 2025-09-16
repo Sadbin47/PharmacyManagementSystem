@@ -13,8 +13,9 @@ namespace PharmacyManagementSystem
     public partial class UcSell : UserControl
     {
         private DataAccess Da { get; set; }
-        private DataTable cartDataTable;
-        private List<CartItem> cartItems;
+        private DataSet Ds { get; set; }
+        private DataTable cartTable;
+        private string Sql { get; set; }
 
         public UcSell()
         {
@@ -22,208 +23,59 @@ namespace PharmacyManagementSystem
             try
             {
                 this.Da = new DataAccess();
-                this.InitializeCart();
-                this.PopulateMedicineGrid();
-                this.PopulateCartGrid();
-                this.ClearForm();
-                this.AutoCaptureSalesmanID();
+                InitializeCart();
+                PopulateMedicineGrid();
+                ClearAll();
+                AutoCaptureSalesmanID();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error initializing form: {ex.Message}", "Initialization Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error initializing form: " + ex.Message);
             }
         }
 
-        #region Auto Capture Salesman ID
         private void AutoCaptureSalesmanID()
         {
-            try
-            {
-                if (FormLogin.IsUserLoggedIn() && !string.IsNullOrEmpty(FormLogin.LoggedInUserId))
-                {
-                    txtSalesmanID.Text = FormLogin.LoggedInUserId;
-                }
-                else
-                {
-                    txtSalesmanID.Text = "1"; // Default fallback
-                }
-                
-                // Set default customer name
-                txtCustomerName.Text = "Walk-in Customer";
-                
-                // Set default payment method
-                if (cmbPaymentMethod.Items.Count > 0)
-                {
-                    cmbPaymentMethod.SelectedIndex = 0; // Default to CASH
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error setting salesman ID: {ex.Message}", "Auto-Capture Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtSalesmanID.Text = "1"; // Default fallback
-            }
+            txtSalesmanID.Text = FormLogin.IsUserLoggedIn() && !string.IsNullOrEmpty(FormLogin.LoggedInUserId) 
+                ? FormLogin.LoggedInUserId : "1";
+            txtCustomerName.Text = "Random";
         }
-        #endregion
 
-        #region Cart Item Class
-        public class CartItem
-        {
-            public int MedicineId { get; set; }
-            public string Name { get; set; }
-            public decimal UnitPrice { get; set; }
-            public int Quantity { get; set; }
-            public decimal Total => UnitPrice * Quantity;
-        }
-        #endregion
-
-        #region Cart Management
         private void InitializeCart()
         {
-            try
+            cartTable = new DataTable();
+            cartTable.Columns.Add("MedicineId", typeof(int));
+            cartTable.Columns.Add("Name", typeof(string));
+            cartTable.Columns.Add("UnitPrice", typeof(float));
+            cartTable.Columns.Add("Quantity", typeof(int));
+            cartTable.Columns.Add("Total", typeof(float));
+            
+            this.dgvCart.AutoGenerateColumns = false;
+            this.dgvCart.DataSource = cartTable;
+            
+            // Bind cart columns properly
+            if (this.dgvCart.Columns.Count > 0)
             {
-                cartItems = new List<CartItem>();
-                
-                // Create DataTable for cart
-                cartDataTable = new DataTable();
-                cartDataTable.Columns.Add("MedicineId", typeof(int));
-                cartDataTable.Columns.Add("Name", typeof(string));
-                cartDataTable.Columns.Add("UnitPrice", typeof(decimal));
-                cartDataTable.Columns.Add("Quantity", typeof(int));
-                cartDataTable.Columns.Add("Total", typeof(decimal));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error initializing cart: {ex.Message}", "Cart Initialization Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void AddToCart(int medicineId, string name, decimal unitPrice, int quantity)
-        {
-            try
-            {
-                // Check if item already exists in cart
-                var existingItem = cartItems.FirstOrDefault(item => item.MedicineId == medicineId);
-                
-                if (existingItem != null)
-                {
-                    // Update existing item quantity
-                    existingItem.Quantity += quantity;
-                }
-                else
-                {
-                    // Add new item to cart
-                    cartItems.Add(new CartItem
-                    {
-                        MedicineId = medicineId,
-                        Name = name,
-                        UnitPrice = unitPrice,
-                        Quantity = quantity
-                    });
-                }
-                
-                RefreshCartDisplay();
-                UpdateTotalAmount();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error adding item to cart: {ex.Message}", "Cart Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.dgvCart.Columns["cartMedicineId"].DataPropertyName = "MedicineId";
+                this.dgvCart.Columns["cartName"].DataPropertyName = "Name";
+                this.dgvCart.Columns["cartUnitPrice"].DataPropertyName = "UnitPrice";
+                this.dgvCart.Columns["cartQuantity"].DataPropertyName = "Quantity";
+                this.dgvCart.Columns["cartTotal"].DataPropertyName = "Total";
             }
         }
 
-        private void RefreshCartDisplay()
-        {
-            try
-            {
-                cartDataTable.Clear();
-                
-                foreach (var item in cartItems)
-                {
-                    cartDataTable.Rows.Add(
-                        item.MedicineId,
-                        item.Name,
-                        item.UnitPrice,
-                        item.Quantity,
-                        item.Total
-                    );
-                }
-                
-                // Ensure DataGridView is properly bound
-                if (dgvCart.DataSource == null)
-                {
-                    dgvCart.AutoGenerateColumns = false;
-                    dgvCart.DataSource = cartDataTable;
-                    
-                    // Set up column bindings
-                    if (dgvCart.Columns["cartMedicineId"] != null)
-                        dgvCart.Columns["cartMedicineId"].DataPropertyName = "MedicineId";
-                    if (dgvCart.Columns["cartName"] != null)
-                        dgvCart.Columns["cartName"].DataPropertyName = "Name";
-                    if (dgvCart.Columns["cartUnitPrice"] != null)
-                        dgvCart.Columns["cartUnitPrice"].DataPropertyName = "UnitPrice";
-                    if (dgvCart.Columns["cartQuantity"] != null)
-                        dgvCart.Columns["cartQuantity"].DataPropertyName = "Quantity";
-                    if (dgvCart.Columns["cartTotal"] != null)
-                        dgvCart.Columns["cartTotal"].DataPropertyName = "Total";
-                }
-                
-                dgvCart.Refresh();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error refreshing cart display: {ex.Message}", "Display Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        #endregion
-
-        #region Data Display Methods
         private void PopulateMedicineGrid(string sql = "SELECT * FROM Medicine")
         {
             try
             {
-                var ds = this.Da.ExecuteQuery(sql);
+                this.Ds = this.Da.ExecuteQuery(sql);
                 this.dgvMedicineList.AutoGenerateColumns = false;
-                this.dgvMedicineList.DataSource = ds.Tables[0];
-                
-                this.lblSubTitle.Text = $"Available Medicines: {ds.Tables[0].Rows.Count} • Last Updated: {DateTime.Now:HH:mm:ss}";
+                this.dgvMedicineList.DataSource = this.Ds.Tables[0];
+                this.lblSubTitle.Text = $"Total Available Medicines: {this.Ds.Tables[0].Rows.Count} • Last Updated: {DateTime.Now:HH:mm:ss}";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading medicine data: {ex.Message}", "Data Load Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void PopulateCartGrid()
-        {
-            try
-            {
-                // Set up the cart DataGridView properly
-                this.dgvCart.AutoGenerateColumns = false;
-                this.dgvCart.DataSource = cartDataTable;
-                
-                // Bind columns properly to DataTable columns
-                if (dgvCart.Columns["cartMedicineId"] != null)
-                    dgvCart.Columns["cartMedicineId"].DataPropertyName = "MedicineId";
-                if (dgvCart.Columns["cartName"] != null)
-                    dgvCart.Columns["cartName"].DataPropertyName = "Name";
-                if (dgvCart.Columns["cartUnitPrice"] != null)
-                    dgvCart.Columns["cartUnitPrice"].DataPropertyName = "UnitPrice";
-                if (dgvCart.Columns["cartQuantity"] != null)
-                    dgvCart.Columns["cartQuantity"].DataPropertyName = "Quantity";
-                if (dgvCart.Columns["cartTotal"] != null)
-                    dgvCart.Columns["cartTotal"].DataPropertyName = "Total";
-                
-                this.UpdateTotalAmount();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error initializing cart: {ex.Message}", "Cart Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error loading medicine data: " + ex.Message);
             }
         }
 
@@ -231,29 +83,148 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                decimal total = cartItems.Sum(item => item.Total);
-                txtTotalAmount.Text = total.ToString("F2");
+                float total = cartTable.AsEnumerable().Sum(row => (float)row["Total"]);
+                txtTotalAmount.Text = total.ToString();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error calculating total: {ex.Message}", "Calculation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error calculating total: " + ex.Message);
             }
         }
-        #endregion
 
-        #region Button Event Handlers
-        private void btnShowAll_Click(object sender, EventArgs e)
+        private void ClearAll()
         {
             try
             {
-                this.PopulateMedicineGrid();
-                this.txtSearch.Clear();
+                txtMedID.Clear();
+                txtName.Clear();
+                txtUnitPrice.Clear();
+                cmbCatagory.SelectedIndex = -1;
+                txtQuantity.Text = "1";
+                dgvMedicineList.ClearSelection();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error showing all records: {ex.Message}", "Display Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error clearing form: " + ex.Message);
+            }
+        }
+
+        private bool IsValidToAdd()
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(txtMedID.Text) ||
+                    string.IsNullOrWhiteSpace(txtName.Text) ||
+                    string.IsNullOrWhiteSpace(txtUnitPrice.Text) ||
+                    string.IsNullOrWhiteSpace(txtQuantity.Text))
+                {
+                    MessageBox.Show("Please select a medicine and enter quantity.", "Validation Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                if (!int.TryParse(txtQuantity.Text, out int quantity) || quantity <= 0)
+                {
+                    MessageBox.Show("Please enter a valid quantity greater than 0.", "Validation Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtQuantity.Focus();
+                    return false;
+                }
+
+                if (!float.TryParse(txtUnitPrice.Text, out float price) || price <= 0)
+                {
+                    MessageBox.Show("Please select a valid medicine with a valid price.", "Validation Error", 
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return false;
+                }
+
+                return CheckInventoryAvailability(int.Parse(txtMedID.Text), quantity);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during validation: " + ex.Message);
+                return false;
+            }
+        }
+
+        private bool CheckInventoryAvailability(int medicineId, int requestedQuantity)
+        {
+            try
+            {
+                this.Sql = "SELECT UnitAvailable FROM Medicine WHERE MedicineId = '" + medicineId + "'";
+                DataTable result = this.Da.ExecuteQueryTable(this.Sql);
+                
+                if (result.Rows.Count == 0)
+                {
+                    MessageBox.Show("Medicine not found in database.");
+                    return false;
+                }
+
+                int availableUnits = Convert.ToInt32(result.Rows[0]["UnitAvailable"]);
+                int alreadyInCart = cartTable.AsEnumerable()
+                    .Where(row => Convert.ToInt32(row["MedicineId"]) == medicineId)
+                    .Sum(row => Convert.ToInt32(row["Quantity"]));
+
+                if (availableUnits <= 0)
+                {
+                    MessageBox.Show("This medicine is out of stock (0 units available).");
+                    return false;
+                }
+
+                if (requestedQuantity + alreadyInCart > availableUnits)
+                {
+                    MessageBox.Show($"Insufficient stock. Available: {availableUnits}, Already in cart: {alreadyInCart}, Requested: {requestedQuantity}");
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error checking inventory: " + ex.Message);
+                return false;
+            }
+        }
+
+        private bool IsValidToProcessSale()
+        {
+            try
+            {
+                if (cartTable.Rows.Count == 0)
+                {
+                    MessageBox.Show("Cart is empty. Please add items before processing sale.");
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtCustomerName.Text) || 
+                    string.IsNullOrWhiteSpace(txtSalesmanID.Text) ||
+                    cmbPaymentMethod.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please fill in all sale information (Customer Name, Salesman ID, Payment Method).");
+                    return false;
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error during sale validation: " + ex.Message);
+                return false;
+            }
+        }
+
+        private int GenerateId(string sql)
+        {
+            try
+            {
+                DataTable result = this.Da.ExecuteQueryTable(sql);
+                return result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value 
+                    ? Convert.ToInt32(result.Rows[0][0]) : 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error generating ID: " + ex.Message);
+                return new Random().Next(1000, 9999);
             }
         }
 
@@ -261,43 +232,52 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                if (!IsValidToAdd())
-                {
-                    return;
-                }
+                if (!IsValidToAdd()) return;
 
                 int medicineId = int.Parse(txtMedID.Text);
                 string name = txtName.Text;
-                decimal unitPrice = decimal.Parse(txtUnitPrice.Text);
+                float unitPrice = float.Parse(txtUnitPrice.Text);
                 int quantity = int.Parse(txtQuantity.Text);
 
-                AddToCart(medicineId, name, unitPrice, quantity);
+                var existingRow = cartTable.AsEnumerable()
+                    .FirstOrDefault(row => Convert.ToInt32(row["MedicineId"]) == medicineId);
 
-                MessageBox.Show($"Added {name} (Qty: {quantity}) to cart.", 
-                    "Item Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                
-                this.ClearForm();
+                if (existingRow != null)
+                {
+                    int newQuantity = Convert.ToInt32(existingRow["Quantity"]) + quantity;
+                    existingRow["Quantity"] = newQuantity;
+                    existingRow["Total"] = unitPrice * newQuantity;
+                }
+                else
+                {
+                    var newRow = cartTable.NewRow();
+                    newRow["MedicineId"] = medicineId;
+                    newRow["Name"] = name;
+                    newRow["UnitPrice"] = unitPrice;
+                    newRow["Quantity"] = quantity;
+                    newRow["Total"] = unitPrice * quantity;
+                    cartTable.Rows.Add(newRow);
+                }
+
+                // Refresh the cart display
+                dgvCart.Refresh();
+                UpdateTotalAmount();
+                MessageBox.Show(name + " has been added to cart successfully");
+                ClearAll();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error adding to cart: {ex.Message}", "Add Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred during adding to cart\n\n" + ex.Message);
             }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            this.ClearForm();
         }
 
         private void btnRemoveFromCart_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dgvCart.SelectedRows.Count == 0)
+                if (dgvCart.CurrentRow == null)
                 {
-                    MessageBox.Show("Please select an item to remove.", "Selection Required", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please select an item to remove.");
                     return;
                 }
 
@@ -306,26 +286,15 @@ namespace PharmacyManagementSystem
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    var selectedRow = dgvCart.SelectedRows[0];
-                    int medicineId = Convert.ToInt32(selectedRow.Cells[0].Value);
-                    
-                    // Remove from cart items list
-                    var itemToRemove = cartItems.FirstOrDefault(item => item.MedicineId == medicineId);
-                    if (itemToRemove != null)
-                    {
-                        cartItems.Remove(itemToRemove);
-                        RefreshCartDisplay();
-                        UpdateTotalAmount();
-                        
-                        MessageBox.Show("Item removed from cart.", "Item Removed", 
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    dgvCart.Rows.RemoveAt(dgvCart.CurrentRow.Index);
+                    dgvCart.Refresh();
+                    UpdateTotalAmount();
+                    MessageBox.Show("Item removed from cart.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error removing from cart: {ex.Message}", "Remove Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred during removal\n" + ex.Message);
             }
         }
 
@@ -338,18 +307,15 @@ namespace PharmacyManagementSystem
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    cartItems.Clear();
-                    RefreshCartDisplay();
+                    cartTable.Clear();
+                    dgvCart.Refresh();
                     UpdateTotalAmount();
-                    
-                    MessageBox.Show("Cart cleared successfully.", "Cart Cleared", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Cart cleared successfully.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error clearing cart: {ex.Message}", "Clear Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred during clearing cart\n" + ex.Message);
             }
         }
 
@@ -357,225 +323,131 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                if (cartItems.Count == 0)
-                {
-                    MessageBox.Show("Cart is empty. Please add items before processing sale.", "Empty Cart", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                if (!IsValidToProcessSale()) return;
 
-                if (string.IsNullOrWhiteSpace(txtCustomerName.Text) || 
-                    string.IsNullOrWhiteSpace(txtSalesmanID.Text) ||
-                    cmbPaymentMethod.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please fill in all sale information (Customer Name, Salesman ID, Payment Method).", 
-                        "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                decimal totalAmount = cartItems.Sum(item => item.Total);
-                string customerName = txtCustomerName.Text.Trim();
-                string salesmanId = txtSalesmanID.Text.Trim(); // Fix: Use string for salesmanId
-                string paymentMethod = cmbPaymentMethod.SelectedItem.ToString();
-
+                float totalAmount = float.Parse(txtTotalAmount.Text);
                 var confirmResult = MessageBox.Show(
-                    $"Process sale for:\nCustomer: {customerName}\nTotal: ${totalAmount:F2}\nPayment: {paymentMethod}?", 
+                    $"Process sale for:\nCustomer: {txtCustomerName.Text}\nTotal: ${totalAmount:F2}\nPayment: {cmbPaymentMethod.Text}?", 
                     "Confirm Sale", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    if (ProcessSaleTransaction(salesmanId, customerName, totalAmount, paymentMethod))
+                    int saleId = GenerateId("SELECT ISNULL(MAX(SaleId), 0) + 1 FROM Sales");
+
+                    this.Sql = "INSERT INTO Sales (SaleId, SaleDate, SalesmanID, CustomerName, TotalAmount, PaymentMethod) " +
+                              "VALUES ('" + saleId + "', " +
+                              "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                              "'" + txtSalesmanID.Text + "', " +
+                              "'" + txtCustomerName.Text + "', " +
+                              "'" + totalAmount.ToString("F2") + "', " +
+                              "'" + cmbPaymentMethod.Text + "')";
+
+                    int saleResult = this.Da.ExecuteDMLQuery(this.Sql);
+
+                    if (saleResult == 1)
                     {
-                        MessageBox.Show("Sale processed successfully!", "Sale Complete", 
-                            MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
-                        // Clear cart and form after successful sale
-                        cartItems.Clear();
-                        RefreshCartDisplay();
+                        foreach (DataRow row in cartTable.Rows)
+                        {
+                            int detailId = GenerateId("SELECT ISNULL(MAX(SaleDetailID), 0) + 1 FROM SalesDetails");
+                            int medicineId = Convert.ToInt32(row["MedicineId"]);
+                            int quantity = Convert.ToInt32(row["Quantity"]);
+
+                            this.Sql = "INSERT INTO SalesDetails (SaleDetailID, SaleID, MedicineID, Quantity, UnitPrice, Subtotal) " +
+                                      "VALUES ('" + detailId + "', " +
+                                      "'" + saleId + "', " +
+                                      "'" + medicineId + "', " +
+                                      "'" + quantity + ", " +
+                                      "'" + ((float)row["UnitPrice"]).ToString("F2") + "', " +
+                                      "'" + ((float)row["Total"]).ToString("F2") + "')";
+                            
+                            this.Da.ExecuteDMLQuery(this.Sql);
+
+                            this.Sql = "UPDATE Medicine SET UnitAvailable = UnitAvailable - " + quantity + 
+                                      " WHERE MedicineId = " + medicineId;
+                            this.Da.ExecuteDMLQuery(this.Sql);
+                        }
+
+                        MessageBox.Show("Sale has been processed successfully!");
+                        cartTable.Clear();
                         UpdateTotalAmount();
-                        ClearSaleForm();
+                        txtCustomerName.Text = "Walk-in Customer";
+                        if (cmbPaymentMethod.Items.Count > 0)
+                            cmbPaymentMethod.SelectedIndex = 0;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sale processing failed");
                     }
                 }
             }
-            catch (FormatException ex)
+            catch (Exception ex)
             {
-                MessageBox.Show($"Data format error: {ex.Message}\nPlease check all numeric fields.", "Format Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("An error occurred during sale processing\n\n" + ex.Message);
+            }
+        }
+
+        private void btnShowAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PopulateMedicineGrid();
+                txtSearch.Clear();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error processing sale: {ex.Message}", "Sale Processing Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error showing all records: " + ex.Message);
             }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            ClearAll();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             try
             {
-                // Find the parent form (which should be FormSalesman)
-                Form parentForm = this.FindForm();
-                if (parentForm != null && parentForm is FormSalesman)
-                {
-                    // Remove this UserControl from FormSalesman
-                    parentForm.Controls.Remove(this);
-                    
-                    // Show all the original FormSalesman controls that were hidden
-                    foreach (Control control in parentForm.Controls)
-                    {
-                        control.Visible = true;
-                    }
-                    
-                    // Refresh the FormSalesman to ensure proper display
-                    parentForm.Refresh();
-                }
-                else
-                {
-                    // If we can't find FormSalesman, create a new instance
-                    FormSalesman salesmanForm = new FormSalesman();
-                    
-                    // Close current form if it exists
-                    if (parentForm != null)
-                    {
-                        parentForm.Hide();
-                        salesmanForm.Show();
-                        parentForm.Close();
-                    }
-                    else
-                    {
-                        salesmanForm.Show();
-                    }
-                }
+                this.Hide();
+                FormSalesman salesmanForm = new FormSalesman();
+                salesmanForm.Show();
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error going back: {ex.Message}", "Navigation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-                // Fallback: Create new FormSalesman
-                try
-                {
-                    FormSalesman salesmanForm = new FormSalesman();
-                    Form currentForm = this.FindForm();
-                    if (currentForm != null)
-                    {
-                        currentForm.Hide();
-                        salesmanForm.Show();
-                        currentForm.Close();
-                    }
-                    else
-                    {
-                        salesmanForm.Show();
-                    }
-                }
-                catch (Exception fallbackEx)
-                {
-                    MessageBox.Show($"Critical navigation error: {fallbackEx.Message}", "Critical Error", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                MessageBox.Show("Error going back: " + ex.Message);
             }
         }
-        #endregion
 
-        #region Sale Processing
-        private bool ProcessSaleTransaction(string salesmanId, string customerName, decimal totalAmount, string paymentMethod)
-        {
-            try
-            {
-                // Generate sale ID
-                int saleId = GenerateSaleId();
-                DateTime saleDate = DateTime.Now;
-
-                // Escape single quotes in strings to prevent SQL injection
-                string safeSalesmanId = salesmanId.Replace("'", "''");
-                string safeCustomerName = customerName.Replace("'", "''");
-                string safePaymentMethod = paymentMethod.Replace("'", "''");
-                string safeTotalAmount = totalAmount.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
-
-                // Insert into Sales table - Note: SalesmanID now treated as string
-                string salesSql = $@"INSERT INTO Sales (SaleId, SaleDate, SalesmanID, CustomerName, TotalAmount, PaymentMethod) 
-                                   VALUES ({saleId}, '{saleDate:yyyy-MM-dd HH:mm:ss}', '{safeSalesmanId}', '{safeCustomerName}', {safeTotalAmount}, '{safePaymentMethod}')";
-
-                int salesResult = this.Da.ExecuteDMLQuery(salesSql);
-
-                if (salesResult > 0)
-                {
-                    // Insert sale details for each cart item
-                    bool allDetailsInserted = true;
-                    
-                    foreach (var item in cartItems)
-                    {
-                        int saleDetailId = GenerateSaleDetailId();
-                        
-                        // Convert values to safe strings
-                        string safeMedicineId = item.MedicineId.ToString();
-                        string safeQuantity = item.Quantity.ToString();
-                        string safeUnitPrice = item.UnitPrice.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
-                        string safeSubtotal = item.Total.ToString("F2", System.Globalization.CultureInfo.InvariantCulture);
-                        
-                        // Fixed: Use correct table name 'SalesDetails' and column name 'SaleDetailID'
-                        string detailSql = $@"INSERT INTO SalesDetails (SaleDetailID, SaleID, MedicineID, Quantity, UnitPrice, Subtotal) 
-                                            VALUES ({saleDetailId}, {saleId}, {safeMedicineId}, {safeQuantity}, {safeUnitPrice}, {safeSubtotal})";
-                        
-                        int detailResult = this.Da.ExecuteDMLQuery(detailSql);
-                        if (detailResult <= 0)
-                        {
-                            allDetailsInserted = false;
-                            break;
-                        }
-                    }
-
-                    if (!allDetailsInserted)
-                    {
-                        MessageBox.Show("Error inserting sale details. Please contact system administrator.", 
-                            "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
-                    }
-
-                    return true;
-                }
-                else
-                {
-                    MessageBox.Show("Error processing sale. Please try again.", "Sale Error", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-            catch (FormatException ex)
-            {
-                MessageBox.Show($"Data format error in sale processing: {ex.Message}", "Format Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Database error during sale processing: {ex.Message}", "Database Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        #endregion
-
-        #region Event Handlers
         private void dgvMedicineList_DoubleClick(object sender, EventArgs e)
         {
-            try
+            if (dgvMedicineList.CurrentRow != null)
             {
-                if (dgvMedicineList.SelectedRows.Count > 0)
+                try
                 {
-                    var selectedRow = dgvMedicineList.SelectedRows[0];
-                    
-                    txtMedID.Text = selectedRow.Cells["medicineId"].Value?.ToString() ?? "";
-                    txtName.Text = selectedRow.Cells["name"].Value?.ToString() ?? "";
-                    cmbCatagory.Text = selectedRow.Cells["category"].Value?.ToString() ?? "";
-                    txtUnitPrice.Text = selectedRow.Cells["unitprice"].Value?.ToString() ?? "";
-                    txtQuantity.Text = "1";
+                    this.txtMedID.Text = dgvMedicineList.CurrentRow.Cells["medicineId"].Value?.ToString();
+                    this.txtName.Text = dgvMedicineList.CurrentRow.Cells["name"].Value?.ToString();
+                    this.cmbCatagory.Text = dgvMedicineList.CurrentRow.Cells["category"].Value?.ToString();
+                    this.txtUnitPrice.Text = dgvMedicineList.CurrentRow.Cells["unitprice"].Value?.ToString();
+                    this.txtQuantity.Text = "1";
+
+                    string unitAvailable = dgvMedicineList.CurrentRow.Cells["unitavailable"].Value?.ToString();
+                    if (!string.IsNullOrEmpty(unitAvailable))
+                    {
+                        int available = Convert.ToInt32(unitAvailable);
+                        if (available <= 0)
+                        {
+                            MessageBox.Show("This medicine is out of stock (0 units available).");
+                        }
+                        else if (available <= 5)
+                        {
+                            MessageBox.Show($"Low stock warning: Only {available} units available.");
+                        }
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error loading selected record: {ex.Message}", "Load Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error loading medicine details: " + ex.Message);
+                }
             }
         }
 
@@ -589,154 +461,16 @@ namespace PharmacyManagementSystem
                     return;
                 }
 
-                var searchTerm = txtSearch.Text.Trim();
-                var sql = $@"SELECT * FROM Medicine WHERE 
-                           Name LIKE '%{searchTerm}%' OR 
-                           Category LIKE '%{searchTerm}%' OR 
-                           CAST(MedicineId AS NVARCHAR) LIKE '%{searchTerm}%'";
-
-                this.PopulateMedicineGrid(sql);
+                this.Sql = "SELECT * FROM Medicine WHERE " +
+                          "Name LIKE '" + txtSearch.Text + "%' OR " +
+                          "Category LIKE '" + txtSearch.Text + "%' OR " +
+                          "Manufacturer LIKE '" + txtSearch.Text + "%'";
+                this.PopulateMedicineGrid(this.Sql);
             }
-            catch (Exception ex)
+            catch (Exception exc)
             {
-                System.Diagnostics.Debug.WriteLine($"Search error: {ex.Message}");
+                MessageBox.Show("An error has occurred during search\n" + exc.Message);
             }
         }
-        #endregion
-
-        #region Utility Methods
-        private void ClearForm()
-        {
-            try
-            {
-                txtMedID.Clear();
-                txtName.Clear();
-                txtUnitPrice.Clear();
-                cmbCatagory.SelectedIndex = -1;
-                txtQuantity.Text = "1";
-                
-                dgvMedicineList.ClearSelection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error clearing form: {ex.Message}", "Clear Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private void ClearSaleForm()
-        {
-            try
-            {
-                txtCustomerName.Text = "Walk-in Customer";
-                // Don't clear salesman ID as it's auto-captured
-                if (cmbPaymentMethod.Items.Count > 0)
-                {
-                    cmbPaymentMethod.SelectedIndex = 0;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error clearing sale form: {ex.Message}", "Clear Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-        }
-
-        private bool IsValidToAdd()
-        {
-            try
-            {
-                if (string.IsNullOrWhiteSpace(txtMedID.Text) ||
-                    string.IsNullOrWhiteSpace(txtName.Text) ||
-                    string.IsNullOrWhiteSpace(txtUnitPrice.Text) ||
-                    string.IsNullOrWhiteSpace(txtQuantity.Text))
-                {
-                    MessageBox.Show("Please select a medicine and enter quantity.", "Missing Information", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                if (!int.TryParse(txtQuantity.Text, out int quantity) || quantity <= 0)
-                {
-                    MessageBox.Show("Please enter a valid quantity greater than 0.", "Invalid Quantity", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                if (!decimal.TryParse(txtUnitPrice.Text, out decimal price) || price <= 0)
-                {
-                    MessageBox.Show("Please select a valid medicine with a valid price.", "Invalid Price", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                if (!int.TryParse(txtMedID.Text, out int medicineId) || medicineId <= 0)
-                {
-                    MessageBox.Show("Please select a valid medicine.", "Invalid Medicine", 
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return false;
-                }
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during validation: {ex.Message}", "Validation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        private int GenerateSaleId()
-        {
-            try
-            {
-                var query = "SELECT ISNULL(MAX(SaleId), 0) + 1 FROM Sales";
-                var result = this.Da.ExecuteQueryTable(query);
-                
-                if (result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value)
-                {
-                    if (int.TryParse(result.Rows[0][0].ToString(), out int saleId))
-                    {
-                        return saleId;
-                    }
-                }
-                
-                // Fallback to timestamp-based ID if database query fails
-                return DateTime.Now.Millisecond + new Random().Next(1000, 9999);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error generating Sale ID: {ex.Message}");
-                return DateTime.Now.Millisecond + new Random().Next(1000, 9999);
-            }
-        }
-
-        private int GenerateSaleDetailId()
-        {
-            try
-            {
-                // Fixed: Use correct table name 'SalesDetails' and column name 'SaleDetailID'
-                var query = "SELECT ISNULL(MAX(SaleDetailID), 0) + 1 FROM SalesDetails";
-                var result = this.Da.ExecuteQueryTable(query);
-                
-                if (result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value)
-                {
-                    if (int.TryParse(result.Rows[0][0].ToString(), out int saleDetailId))
-                    {
-                        return saleDetailId;
-                    }
-                }
-                
-                // Fallback to timestamp-based ID if database query fails
-                return DateTime.Now.Millisecond + new Random().Next(10000, 99999);
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine($"Error generating Sale Detail ID: {ex.Message}");
-                return DateTime.Now.Millisecond + new Random().Next(10000, 99999);
-            }
-        }
-        #endregion
     }
 }

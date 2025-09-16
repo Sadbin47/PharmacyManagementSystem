@@ -54,7 +54,10 @@
             this.batchnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnledit = new System.Windows.Forms.Panel();
+            this.txtUnitAvailable = new System.Windows.Forms.TextBox();
+            this.lblUnitAvailable = new System.Windows.Forms.Label();
             this.cmbCatagory = new System.Windows.Forms.ComboBox();
             this.dtpExpiryDate = new System.Windows.Forms.DateTimePicker();
             this.txtManuFacturer = new System.Windows.Forms.TextBox();
@@ -312,7 +315,8 @@
             this.unitcost,
             this.batchnumber,
             this.manufacturer,
-            this.expirydate});
+            this.expirydate,
+            this.unitavailable});
             this.dgvMedicineList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMedicineList.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvMedicineList.Location = new System.Drawing.Point(0, 362);
@@ -391,8 +395,18 @@
             this.expirydate.Name = "expirydate";
             this.expirydate.ReadOnly = true;
             // 
+            // unitavailable
+            // 
+            this.unitavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitavailable.DataPropertyName = "UnitAvailable";
+            this.unitavailable.HeaderText = "Stock";
+            this.unitavailable.Name = "unitavailable";
+            this.unitavailable.ReadOnly = true;
+            // 
             // pnledit
             // 
+            this.pnledit.Controls.Add(this.txtUnitAvailable);
+            this.pnledit.Controls.Add(this.lblUnitAvailable);
             this.pnledit.Controls.Add(this.cmbCatagory);
             this.pnledit.Controls.Add(this.dtpExpiryDate);
             this.pnledit.Controls.Add(this.txtManuFacturer);
@@ -414,6 +428,27 @@
             this.pnledit.Name = "pnledit";
             this.pnledit.Size = new System.Drawing.Size(348, 262);
             this.pnledit.TabIndex = 14;
+            // 
+            // txtUnitAvailable
+            // 
+            this.txtUnitAvailable.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUnitAvailable.Location = new System.Drawing.Point(154, 253);
+            this.txtUnitAvailable.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUnitAvailable.Name = "txtUnitAvailable";
+            this.txtUnitAvailable.Size = new System.Drawing.Size(166, 23);
+            this.txtUnitAvailable.TabIndex = 48;
+            // 
+            // lblUnitAvailable
+            // 
+            this.lblUnitAvailable.AutoSize = true;
+            this.lblUnitAvailable.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnitAvailable.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblUnitAvailable.Location = new System.Drawing.Point(30, 253);
+            this.lblUnitAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUnitAvailable.Name = "lblUnitAvailable";
+            this.lblUnitAvailable.Size = new System.Drawing.Size(87, 17);
+            this.lblUnitAvailable.TabIndex = 47;
+            this.lblUnitAvailable.Text = "Unit Available";
             // 
             // cmbCatagory
             // 
@@ -663,7 +698,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn batchnumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn manufacturer;
         private System.Windows.Forms.DataGridViewTextBoxColumn expirydate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitavailable;
         private System.Windows.Forms.Panel pnledit;
+        private System.Windows.Forms.TextBox txtUnitAvailable;
+        private System.Windows.Forms.Label lblUnitAvailable;
         private System.Windows.Forms.ComboBox cmbCatagory;
         private System.Windows.Forms.DateTimePicker dtpExpiryDate;
         private System.Windows.Forms.TextBox txtManuFacturer;

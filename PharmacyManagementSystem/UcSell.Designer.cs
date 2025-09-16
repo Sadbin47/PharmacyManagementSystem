@@ -51,7 +51,7 @@
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.btnShowAll = new System.Windows.Forms.Button();
-            this.btnback = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cmbCatagory = new System.Windows.Forms.ComboBox();
             this.txtUnitPrice = new System.Windows.Forms.TextBox();
@@ -68,6 +68,7 @@
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -101,7 +102,7 @@
             this.pnlSalesModule.Controls.Add(this.txtQuantity);
             this.pnlSalesModule.Controls.Add(this.lblQuantity);
             this.pnlSalesModule.Controls.Add(this.btnShowAll);
-            this.pnlSalesModule.Controls.Add(this.btnback);
+            this.pnlSalesModule.Controls.Add(this.btnBack);
             this.pnlSalesModule.Controls.Add(this.txtSearch);
             this.pnlSalesModule.Controls.Add(this.cmbCatagory);
             this.pnlSalesModule.Controls.Add(this.txtUnitPrice);
@@ -368,20 +369,20 @@
             this.btnShowAll.UseVisualStyleBackColor = false;
             this.btnShowAll.Click += new System.EventHandler(this.btnShowAll_Click);
             // 
-            // btnback
+            // btnBack
             // 
-            this.btnback.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
-            this.btnback.FlatAppearance.BorderSize = 0;
-            this.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnback.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btnback.ForeColor = System.Drawing.Color.White;
-            this.btnback.Location = new System.Drawing.Point(945, 464);
-            this.btnback.Name = "btnback";
-            this.btnback.Size = new System.Drawing.Size(92, 36);
-            this.btnback.TabIndex = 140;
-            this.btnback.Text = "Go Back";
-            this.btnback.UseVisualStyleBackColor = false;
-            this.btnback.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(152)))), ((int)(((byte)(219)))));
+            this.btnBack.FlatAppearance.BorderSize = 0;
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(945, 464);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(92, 36);
+            this.btnBack.TabIndex = 140;
+            this.btnBack.Text = "Go Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // txtSearch
             // 
@@ -504,7 +505,8 @@
             this.name,
             this.category,
             this.unitprice,
-            this.expirydate});
+            this.expirydate,
+            this.unitavailable});
             this.dgvMedicineList.GridColor = System.Drawing.SystemColors.ButtonShadow;
             this.dgvMedicineList.Location = new System.Drawing.Point(30, 320);
             this.dgvMedicineList.Name = "dgvMedicineList";
@@ -549,6 +551,13 @@
             this.expirydate.HeaderText = "Expiry Date";
             this.expirydate.Name = "expirydate";
             this.expirydate.ReadOnly = true;
+            // 
+            // unitavailable
+            // 
+            this.unitavailable.DataPropertyName = "UnitAvailable";
+            this.unitavailable.HeaderText = "Stock";
+            this.unitavailable.Name = "unitavailable";
+            this.unitavailable.ReadOnly = true;
             // 
             // pnlHeader
             // 
@@ -655,7 +664,7 @@
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Label lblQuantity;
         private System.Windows.Forms.Button btnShowAll;
-        private System.Windows.Forms.Button btnback;
+        private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ComboBox cmbCatagory;
         private System.Windows.Forms.TextBox txtUnitPrice;
@@ -672,6 +681,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn category;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitprice;
         private System.Windows.Forms.DataGridViewTextBoxColumn expirydate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitavailable;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.PictureBox logoImageBox;
         private System.Windows.Forms.Label lblTitle;
