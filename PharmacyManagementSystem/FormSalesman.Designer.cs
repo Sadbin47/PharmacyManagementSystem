@@ -35,6 +35,7 @@
             this.lblSubTitle = new System.Windows.Forms.Label();
             this.accentPanel = new System.Windows.Forms.Panel();
             this.pnlCRUD = new System.Windows.Forms.Panel();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnSellItems = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
@@ -74,7 +75,6 @@
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMedicineID = new System.Windows.Forms.Label();
-            this.lblInfo = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.pnlCRUD.SuspendLayout();
@@ -154,6 +154,17 @@
             this.pnlCRUD.Name = "pnlCRUD";
             this.pnlCRUD.Size = new System.Drawing.Size(497, 247);
             this.pnlCRUD.TabIndex = 9;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblInfo.Location = new System.Drawing.Point(185, 3);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(294, 19);
+            this.lblInfo.TabIndex = 12;
+            this.lblInfo.Text = "(Search By Name/Category/Manufacturer)";
             // 
             // btnLogOut
             // 
@@ -319,14 +330,14 @@
             this.unitavailable});
             this.dgvMedicineList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMedicineList.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvMedicineList.Location = new System.Drawing.Point(0, 362);
+            this.dgvMedicineList.Location = new System.Drawing.Point(0, 380);
             this.dgvMedicineList.Margin = new System.Windows.Forms.Padding(2);
             this.dgvMedicineList.Name = "dgvMedicineList";
             this.dgvMedicineList.ReadOnly = true;
             this.dgvMedicineList.RowHeadersWidth = 62;
             this.dgvMedicineList.RowTemplate.Height = 28;
             this.dgvMedicineList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicineList.Size = new System.Drawing.Size(1074, 262);
+            this.dgvMedicineList.Size = new System.Drawing.Size(1074, 244);
             this.dgvMedicineList.TabIndex = 13;
             this.dgvMedicineList.DoubleClick += new System.EventHandler(this.dgvMedicineList_DoubleClick);
             // 
@@ -426,7 +437,7 @@
             this.pnledit.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnledit.Location = new System.Drawing.Point(0, 100);
             this.pnledit.Name = "pnledit";
-            this.pnledit.Size = new System.Drawing.Size(348, 262);
+            this.pnledit.Size = new System.Drawing.Size(348, 280);
             this.pnledit.TabIndex = 14;
             // 
             // txtUnitAvailable
@@ -446,7 +457,7 @@
             this.lblUnitAvailable.Location = new System.Drawing.Point(30, 253);
             this.lblUnitAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUnitAvailable.Name = "lblUnitAvailable";
-            this.lblUnitAvailable.Size = new System.Drawing.Size(87, 17);
+            this.lblUnitAvailable.Size = new System.Drawing.Size(89, 17);
             this.lblUnitAvailable.TabIndex = 47;
             this.lblUnitAvailable.Text = "Unit Available";
             // 
@@ -634,17 +645,6 @@
             this.lblMedicineID.Size = new System.Drawing.Size(78, 17);
             this.lblMedicineID.TabIndex = 31;
             this.lblMedicineID.Text = "Medicine ID";
-            // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfo.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblInfo.Location = new System.Drawing.Point(185, 3);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(294, 19);
-            this.lblInfo.TabIndex = 12;
-            this.lblInfo.Text = "(Search By Name/Category/Manufacturer)";
             // 
             // FormSalesman
             // 

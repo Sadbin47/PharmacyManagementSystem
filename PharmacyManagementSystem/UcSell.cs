@@ -14,6 +14,7 @@ namespace PharmacyManagementSystem
     {
         private DataAccess Da { get; set; }
         private DataSet Ds { get; set; }
+
         private DataTable cartTable;
         private string Sql { get; set; }
 
@@ -36,9 +37,17 @@ namespace PharmacyManagementSystem
 
         private void AutoCaptureSalesmanID()
         {
-            txtSalesmanID.Text = FormLogin.IsUserLoggedIn() && !string.IsNullOrEmpty(FormLogin.LoggedInUserId) 
-                ? FormLogin.LoggedInUserId : "1";
-            txtCustomerName.Text = "Random";
+            // Set salesman ID based on login status
+            if (FormLogin.IsUserLoggedIn() && !string.IsNullOrEmpty(FormLogin.LoggedInUserId))
+            {
+                txtSalesmanID.Text = FormLogin.LoggedInUserId;
+            }
+            else
+            {
+                txtSalesmanID.Text = "1";
+            }
+            
+            txtCustomerName.Text = "Random Customer";
         }
 
         private void InitializeCart()
@@ -53,7 +62,6 @@ namespace PharmacyManagementSystem
             this.dgvCart.AutoGenerateColumns = false;
             this.dgvCart.DataSource = cartTable;
             
-            // Bind cart columns properly
             if (this.dgvCart.Columns.Count > 0)
             {
                 this.dgvCart.Columns["cartMedicineId"].DataPropertyName = "MedicineId";
@@ -83,29 +91,16 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                float total = cartTable.AsEnumerable().Sum(row => (float)row["Total"]);
+                float total = 0;
+                foreach (DataRow row in cartTable.Rows)
+                {
+                    total += (float)row["Total"];
+                }
                 txtTotalAmount.Text = total.ToString();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error calculating total: " + ex.Message);
-            }
-        }
-
-        private void ClearAll()
-        {
-            try
-            {
-                txtMedID.Clear();
-                txtName.Clear();
-                txtUnitPrice.Clear();
-                cmbCatagory.SelectedIndex = -1;
-                txtQuantity.Text = "1";
-                dgvMedicineList.ClearSelection();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error clearing form: " + ex.Message);
             }
         }
 
@@ -161,9 +156,15 @@ namespace PharmacyManagementSystem
                 }
 
                 int availableUnits = Convert.ToInt32(result.Rows[0]["UnitAvailable"]);
-                int alreadyInCart = cartTable.AsEnumerable()
-                    .Where(row => Convert.ToInt32(row["MedicineId"]) == medicineId)
-                    .Sum(row => Convert.ToInt32(row["Quantity"]));
+                
+                int alreadyInCart = 0;
+                foreach (DataRow row in cartTable.Rows)
+                {
+                    if (Convert.ToInt32(row["MedicineId"]) == medicineId)
+                    {
+                        alreadyInCart += Convert.ToInt32(row["Quantity"]);
+                    }
+                }
 
                 if (availableUnits <= 0)
                 {
@@ -173,7 +174,7 @@ namespace PharmacyManagementSystem
 
                 if (requestedQuantity + alreadyInCart > availableUnits)
                 {
-                    MessageBox.Show($"Insufficient stock. Available: {availableUnits}, Already in cart: {alreadyInCart}, Requested: {requestedQuantity}");
+                    MessageBox.Show("Insufficient stock. Available");
                     return false;
                 }
 
@@ -218,13 +219,23 @@ namespace PharmacyManagementSystem
             try
             {
                 DataTable result = this.Da.ExecuteQueryTable(sql);
-                return result.Rows.Count > 0 && result.Rows[0][0] != DBNull.Value 
-                    ? Convert.ToInt32(result.Rows[0][0]) : 1;
+                
+                if (result.Rows.Count == 0)
+                {
+                    return 1;
+                }
+                
+                if (result.Rows[0][0] == DBNull.Value)
+                {
+                    return 1;
+                }
+                
+                return Convert.ToInt32(result.Rows[0][0]);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error generating ID: " + ex.Message);
-                return new Random().Next(1000, 9999);
+                return 1;
             }
         }
 
@@ -239,8 +250,15 @@ namespace PharmacyManagementSystem
                 float unitPrice = float.Parse(txtUnitPrice.Text);
                 int quantity = int.Parse(txtQuantity.Text);
 
-                var existingRow = cartTable.AsEnumerable()
-                    .FirstOrDefault(row => Convert.ToInt32(row["MedicineId"]) == medicineId);
+                DataRow existingRow = null;
+                foreach (DataRow row in cartTable.Rows)
+                {
+                    if (Convert.ToInt32(row["MedicineId"]) == medicineId)
+                    {
+                        existingRow = row;
+                        break;
+                    }
+                }
 
                 if (existingRow != null)
                 {
@@ -259,7 +277,6 @@ namespace PharmacyManagementSystem
                     cartTable.Rows.Add(newRow);
                 }
 
-                // Refresh the cart display
                 dgvCart.Refresh();
                 UpdateTotalAmount();
                 MessageBox.Show(name + " has been added to cart successfully");
@@ -327,19 +344,19 @@ namespace PharmacyManagementSystem
 
                 float totalAmount = float.Parse(txtTotalAmount.Text);
                 var confirmResult = MessageBox.Show(
-                    $"Process sale for:\nCustomer: {txtCustomerName.Text}\nTotal: ${totalAmount:F2}\nPayment: {cmbPaymentMethod.Text}?", 
-                    "Confirm Sale", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        $"Process sale? Total: ${totalAmount}",
+                        "Confirm Sale", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    int saleId = GenerateId("SELECT ISNULL(MAX(SaleId), 0) + 1 FROM Sales");
+                    int saleId = GenerateId("SELECT MAX(SaleId) + 1 FROM Sales");
 
                     this.Sql = "INSERT INTO Sales (SaleId, SaleDate, SalesmanID, CustomerName, TotalAmount, PaymentMethod) " +
                               "VALUES ('" + saleId + "', " +
                               "'" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
                               "'" + txtSalesmanID.Text + "', " +
                               "'" + txtCustomerName.Text + "', " +
-                              "'" + totalAmount.ToString("F2") + "', " +
+                              "'" + totalAmount.ToString("") + "', " +
                               "'" + cmbPaymentMethod.Text + "')";
 
                     int saleResult = this.Da.ExecuteDMLQuery(this.Sql);
@@ -348,7 +365,7 @@ namespace PharmacyManagementSystem
                     {
                         foreach (DataRow row in cartTable.Rows)
                         {
-                            int detailId = GenerateId("SELECT ISNULL(MAX(SaleDetailID), 0) + 1 FROM SalesDetails");
+                            int detailId = GenerateId("SELECT MAX(SaleDetailID) + 1 FROM SalesDetails");
                             int medicineId = Convert.ToInt32(row["MedicineId"]);
                             int quantity = Convert.ToInt32(row["Quantity"]);
 
@@ -356,9 +373,9 @@ namespace PharmacyManagementSystem
                                       "VALUES ('" + detailId + "', " +
                                       "'" + saleId + "', " +
                                       "'" + medicineId + "', " +
-                                      "'" + quantity + ", " +
-                                      "'" + ((float)row["UnitPrice"]).ToString("F2") + "', " +
-                                      "'" + ((float)row["Total"]).ToString("F2") + "')";
+                                      "'" + quantity + "', " +
+                                      "'" + ((float)row["UnitPrice"]).ToString("") + "', " +
+                                      "'" + ((float)row["Total"]).ToString("") + "')";
                             
                             this.Da.ExecuteDMLQuery(this.Sql);
 
@@ -370,9 +387,7 @@ namespace PharmacyManagementSystem
                         MessageBox.Show("Sale has been processed successfully!");
                         cartTable.Clear();
                         UpdateTotalAmount();
-                        txtCustomerName.Text = "Walk-in Customer";
-                        if (cmbPaymentMethod.Items.Count > 0)
-                            cmbPaymentMethod.SelectedIndex = 0;
+                        txtCustomerName.Text = "Random Customer";
                     }
                     else
                     {
@@ -409,8 +424,12 @@ namespace PharmacyManagementSystem
             try
             {
                 this.Hide();
-                FormSalesman salesmanForm = new FormSalesman();
-                salesmanForm.Show();
+
+                var parentForm = this.FindForm() as FormSalesman;
+                if (parentForm != null)
+                {
+                    parentForm.Show();
+                }
             }
             catch (Exception ex)
             {
@@ -437,10 +456,6 @@ namespace PharmacyManagementSystem
                         if (available <= 0)
                         {
                             MessageBox.Show("This medicine is out of stock (0 units available).");
-                        }
-                        else if (available <= 5)
-                        {
-                            MessageBox.Show($"Low stock warning: Only {available} units available.");
                         }
                     }
                 }
@@ -470,6 +485,23 @@ namespace PharmacyManagementSystem
             catch (Exception exc)
             {
                 MessageBox.Show("An error has occurred during search\n" + exc.Message);
+            }
+        }
+
+        private void ClearAll()
+        {
+            try
+            {
+                txtMedID.Clear();
+                txtName.Clear();
+                txtUnitPrice.Clear();
+                cmbCatagory.SelectedIndex = -1;
+                txtQuantity.Text = "1";
+                dgvMedicineList.ClearSelection();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error clearing form: " + ex.Message);
             }
         }
     }
