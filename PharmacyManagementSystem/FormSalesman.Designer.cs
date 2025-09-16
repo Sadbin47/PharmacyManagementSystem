@@ -71,6 +71,7 @@
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMedicineID = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.pnlCRUD.SuspendLayout();
@@ -135,6 +136,7 @@
             // 
             // pnlCRUD
             // 
+            this.pnlCRUD.Controls.Add(this.lblInfo);
             this.pnlCRUD.Controls.Add(this.btnLogOut);
             this.pnlCRUD.Controls.Add(this.btnSellItems);
             this.pnlCRUD.Controls.Add(this.btnClear);
@@ -147,7 +149,7 @@
             this.pnlCRUD.Controls.Add(this.btnDelete);
             this.pnlCRUD.Location = new System.Drawing.Point(362, 100);
             this.pnlCRUD.Name = "pnlCRUD";
-            this.pnlCRUD.Size = new System.Drawing.Size(395, 247);
+            this.pnlCRUD.Size = new System.Drawing.Size(497, 247);
             this.pnlCRUD.TabIndex = 9;
             // 
             // btnLogOut
@@ -598,6 +600,17 @@
             this.lblMedicineID.TabIndex = 31;
             this.lblMedicineID.Text = "Medicine ID";
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblInfo.Location = new System.Drawing.Point(185, 3);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(294, 19);
+            this.lblInfo.TabIndex = 12;
+            this.lblInfo.Text = "(Search By Name/Category/Manufacturer)";
+            // 
             // FormSalesman
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -669,5 +682,6 @@
         private System.Windows.Forms.Label lblMedicineID;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnSellItems;
+        private System.Windows.Forms.Label lblInfo;
     }
 }

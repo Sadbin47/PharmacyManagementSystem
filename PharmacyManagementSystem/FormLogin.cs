@@ -13,10 +13,9 @@ namespace PharmacyManagementSystem
     public partial class FormLogin : Form
     {
         private DataAccess Da { get; set; }
-        
-        // Static property to track logged-in user
+
         public static string LoggedInUserId { get; private set; } = string.Empty;
-        
+
         public FormLogin()
         {
             InitializeComponent();
@@ -25,73 +24,49 @@ namespace PharmacyManagementSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            try
+            string sql = @"SELECT s.UserId, s.Password, r.Role " + "FROM Users s " + "INNER JOIN Role r ON s.RoleId = r.RoleID " + 
+                "WHERE s.UserId = '" + this.txtUserId.Text + "' AND s.Password = '" + this.txtPassword.Text + "'";
+
+            DataTable dt = this.Da.ExecuteQueryTable(sql);
+
+            if (dt.Rows.Count > 0)
             {
-                if (string.IsNullOrWhiteSpace(txtUserId.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
-                {
-                    MessageBox.Show("Please enter both User ID and Password.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                string role = dt.Rows[0]["Role"].ToString().ToLower();
+                string userId = dt.Rows[0]["UserId"].ToString();
 
-                string sql = "select userId, password, role from SignIn where userId = '" + this.txtUserId.Text + "' and password = '" + this.txtPassword.Text + "'";
-                
-                DataTable dt = this.Da.ExecuteQueryTable(sql);
+                LoggedInUserId = userId;
 
-                if (dt.Rows.Count > 0)
+                this.Hide();
+
+                if (role == "manager")
                 {
-                    string role = dt.Rows[0]["role"].ToString().ToLower();
-                    string userId = dt.Rows[0]["userId"].ToString();
-                    
-                    // Set the logged-in user ID
-                    LoggedInUserId = userId;
-                    
-                    this.Hide();
-                    
-                    if (role == "manager")
-                    {
-                        FormManager managerForm = new FormManager();
-                        managerForm.Show();
-                    }
-                    else if (role == "salesman")
-                    {
-                        FormSalesman salesmanForm = new FormSalesman();
-                        salesmanForm.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Unknown user role. Please contact administrator.", "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        this.Show();
-                    }
+                    FormManager managerForm = new FormManager();
+                    managerForm.Show();
                 }
-                else
+                else if (role == "salesman")
                 {
-                    MessageBox.Show("Invalid User ID or Password. Please try again.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtPassword.Clear();
-                    txtUserId.Focus();
+                    FormSalesman salesmanForm = new FormSalesman();
+                    salesmanForm.Show();
                 }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("An error occurred during login: " + ex.Message, "Login Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid credentials", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtPassword.Clear();
+                txtUserId.Focus();
             }
         }
-        
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        
-        /// <summary>
-        /// Clear the logged-in user when logging out
-        /// </summary>
+
         public static void Logout()
         {
             LoggedInUserId = string.Empty;
         }
-        
-        /// <summary>
-        /// Check if a user is currently logged in
-        /// </summary>
+
         public static bool IsUserLoggedIn()
         {
             return !string.IsNullOrEmpty(LoggedInUserId);

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PharmacyManagementSystem // Changed to match your project namespace
+namespace PharmacyManagementSystem
 {
     public class DataAccess
     {
@@ -38,8 +38,6 @@ namespace PharmacyManagementSystem // Changed to match your project namespace
             set { this.ds = value; }
         }
 
-        //internal DataTable dt;
-
         public DataAccess()
         {
             this.Sqlcon = new SqlConnection(@"Data Source=N-PC\MYDATABASE;Initial Catalog=""C# PROJECT"";Persist Security Info=True;User ID=sa;Password=8686;");
@@ -53,25 +51,25 @@ namespace PharmacyManagementSystem // Changed to match your project namespace
 
         public DataSet ExecuteQuery(string sql)
         {
-            this.Sqlcom = new SqlCommand(sql, this.Sqlcon);
+            this.QueryText(sql);
             this.Sda = new SqlDataAdapter(this.Sqlcom);
             this.Ds = new DataSet();
             this.Sda.Fill(this.Ds);
-            return Ds;
+            return this.Ds;
         }
 
         public DataTable ExecuteQueryTable(string sql)
         {
-            this.Sqlcom = new SqlCommand(sql, this.Sqlcon);
+            this.QueryText(sql);
             this.Sda = new SqlDataAdapter(this.Sqlcom);
             this.Ds = new DataSet();
             this.Sda.Fill(this.Ds);
-            return Ds.Tables[0];
+            return this.Ds.Tables[0];
         }
 
         public int ExecuteDMLQuery(string sql)
         {
-            this.Sqlcom = new SqlCommand(sql, this.Sqlcon);
+            this.QueryText(sql);
             int u = this.Sqlcom.ExecuteNonQuery();
             return u;
         }

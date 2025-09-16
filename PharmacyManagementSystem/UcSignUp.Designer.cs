@@ -65,7 +65,7 @@
             this.pnlSignUpDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlSignUpDetails.Location = new System.Drawing.Point(0, 0);
             this.pnlSignUpDetails.Name = "pnlSignUpDetails";
-            this.pnlSignUpDetails.Size = new System.Drawing.Size(815, 404);
+            this.pnlSignUpDetails.Size = new System.Drawing.Size(925, 670);
             this.pnlSignUpDetails.TabIndex = 5;
             // 
             // lblSignUp
@@ -162,6 +162,7 @@
             this.txtUserId.Location = new System.Drawing.Point(170, 95);
             this.txtUserId.Multiline = true;
             this.txtUserId.Name = "txtUserId";
+            this.txtUserId.ReadOnly = true;
             this.txtUserId.Size = new System.Drawing.Size(390, 30);
             this.txtUserId.TabIndex = 12;
             // 

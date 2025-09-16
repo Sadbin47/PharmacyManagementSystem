@@ -7,34 +7,76 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace PharmacyManagementSystem
 {
     public partial class UcSignUp : UserControl
     {
         private DataAccess Da { get; set; }
-
-        // Database field length constraints
-        private const int MAX_USERNAME_LENGTH = 30;
-        private const int MAX_USERID_LENGTH = 50;
+        private string NewUserId { get; set; }
+        private string NewRoleId { get; set; }
 
         public UcSignUp()
         {
             InitializeComponent();
             this.Da = new DataAccess();
-            this.InitializeEvents();
+            GenerateUserID();
+            GenerateRoleID();
             this.ClearAll();
         }
 
-        #region Event Initialization
-        private void InitializeEvents()
+        #region ID Generation Methods
+        private void GenerateUserID()
         {
-            this.btnCancel.Click += btnCancel_Click;
-            this.txtUserId.Leave += txtUserId_Leave;
-            this.txtUserName.Leave += txtUserName_Leave;
-            this.txtPassword.Leave += txtPassword_Leave;
-            this.txtConfirmPassword.Leave += txtConfirmPassword_Leave;
+            try
+            {
+                string sql = "SELECT UserId FROM Users ORDER BY UserId DESC";
+                DataTable dt = this.Da.ExecuteQueryTable(sql);
+                
+                if (dt.Rows.Count > 0)
+                {
+                    string lastUserId = dt.Rows[0]["UserId"].ToString();
+                    string[] parts = lastUserId.Split('-');
+                    int number = Convert.ToInt32(parts[1]);
+                    this.NewUserId = "p-" + (++number).ToString("D2");
+                }
+                else
+                {
+                    this.NewUserId = "p-01";
+                }
+                
+                this.txtUserId.Text = this.NewUserId;
+            }
+            catch (Exception)
+            {
+                this.NewUserId = "p-01";
+                this.txtUserId.Text = this.NewUserId;
+            }
+        }
+
+        private void GenerateRoleID()
+        {
+            try
+            {
+                string sql = "SELECT RoleId FROM Role ORDER BY RoleId DESC";
+                DataTable dt = this.Da.ExecuteQueryTable(sql);
+                
+                if (dt.Rows.Count > 0)
+                {
+                    string lastRoleId = dt.Rows[0]["RoleId"].ToString();
+                    string[] parts = lastRoleId.Split('-');
+                    int number = Convert.ToInt32(parts[1]);
+                    this.NewRoleId = "r-" + (++number).ToString("D2");
+                }
+                else
+                {
+                    this.NewRoleId = "r-01";
+                }
+            }
+            catch (Exception)
+            {
+                this.NewRoleId = "r-01";
+            }
         }
         #endregion
 
@@ -43,39 +85,26 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                if (!ValidateAllFields())
+                if (!ValidateAllFields() || IsUsernameExists(txtUserName.Text.Trim()))
                 {
                     return;
                 }
 
-                // Check if UserId already exists
-                if (IsUserIdExists(txtUserId.Text.Trim()))
+                string selectedRole = cmbUserSelect.Text.ToLower();
+                string userName = txtUserName.Text.Trim();
+                string password = txtPassword.Text;
+
+                string roleInsertSql = $"INSERT INTO Role (RoleId, Role) VALUES ('{NewRoleId}', '{selectedRole}')";
+                
+                string usersSql = $"INSERT INTO Users (UserId, RoleId, UserName, Password) VALUES ('{NewUserId}', '{NewRoleId}', '{userName}', '{password}')";
+
+                if (this.Da.ExecuteDMLQuery(roleInsertSql) > 0 && this.Da.ExecuteDMLQuery(usersSql) > 0)
                 {
-                    MessageBox.Show("User ID already exists. Please choose a different User ID.", 
-                        "User ID Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtUserId.Focus();
-                    return;
-                }
-
-                // Check if username already exists
-                if (IsUsernameExists(txtUserName.Text.Trim()))
-                {
-                    MessageBox.Show("Username already exists. Please choose a different username.", 
-                        "Username Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    txtUserName.Focus();
-                    return;
-                }
-
-                // Create user account
-                string sql = string.Format("INSERT INTO SignIn (UserId, UserName, Password, Role) VALUES ('{0}', '{1}', '{2}', '{3}')",
-                    txtUserId.Text.Trim(), txtUserName.Text.Trim(), txtPassword.Text, cmbUserSelect.Text);
-
-                int result = this.Da.ExecuteDMLQuery(sql);
-
-                if (result > 0)
-                {
-                    MessageBox.Show("Account created successfully!\nUser ID: " + txtUserId.Text + "\nUsername: " + txtUserName.Text + "\nRole: " + cmbUserSelect.Text, 
+                    MessageBox.Show($"Account created successfully!\nUser ID: {NewUserId}\nRole ID: {NewRoleId}\nUsername: {userName}\nRole: {selectedRole}", 
                         "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    
+                    GenerateUserID();
+                    GenerateRoleID();
                     this.ClearAll();
                 }
                 else
@@ -100,20 +129,10 @@ namespace PharmacyManagementSystem
         #region Validation Methods
         private bool ValidateAllFields()
         {
-            // Check if all required fields are filled
-            if (string.IsNullOrWhiteSpace(txtUserId.Text))
-            {
-                MessageBox.Show("Please enter a User ID.", "Validation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUserId.Focus();
-                return false;
-            }
-
             if (cmbUserSelect.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select an account type.", "Validation Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                cmbUserSelect.Focus();
                 return false;
             }
 
@@ -121,177 +140,69 @@ namespace PharmacyManagementSystem
             {
                 MessageBox.Show("Please enter a username.", "Validation Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUserName.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            if (!IsValidPassword(txtPassword.Text))
             {
-                MessageBox.Show("Please enter a password.", "Validation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPassword.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
-            {
-                MessageBox.Show("Please confirm your password.", "Validation Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtConfirmPassword.Focus();
-                return false;
-            }
-
-            // Basic field validation
-            if (!IsValidUserId(txtUserId.Text.Trim()))
-            {
-                MessageBox.Show("User ID must follow the format p-XX (like p-01, p-02, etc.)", 
-                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUserId.Focus();
-                return false;
-            }
-
-            if (!IsValidUsername(txtUserName.Text.Trim()))
-            {
-                MessageBox.Show("Username must be 3-" + MAX_USERNAME_LENGTH + " characters long and contain only letters, numbers, and underscores.", 
-                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUserName.Focus();
-                return false;
-            }
-
-            if (txtPassword.Text.Length < 6)
-            {
-                MessageBox.Show("Password must be at least 6 characters long.", 
-                    "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPassword.Focus();
                 return false;
             }
 
             if (txtPassword.Text != txtConfirmPassword.Text)
             {
-                MessageBox.Show("Passwords do not match. Please try again.", "Validation Error", 
+                MessageBox.Show("Passwords do not match.", "Validation Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtConfirmPassword.Focus();
                 return false;
             }
 
             return true;
         }
 
-        private bool IsValidUserId(string userId)
+        private bool IsValidPassword(string password)
         {
-            if (userId.Length < 4 || userId.Length > MAX_USERID_LENGTH)
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Please enter a password.", "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
+            }
 
-            // Check if it follows p-XX format (p- followed by at least 2 digits)
-            string pattern = @"^p-\d{2,}$";
-            return Regex.IsMatch(userId, pattern);
-        }
-
-        private bool IsValidUsername(string username)
-        {
-            if (username.Length < 3 || username.Length > MAX_USERNAME_LENGTH)
+            if (password.Length < 4)
+            {
+                MessageBox.Show("Password must be at least 4 characters long.", "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-
-            string pattern = @"^[a-zA-Z0-9_]+$";
-            return Regex.IsMatch(username, pattern);
-        }
-        #endregion
-
-        #region Real-time Validation Event Handlers
-        private void txtUserId_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtUserId.Text))
-            {
-                string userId = txtUserId.Text.Trim();
-                if (!IsValidUserId(userId))
-                {
-                    txtUserId.BackColor = Color.FromArgb(60, 30, 30);
-                }
-                else
-                {
-                    txtUserId.BackColor = Color.FromArgb(30, 30, 30);
-                }
             }
-        }
 
-        private void txtUserName_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtUserName.Text))
+            if (password.Contains(" "))
             {
-                string username = txtUserName.Text.Trim();
-                if (!IsValidUsername(username))
-                {
-                    txtUserName.BackColor = Color.FromArgb(60, 30, 30);
-                }
-                else
-                {
-                    txtUserName.BackColor = Color.FromArgb(30, 30, 30);
-                }
+                MessageBox.Show("Password cannot contain spaces.", "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
-        }
 
-        private void txtPassword_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtPassword.Text))
-            {
-                if (txtPassword.Text.Length < 6)
-                {
-                    txtPassword.BackColor = Color.FromArgb(60, 30, 30);
-                }
-                else
-                {
-                    txtPassword.BackColor = Color.FromArgb(30, 30, 30);
-                }
-            }
-        }
-
-        private void txtConfirmPassword_Leave(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(txtConfirmPassword.Text))
-            {
-                if (txtPassword.Text != txtConfirmPassword.Text)
-                {
-                    txtConfirmPassword.BackColor = Color.FromArgb(60, 30, 30);
-                }
-                else
-                {
-                    txtConfirmPassword.BackColor = Color.FromArgb(30, 30, 30);
-                }
-            }
-        }
-        #endregion
-
-        #region Database Helper Methods
-        private bool IsUserIdExists(string userId)
-        {
-            try
-            {
-                string sql = "SELECT COUNT(*) FROM SignIn WHERE UserId = '" + userId + "'";
-                DataTable dt = this.Da.ExecuteQueryTable(sql);
-                int count = Convert.ToInt32(dt.Rows[0][0]);
-                return count > 0;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error checking User ID: " + ex.Message, "Database Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return true;
-            }
+            return true;
         }
 
         private bool IsUsernameExists(string username)
         {
             try
             {
-                string sql = "SELECT COUNT(*) FROM SignIn WHERE UserName = '" + username + "'";
+                string sql = $"SELECT COUNT(*) FROM Users WHERE UserName = '{username}'";
                 DataTable dt = this.Da.ExecuteQueryTable(sql);
                 int count = Convert.ToInt32(dt.Rows[0][0]);
-                return count > 0;
+                
+                if (count > 0)
+                {
+                    MessageBox.Show("Username already exists. Please choose a different username.", 
+                        "Username Exists", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtUserName.Focus();
+                    return true;
+                }
+                return false;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show("Error checking username: " + ex.Message, "Database Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return true;
             }
         }
@@ -303,23 +214,14 @@ namespace PharmacyManagementSystem
             try
             {
                 cmbUserSelect.SelectedIndex = 0;
-                txtUserId.Clear();
                 txtUserName.Clear();
                 txtPassword.Clear();
                 txtConfirmPassword.Clear();
-
-                // Reset background colors
-                txtUserId.BackColor = Color.FromArgb(30, 30, 30);
-                txtUserName.BackColor = Color.FromArgb(30, 30, 30);
-                txtPassword.BackColor = Color.FromArgb(30, 30, 30);
-                txtConfirmPassword.BackColor = Color.FromArgb(30, 30, 30);
-
-                txtUserId.Focus();
+                txtUserName.Focus();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error clearing form: " + ex.Message, "Clear Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Error clearing form: " + ex.Message);
             }
         }
         #endregion
