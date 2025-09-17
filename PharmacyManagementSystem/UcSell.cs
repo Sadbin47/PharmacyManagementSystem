@@ -423,12 +423,15 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                this.Hide();
-
                 var parentForm = this.FindForm() as FormSalesman;
                 if (parentForm != null)
                 {
-                    parentForm.Show();
+                    parentForm.Controls.Remove(this);
+
+                    foreach (Control control in parentForm.Controls)
+                    {
+                        control.Visible = true;
+                    }
                 }
             }
             catch (Exception ex)

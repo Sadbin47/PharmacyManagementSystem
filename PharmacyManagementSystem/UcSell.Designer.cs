@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlSalesModule = new System.Windows.Forms.Panel();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.lblPaymentMethod = new System.Windows.Forms.Label();
             this.txtSalesmanID = new System.Windows.Forms.TextBox();
             this.lblSalesmanID = new System.Windows.Forms.Label();
@@ -63,18 +64,17 @@
             this.lblUnitPrice = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvMedicineList = new System.Windows.Forms.DataGridView();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSubTitle = new System.Windows.Forms.Label();
+            this.accentPanel = new System.Windows.Forms.Panel();
             this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblSubTitle = new System.Windows.Forms.Label();
-            this.accentPanel = new System.Windows.Forms.Panel();
-            this.lblSearch = new System.Windows.Forms.Label();
             this.pnlSalesModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
@@ -120,6 +120,17 @@
             this.pnlSalesModule.Name = "pnlSalesModule";
             this.pnlSalesModule.Size = new System.Drawing.Size(1075, 551);
             this.pnlSalesModule.TabIndex = 0;
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.Color.DarkTurquoise;
+            this.lblSearch.Location = new System.Drawing.Point(116, 118);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(120, 19);
+            this.lblSearch.TabIndex = 158;
+            this.lblSearch.Text = "🔍 Quick Search";
             // 
             // lblPaymentMethod
             // 
@@ -517,48 +528,6 @@
             this.dgvMedicineList.TabIndex = 128;
             this.dgvMedicineList.DoubleClick += new System.EventHandler(this.dgvMedicineList_DoubleClick);
             // 
-            // medicineId
-            // 
-            this.medicineId.DataPropertyName = "MedicineId";
-            this.medicineId.HeaderText = "ID";
-            this.medicineId.Name = "medicineId";
-            this.medicineId.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "Name";
-            this.name.HeaderText = "Medicine Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "Category";
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // unitprice
-            // 
-            this.unitprice.DataPropertyName = "UnitPrice";
-            this.unitprice.HeaderText = "Price";
-            this.unitprice.Name = "unitprice";
-            this.unitprice.ReadOnly = true;
-            // 
-            // expirydate
-            // 
-            this.expirydate.DataPropertyName = "ExpiryDate";
-            this.expirydate.HeaderText = "Expiry Date";
-            this.expirydate.Name = "expirydate";
-            this.expirydate.ReadOnly = true;
-            // 
-            // unitavailable
-            // 
-            this.unitavailable.DataPropertyName = "UnitAvailable";
-            this.unitavailable.HeaderText = "Stock";
-            this.unitavailable.Name = "unitavailable";
-            this.unitavailable.ReadOnly = true;
-            // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
@@ -614,16 +583,48 @@
             this.accentPanel.Size = new System.Drawing.Size(1075, 5);
             this.accentPanel.TabIndex = 3;
             // 
-            // lblSearch
+            // medicineId
             // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblSearch.Location = new System.Drawing.Point(116, 118);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(120, 19);
-            this.lblSearch.TabIndex = 158;
-            this.lblSearch.Text = "🔍 Quick Search";
+            this.medicineId.DataPropertyName = "MedicineId";
+            this.medicineId.HeaderText = "ID";
+            this.medicineId.Name = "medicineId";
+            this.medicineId.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "Name";
+            this.name.HeaderText = "Medicine Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "Category";
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // unitprice
+            // 
+            this.unitprice.DataPropertyName = "UnitPrice";
+            this.unitprice.HeaderText = "Price";
+            this.unitprice.Name = "unitprice";
+            this.unitprice.ReadOnly = true;
+            // 
+            // expirydate
+            // 
+            this.expirydate.DataPropertyName = "ExpiryDate";
+            this.expirydate.HeaderText = "Expiry Date";
+            this.expirydate.Name = "expirydate";
+            this.expirydate.ReadOnly = true;
+            // 
+            // unitavailable
+            // 
+            this.unitavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitavailable.DataPropertyName = "UnitAvailable";
+            this.unitavailable.HeaderText = "Total Units";
+            this.unitavailable.Name = "unitavailable";
+            this.unitavailable.ReadOnly = true;
             // 
             // UcSell
             // 
@@ -676,12 +677,6 @@
         private System.Windows.Forms.Label lblUnitPrice;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.DataGridView dgvMedicineList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medicineId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitprice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expirydate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitavailable;
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.PictureBox logoImageBox;
         private System.Windows.Forms.Label lblTitle;
@@ -693,5 +688,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cartQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn cartTotal;
         private System.Windows.Forms.Label lblSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medicineId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expirydate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitavailable;
     }
 }

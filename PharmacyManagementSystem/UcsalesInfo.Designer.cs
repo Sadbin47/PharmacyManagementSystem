@@ -87,9 +87,10 @@
             this.lblSubTitle.AutoSize = true;
             this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
-            this.lblSubTitle.Location = new System.Drawing.Point(115, 60);
+            this.lblSubTitle.Location = new System.Drawing.Point(153, 74);
+            this.lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(444, 20);
+            this.lblSubTitle.Size = new System.Drawing.Size(565, 25);
             this.lblSubTitle.TabIndex = 2;
             this.lblSubTitle.Text = "Comprehensive sales tracking • Real-time analytics • Data insights";
             // 
@@ -106,9 +107,10 @@
             this.pnlSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
             this.pnlSearch.Controls.Add(this.txtSearch);
             this.pnlSearch.Controls.Add(this.lblSearch);
-            this.pnlSearch.Location = new System.Drawing.Point(15, 15);
+            this.pnlSearch.Location = new System.Drawing.Point(4, 18);
+            this.pnlSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlSearch.Name = "pnlSearch";
-            this.pnlSearch.Size = new System.Drawing.Size(300, 80);
+            this.pnlSearch.Size = new System.Drawing.Size(306, 98);
             this.pnlSearch.TabIndex = 0;
             // 
             // txtSearch
@@ -117,9 +119,10 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(15, 40);
+            this.txtSearch.Location = new System.Drawing.Point(20, 49);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(270, 22);
+            this.txtSearch.Size = new System.Drawing.Size(272, 27);
             this.txtSearch.TabIndex = 1;
             // 
             // lblSearch
@@ -127,9 +130,10 @@
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearch.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblSearch.Location = new System.Drawing.Point(15, 15);
+            this.lblSearch.Location = new System.Drawing.Point(20, 18);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(120, 19);
+            this.lblSearch.Size = new System.Drawing.Size(143, 23);
             this.lblSearch.TabIndex = 0;
             this.lblSearch.Text = "🔍 Quick Search";
             // 
@@ -138,9 +142,10 @@
             this.pnlButtons.Controls.Add(this.btnRefresh);
             this.pnlButtons.Controls.Add(this.btnDelete);
             this.pnlButtons.Controls.Add(this.btnSave);
-            this.pnlButtons.Location = new System.Drawing.Point(330, 15);
+            this.pnlButtons.Location = new System.Drawing.Point(319, 18);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlButtons.Name = "pnlButtons";
-            this.pnlButtons.Size = new System.Drawing.Size(300, 80);
+            this.pnlButtons.Size = new System.Drawing.Size(384, 98);
             this.pnlButtons.TabIndex = 1;
             // 
             // btnRefresh
@@ -150,9 +155,10 @@
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
-            this.btnRefresh.Location = new System.Drawing.Point(10, 15);
+            this.btnRefresh.Location = new System.Drawing.Point(13, 18);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(85, 50);
+            this.btnRefresh.Size = new System.Drawing.Size(113, 62);
             this.btnRefresh.TabIndex = 0;
             this.btnRefresh.Text = "🔄 Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -164,9 +170,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(105, 15);
+            this.btnDelete.Location = new System.Drawing.Point(140, 18);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(85, 50);
+            this.btnDelete.Size = new System.Drawing.Size(113, 62);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "🗑️ Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -178,9 +185,10 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(200, 15);
+            this.btnSave.Location = new System.Drawing.Point(267, 18);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(85, 50);
+            this.btnSave.Size = new System.Drawing.Size(113, 62);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "💾 Save";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -198,9 +206,10 @@
             // 
             this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
             this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Location = new System.Drawing.Point(40, 25);
+            this.logoImageBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.Size = new System.Drawing.Size(80, 74);
             this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoImageBox.TabIndex = 0;
             this.logoImageBox.TabStop = false;
@@ -210,9 +219,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblTitle.Location = new System.Drawing.Point(110, 15);
+            this.lblTitle.Location = new System.Drawing.Point(147, 18);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(366, 45);
+            this.lblTitle.Size = new System.Drawing.Size(458, 54);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "📊 Sales Analytics Hub";
             // 
@@ -220,9 +230,10 @@
             // 
             this.accentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(69)))), ((int)(((byte)(19)))));
             this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.accentPanel.Location = new System.Drawing.Point(0, 95);
+            this.accentPanel.Location = new System.Drawing.Point(0, 117);
+            this.accentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.accentPanel.Name = "accentPanel";
-            this.accentPanel.Size = new System.Drawing.Size(925, 5);
+            this.accentPanel.Size = new System.Drawing.Size(973, 6);
             this.accentPanel.TabIndex = 3;
             // 
             // Quantity
@@ -249,12 +260,13 @@
             this.Subtotal});
             this.dgvSalesInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvSalesInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.dgvSalesInfo.Location = new System.Drawing.Point(0, 521);
+            this.dgvSalesInfo.Location = new System.Drawing.Point(0, 487);
+            this.dgvSalesInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvSalesInfo.Name = "dgvSalesInfo";
             this.dgvSalesInfo.ReadOnly = true;
             this.dgvSalesInfo.RowHeadersWidth = 51;
             this.dgvSalesInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSalesInfo.Size = new System.Drawing.Size(925, 149);
+            this.dgvSalesInfo.Size = new System.Drawing.Size(973, 183);
             this.dgvSalesInfo.TabIndex = 136;
             // 
             // SaleDetailID
@@ -300,18 +312,19 @@
             this.pnlControls.Controls.Add(this.pnlButtons);
             this.pnlControls.Controls.Add(this.pnlStats);
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlControls.Location = new System.Drawing.Point(0, 100);
+            this.pnlControls.Location = new System.Drawing.Point(0, 123);
+            this.pnlControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlControls.Name = "pnlControls";
-            this.pnlControls.Size = new System.Drawing.Size(925, 261);
+            this.pnlControls.Size = new System.Drawing.Size(973, 321);
             this.pnlControls.TabIndex = 135;
             // 
             // txtUnitPrice
             // 
             this.txtUnitPrice.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(502, 168);
-            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUnitPrice.Location = new System.Drawing.Point(483, 207);
+            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(166, 23);
+            this.txtUnitPrice.Size = new System.Drawing.Size(220, 27);
             this.txtUnitPrice.TabIndex = 57;
             // 
             // lblUnitPrice
@@ -319,21 +332,20 @@
             this.lblUnitPrice.AutoSize = true;
             this.lblUnitPrice.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitPrice.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblUnitPrice.Location = new System.Drawing.Point(378, 171);
-            this.lblUnitPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUnitPrice.Location = new System.Drawing.Point(388, 210);
             this.lblUnitPrice.Name = "lblUnitPrice";
-            this.lblUnitPrice.Size = new System.Drawing.Size(64, 17);
+            this.lblUnitPrice.Size = new System.Drawing.Size(79, 21);
             this.lblUnitPrice.TabIndex = 56;
             this.lblUnitPrice.Text = "Unit Price";
             // 
             // txtSubtotal
             // 
             this.txtSubtotal.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotal.Location = new System.Drawing.Point(502, 211);
-            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSubtotal.Location = new System.Drawing.Point(483, 254);
+            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.ReadOnly = true;
-            this.txtSubtotal.Size = new System.Drawing.Size(166, 23);
+            this.txtSubtotal.Size = new System.Drawing.Size(220, 27);
             this.txtSubtotal.TabIndex = 55;
             // 
             // lblSubtotal
@@ -341,20 +353,19 @@
             this.lblSubtotal.AutoSize = true;
             this.lblSubtotal.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubtotal.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblSubtotal.Location = new System.Drawing.Point(378, 214);
-            this.lblSubtotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSubtotal.Location = new System.Drawing.Point(388, 257);
             this.lblSubtotal.Name = "lblSubtotal";
-            this.lblSubtotal.Size = new System.Drawing.Size(59, 17);
+            this.lblSubtotal.Size = new System.Drawing.Size(69, 21);
             this.lblSubtotal.TabIndex = 54;
             this.lblSubtotal.Text = "Subtotal";
             // 
             // txtQuantity
             // 
             this.txtQuantity.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.Location = new System.Drawing.Point(502, 128);
-            this.txtQuantity.Margin = new System.Windows.Forms.Padding(2);
+            this.txtQuantity.Location = new System.Drawing.Point(483, 161);
+            this.txtQuantity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(166, 23);
+            this.txtQuantity.Size = new System.Drawing.Size(220, 27);
             this.txtQuantity.TabIndex = 53;
             // 
             // lblQuantity
@@ -362,20 +373,19 @@
             this.lblQuantity.AutoSize = true;
             this.lblQuantity.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuantity.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblQuantity.Location = new System.Drawing.Point(378, 131);
-            this.lblQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblQuantity.Location = new System.Drawing.Point(388, 161);
             this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(61, 17);
+            this.lblQuantity.Size = new System.Drawing.Size(72, 21);
             this.lblQuantity.TabIndex = 52;
             this.lblQuantity.Text = "Quantity";
             // 
             // txtSaleId
             // 
             this.txtSaleId.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaleId.Location = new System.Drawing.Point(149, 171);
-            this.txtSaleId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSaleId.Location = new System.Drawing.Point(139, 210);
+            this.txtSaleId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSaleId.Name = "txtSaleId";
-            this.txtSaleId.Size = new System.Drawing.Size(166, 23);
+            this.txtSaleId.Size = new System.Drawing.Size(220, 27);
             this.txtSaleId.TabIndex = 51;
             // 
             // lblSaleId
@@ -383,20 +393,19 @@
             this.lblSaleId.AutoSize = true;
             this.lblSaleId.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSaleId.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblSaleId.Location = new System.Drawing.Point(25, 174);
-            this.lblSaleId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSaleId.Location = new System.Drawing.Point(17, 213);
             this.lblSaleId.Name = "lblSaleId";
-            this.lblSaleId.Size = new System.Drawing.Size(48, 17);
+            this.lblSaleId.Size = new System.Drawing.Size(59, 21);
             this.lblSaleId.TabIndex = 50;
             this.lblSaleId.Text = "Sale ID";
             // 
             // txtMedicineId
             // 
             this.txtMedicineId.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedicineId.Location = new System.Drawing.Point(149, 214);
-            this.txtMedicineId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMedicineId.Location = new System.Drawing.Point(139, 266);
+            this.txtMedicineId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMedicineId.Name = "txtMedicineId";
-            this.txtMedicineId.Size = new System.Drawing.Size(166, 23);
+            this.txtMedicineId.Size = new System.Drawing.Size(220, 27);
             this.txtMedicineId.TabIndex = 49;
             // 
             // lblMedicineId
@@ -404,20 +413,19 @@
             this.lblMedicineId.AutoSize = true;
             this.lblMedicineId.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMedicineId.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMedicineId.Location = new System.Drawing.Point(25, 217);
-            this.lblMedicineId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMedicineId.Location = new System.Drawing.Point(17, 269);
             this.lblMedicineId.Name = "lblMedicineId";
-            this.lblMedicineId.Size = new System.Drawing.Size(78, 17);
+            this.lblMedicineId.Size = new System.Drawing.Size(96, 21);
             this.lblMedicineId.TabIndex = 48;
             this.lblMedicineId.Text = "Medicine ID";
             // 
             // txtSaleDetailsId
             // 
             this.txtSaleDetailsId.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaleDetailsId.Location = new System.Drawing.Point(149, 131);
-            this.txtSaleDetailsId.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSaleDetailsId.Location = new System.Drawing.Point(139, 164);
+            this.txtSaleDetailsId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtSaleDetailsId.Name = "txtSaleDetailsId";
-            this.txtSaleDetailsId.Size = new System.Drawing.Size(166, 23);
+            this.txtSaleDetailsId.Size = new System.Drawing.Size(220, 27);
             this.txtSaleDetailsId.TabIndex = 41;
             // 
             // lblSaleDetailsId
@@ -425,10 +433,9 @@
             this.lblSaleDetailsId.AutoSize = true;
             this.lblSaleDetailsId.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSaleDetailsId.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblSaleDetailsId.Location = new System.Drawing.Point(25, 134);
-            this.lblSaleDetailsId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSaleDetailsId.Location = new System.Drawing.Point(17, 164);
             this.lblSaleDetailsId.Name = "lblSaleDetailsId";
-            this.lblSaleDetailsId.Size = new System.Drawing.Size(91, 17);
+            this.lblSaleDetailsId.Size = new System.Drawing.Size(112, 21);
             this.lblSaleDetailsId.TabIndex = 40;
             this.lblSaleDetailsId.Text = "Sale Details ID";
             // 
@@ -437,9 +444,10 @@
             this.pnlStats.Controls.Add(this.pnlStatCard3);
             this.pnlStats.Controls.Add(this.pnlStatCard2);
             this.pnlStats.Controls.Add(this.pnlStatCard1);
-            this.pnlStats.Location = new System.Drawing.Point(711, 15);
+            this.pnlStats.Location = new System.Drawing.Point(711, 25);
+            this.pnlStats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlStats.Name = "pnlStats";
-            this.pnlStats.Size = new System.Drawing.Size(190, 237);
+            this.pnlStats.Size = new System.Drawing.Size(253, 292);
             this.pnlStats.TabIndex = 3;
             // 
             // pnlStatCard3
@@ -447,9 +455,10 @@
             this.pnlStatCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
             this.pnlStatCard3.Controls.Add(this.lblAvgSaleValue);
             this.pnlStatCard3.Controls.Add(this.lblAvgSaleTitle);
-            this.pnlStatCard3.Location = new System.Drawing.Point(10, 159);
+            this.pnlStatCard3.Location = new System.Drawing.Point(13, 196);
+            this.pnlStatCard3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlStatCard3.Name = "pnlStatCard3";
-            this.pnlStatCard3.Size = new System.Drawing.Size(170, 70);
+            this.pnlStatCard3.Size = new System.Drawing.Size(227, 86);
             this.pnlStatCard3.TabIndex = 2;
             // 
             // lblAvgSaleValue
@@ -457,9 +466,10 @@
             this.lblAvgSaleValue.AutoSize = true;
             this.lblAvgSaleValue.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvgSaleValue.ForeColor = System.Drawing.Color.White;
-            this.lblAvgSaleValue.Location = new System.Drawing.Point(10, 30);
+            this.lblAvgSaleValue.Location = new System.Drawing.Point(13, 37);
+            this.lblAvgSaleValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAvgSaleValue.Name = "lblAvgSaleValue";
-            this.lblAvgSaleValue.Size = new System.Drawing.Size(63, 32);
+            this.lblAvgSaleValue.Size = new System.Drawing.Size(77, 41);
             this.lblAvgSaleValue.TabIndex = 1;
             this.lblAvgSaleValue.Text = "0.00";
             // 
@@ -468,9 +478,10 @@
             this.lblAvgSaleTitle.AutoSize = true;
             this.lblAvgSaleTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvgSaleTitle.ForeColor = System.Drawing.Color.White;
-            this.lblAvgSaleTitle.Location = new System.Drawing.Point(10, 10);
+            this.lblAvgSaleTitle.Location = new System.Drawing.Point(13, 12);
+            this.lblAvgSaleTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAvgSaleTitle.Name = "lblAvgSaleTitle";
-            this.lblAvgSaleTitle.Size = new System.Drawing.Size(132, 19);
+            this.lblAvgSaleTitle.Size = new System.Drawing.Size(157, 23);
             this.lblAvgSaleTitle.TabIndex = 0;
             this.lblAvgSaleTitle.Text = "💰 Avg Sale Value";
             // 
@@ -479,9 +490,10 @@
             this.pnlStatCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
             this.pnlStatCard2.Controls.Add(this.lblTotalSalesValue);
             this.pnlStatCard2.Controls.Add(this.lblTotalSalesTitle);
-            this.pnlStatCard2.Location = new System.Drawing.Point(10, 81);
+            this.pnlStatCard2.Location = new System.Drawing.Point(13, 100);
+            this.pnlStatCard2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlStatCard2.Name = "pnlStatCard2";
-            this.pnlStatCard2.Size = new System.Drawing.Size(170, 70);
+            this.pnlStatCard2.Size = new System.Drawing.Size(227, 86);
             this.pnlStatCard2.TabIndex = 1;
             // 
             // lblTotalSalesValue
@@ -489,9 +501,10 @@
             this.lblTotalSalesValue.AutoSize = true;
             this.lblTotalSalesValue.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSalesValue.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesValue.Location = new System.Drawing.Point(10, 30);
+            this.lblTotalSalesValue.Location = new System.Drawing.Point(13, 37);
+            this.lblTotalSalesValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalSalesValue.Name = "lblTotalSalesValue";
-            this.lblTotalSalesValue.Size = new System.Drawing.Size(63, 32);
+            this.lblTotalSalesValue.Size = new System.Drawing.Size(77, 41);
             this.lblTotalSalesValue.TabIndex = 1;
             this.lblTotalSalesValue.Text = "0.00";
             // 
@@ -500,9 +513,10 @@
             this.lblTotalSalesTitle.AutoSize = true;
             this.lblTotalSalesTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalSalesTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTotalSalesTitle.Location = new System.Drawing.Point(10, 10);
+            this.lblTotalSalesTitle.Location = new System.Drawing.Point(13, 14);
+            this.lblTotalSalesTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalSalesTitle.Name = "lblTotalSalesTitle";
-            this.lblTotalSalesTitle.Size = new System.Drawing.Size(104, 19);
+            this.lblTotalSalesTitle.Size = new System.Drawing.Size(123, 23);
             this.lblTotalSalesTitle.TabIndex = 0;
             this.lblTotalSalesTitle.Text = "💸 Total Sales";
             // 
@@ -511,9 +525,10 @@
             this.pnlStatCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(204)))), ((int)(((byte)(113)))));
             this.pnlStatCard1.Controls.Add(this.lblRecordCountValue);
             this.pnlStatCard1.Controls.Add(this.lblRecordCountTitle);
-            this.pnlStatCard1.Location = new System.Drawing.Point(10, 5);
+            this.pnlStatCard1.Location = new System.Drawing.Point(13, 6);
+            this.pnlStatCard1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlStatCard1.Name = "pnlStatCard1";
-            this.pnlStatCard1.Size = new System.Drawing.Size(170, 70);
+            this.pnlStatCard1.Size = new System.Drawing.Size(227, 86);
             this.pnlStatCard1.TabIndex = 0;
             // 
             // lblRecordCountValue
@@ -521,9 +536,10 @@
             this.lblRecordCountValue.AutoSize = true;
             this.lblRecordCountValue.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecordCountValue.ForeColor = System.Drawing.Color.White;
-            this.lblRecordCountValue.Location = new System.Drawing.Point(10, 30);
+            this.lblRecordCountValue.Location = new System.Drawing.Point(13, 37);
+            this.lblRecordCountValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRecordCountValue.Name = "lblRecordCountValue";
-            this.lblRecordCountValue.Size = new System.Drawing.Size(28, 32);
+            this.lblRecordCountValue.Size = new System.Drawing.Size(35, 41);
             this.lblRecordCountValue.TabIndex = 1;
             this.lblRecordCountValue.Text = "0";
             // 
@@ -532,9 +548,10 @@
             this.lblRecordCountTitle.AutoSize = true;
             this.lblRecordCountTitle.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRecordCountTitle.ForeColor = System.Drawing.Color.White;
-            this.lblRecordCountTitle.Location = new System.Drawing.Point(10, 10);
+            this.lblRecordCountTitle.Location = new System.Drawing.Point(13, 12);
+            this.lblRecordCountTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblRecordCountTitle.Name = "lblRecordCountTitle";
-            this.lblRecordCountTitle.Size = new System.Drawing.Size(124, 19);
+            this.lblRecordCountTitle.Size = new System.Drawing.Size(146, 23);
             this.lblRecordCountTitle.TabIndex = 0;
             this.lblRecordCountTitle.Text = "📊 Total Records";
             // 
@@ -547,20 +564,22 @@
             this.pnlHeader.Controls.Add(this.accentPanel);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(925, 100);
+            this.pnlHeader.Size = new System.Drawing.Size(973, 123);
             this.pnlHeader.TabIndex = 134;
             // 
             // UcsalesInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.Controls.Add(this.dgvSalesInfo);
             this.Controls.Add(this.pnlControls);
             this.Controls.Add(this.pnlHeader);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UcsalesInfo";
-            this.Size = new System.Drawing.Size(925, 670);
+            this.Size = new System.Drawing.Size(973, 670);
             this.Load += new System.EventHandler(this.UcsalesInfo_Load);
             this.pnlSearch.ResumeLayout(false);
             this.pnlSearch.PerformLayout();

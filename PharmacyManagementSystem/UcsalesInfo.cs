@@ -30,7 +30,7 @@ namespace PharmacyManagementSystem
                 MessageBox.Show($"Error initializing Sales Info form: {ex.Message}\n\nThe edit form may not work properly without a database connection.", "Initialization Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
-                // Initialize events even if database fails
+              
                 try
                 {
                     this.InitializeEvents();
@@ -62,20 +62,20 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Wire up event handlers
+                
                 this.btnRefresh.Click += btnRefresh_Click;
                 this.btnDelete.Click += btnDelete_Click;
                 this.btnSave.Click += btnSave_Click;
                 this.dgvSalesInfo.DoubleClick += dgvSalesInfo_DoubleClick;
                 this.txtSearch.TextChanged += txtSearch_TextChanged;
                 
-                // Wire up auto-calculation events
+                
                 this.txtQuantity.TextChanged += txtQuantity_TextChanged;
                 this.txtUnitPrice.TextChanged += txtUnitPrice_TextChanged;
                 
-                // Show the save button by default
+               
                 this.btnSave.Visible = true;
-                this.pnlControls.Height = 280; // Expand to show edit form
+                this.pnlControls.Height = 280; 
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Map DataGridView columns to database columns
+                
                 dgvSalesInfo.Columns["SaleDetailID"].DataPropertyName = "SaleDetailID";
                 dgvSalesInfo.Columns["SaleID"].DataPropertyName = "SaleID";
                 dgvSalesInfo.Columns["MedicineID"].DataPropertyName = "MedicineID";
@@ -96,7 +96,7 @@ namespace PharmacyManagementSystem
                 dgvSalesInfo.Columns["UnitPrice"].DataPropertyName = "UnitPrice";
                 dgvSalesInfo.Columns["Subtotal"].DataPropertyName = "Subtotal";
 
-                // Enhance DataGridView appearance
+               
                 dgvSalesInfo.EnableHeadersVisualStyles = false;
                 dgvSalesInfo.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(52, 152, 219);
                 dgvSalesInfo.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
@@ -124,10 +124,10 @@ namespace PharmacyManagementSystem
                 this.dgvSalesInfo.AutoGenerateColumns = false;
                 this.dgvSalesInfo.DataSource = ds.Tables[0];
                 
-                // Update subtitle with record count and timestamp
+               
                 this.lblSubTitle.Text = $"Total Records: {ds.Tables[0].Rows.Count} • Last Updated: {DateTime.Now:HH:mm:ss}";
                 
-                // Update statistics
+              
                 this.UpdateStatistics();
             }
             catch (Exception ex)
@@ -141,19 +141,19 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Get total records count
+                
                 var countQuery = "SELECT COUNT(*) FROM SalesDetails";
                 var countResult = this.Da.ExecuteQueryTable(countQuery);
                 int totalRecords = Convert.ToInt32(countResult.Rows[0][0]);
                 this.lblRecordCountValue.Text = totalRecords.ToString();
 
-                // Get total sales value
+                
                 var totalQuery = "SELECT ISNULL(SUM(Subtotal), 0) FROM SalesDetails";
                 var totalResult = this.Da.ExecuteQueryTable(totalQuery);
                 decimal totalSales = Convert.ToDecimal(totalResult.Rows[0][0]);
                 this.lblTotalSalesValue.Text = totalSales.ToString("C");
 
-                // Calculate average sale value
+                
                 decimal avgSale = totalRecords > 0 ? totalSales / totalRecords : 0;
                 this.lblAvgSaleValue.Text = avgSale.ToString("C");
             }
@@ -162,7 +162,7 @@ namespace PharmacyManagementSystem
                 MessageBox.Show($"Error updating statistics: {ex.Message}", "Statistics Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 
-                // Set default values on error
+                
                 this.lblRecordCountValue.Text = "0";
                 this.lblTotalSalesValue.Text = "$0.00";
                 this.lblAvgSaleValue.Text = "$0.00";
@@ -248,7 +248,7 @@ namespace PharmacyManagementSystem
                     return;
                 }
 
-                // Sanitize inputs to prevent SQL injection
+               
                 string saleDetailId = txtSaleDetailsId.Text.Trim().Replace("'", "''");
                 string saleId = txtSaleId.Text.Trim().Replace("'", "''");
                 string medicineId = txtMedicineId.Text.Trim().Replace("'", "''");
@@ -256,7 +256,7 @@ namespace PharmacyManagementSystem
                 decimal unitPrice = decimal.Parse(txtUnitPrice.Text.Trim());
                 decimal subtotal = decimal.Parse(txtSubtotal.Text.Trim());
 
-                // Check if sale detail ID already exists
+                
                 var checkQuery = $"SELECT COUNT(*) FROM SalesDetails WHERE SaleDetailID = {saleDetailId}";
                 var checkResult = this.Da.ExecuteQueryTable(checkQuery);
                 int count = Convert.ToInt32(checkResult.Rows[0][0]);
@@ -266,7 +266,7 @@ namespace PharmacyManagementSystem
 
                 if (count > 0)
                 {
-                    // Update existing record
+                    
                     sql = $@"UPDATE SalesDetails SET 
                             SaleID = {saleId},
                             MedicineID = {medicineId},
@@ -278,7 +278,7 @@ namespace PharmacyManagementSystem
                 }
                 else
                 {
-                    // Insert new record
+                    
                     sql = $@"INSERT INTO SalesDetails (SaleDetailID, SaleID, MedicineID, Quantity, UnitPrice, Subtotal)
                             VALUES ({saleDetailId}, {saleId}, {medicineId}, {quantity}, {unitPrice}, {subtotal})";
                     operation = "added";
@@ -319,52 +319,87 @@ namespace PharmacyManagementSystem
                 if (dgvSalesInfo.SelectedRows.Count > 0)
                 {
                     var selectedRow = dgvSalesInfo.SelectedRows[0];
+
+                   
+                    if (selectedRow.Cells["SaleDetailID"].Value != null)
+                        txtSaleDetailsId.Text = selectedRow.Cells["SaleDetailID"].Value.ToString();
+                    else
+                        txtSaleDetailsId.Text = "";
+
+                   
+                    if (selectedRow.Cells["SaleID"].Value != null)
+                        txtSaleId.Text = selectedRow.Cells["SaleID"].Value.ToString();
+                    else
+                        txtSaleId.Text = "";
+
+                   
+                    if (selectedRow.Cells["MedicineID"].Value != null)
+                        txtMedicineId.Text = selectedRow.Cells["MedicineID"].Value.ToString();
+                    else
+                        txtMedicineId.Text = "";
+
+                   
+                    if (selectedRow.Cells["Quantity"].Value != null)
+                        txtQuantity.Text = selectedRow.Cells["Quantity"].Value.ToString();
+                    else
+                        txtQuantity.Text = "";
+
+                  
+                    if (selectedRow.Cells["UnitPrice"].Value != null)
+                        txtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value.ToString();
+                    else
+                        txtUnitPrice.Text = "";
+
+                  
+                    if (selectedRow.Cells["Subtotal"].Value != null)
+                        txtSubtotal.Text = selectedRow.Cells["Subtotal"].Value.ToString();
+                    else
+                        txtSubtotal.Text = "";
+
                     
-                    // Load data into edit form controls
-                    txtSaleDetailsId.Text = selectedRow.Cells["SaleDetailID"].Value?.ToString() ?? "";
-                    txtSaleId.Text = selectedRow.Cells["SaleID"].Value?.ToString() ?? "";
-                    txtMedicineId.Text = selectedRow.Cells["MedicineID"].Value?.ToString() ?? "";
-                    txtQuantity.Text = selectedRow.Cells["Quantity"].Value?.ToString() ?? "";
-                    txtUnitPrice.Text = selectedRow.Cells["UnitPrice"].Value?.ToString() ?? "";
-                    txtSubtotal.Text = selectedRow.Cells["Subtotal"].Value?.ToString() ?? "";
-                    
-                    // Focus on first editable field
                     txtSaleId.Focus();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error loading selected record for editing: {ex.Message}", "Load Error", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error loading selected record for editing: {ex.Message}",
+                    "Load Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                // Real-time search functionality
+               
                 if (string.IsNullOrWhiteSpace(txtSearch.Text))
                 {
-                    this.LoadSalesInfo(); // Show all if search is empty
+                    this.LoadSalesInfo(); 
                     return;
                 }
 
-                var searchTerm = txtSearch.Text.Trim().Replace("'", "''"); // Prevent SQL injection
+                var searchTerm = txtSearch.Text.Trim().Replace("'", "''"); 
                 var sql = $@"SELECT SaleDetailID, SaleID, MedicineID, Quantity, UnitPrice, Subtotal 
-                           FROM SalesDetails WHERE 
-                           CAST(SaleDetailID AS NVARCHAR) LIKE '%{searchTerm}%' OR
-                           CAST(SaleID AS NVARCHAR) LIKE '%{searchTerm}%' OR
-                           CAST(MedicineID AS NVARCHAR) LIKE '%{searchTerm}%' OR
-                           CAST(Quantity AS NVARCHAR) LIKE '%{searchTerm}%' OR
-                           CAST(UnitPrice AS NVARCHAR) LIKE '%{searchTerm}%' OR
-                           CAST(Subtotal AS NVARCHAR) LIKE '%{searchTerm}%'";
+                           FROM SalesDetails WHERE
+                           SaleDetailID = '{searchTerm}' OR
+                           SaleID = '{searchTerm}' OR
+                           MedicineID = '{searchTerm}' OR
+                           Quantity = '{searchTerm}' OR
+                           UnitPrice = '{searchTerm}' OR
+                           Subtotal = '{searchTerm}' OR
+                           CONVERT(NVARCHAR, SaleDetailID) LIKE '%{searchTerm}%' OR
+                           CONVERT(NVARCHAR, SaleID) LIKE '%{searchTerm}%' OR
+                           CONVERT(NVARCHAR, MedicineID) LIKE '%{searchTerm}%' OR
+                           CONVERT(NVARCHAR, Quantity) LIKE '%{searchTerm}%' OR
+                           CONVERT(NVARCHAR, UnitPrice) LIKE '%{searchTerm}%' OR
+                           CONVERT(NVARCHAR, Subtotal) LIKE '%{searchTerm}%'";
 
                 this.LoadSalesInfo(sql);
             }
             catch (Exception ex)
             {
-                // Don't show error for real-time search to avoid interrupting user typing
+             
                 System.Diagnostics.Debug.WriteLine($"Search error: {ex.Message}");
             }
         }
@@ -375,7 +410,7 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Clear all edit form fields
+                
                 txtSaleDetailsId.Clear();
                 txtSaleId.Clear();
                 txtMedicineId.Clear();
@@ -385,8 +420,7 @@ namespace PharmacyManagementSystem
                 
                 dgvSalesInfo.ClearSelection();
                 
-                // Keep edit form visible - don't hide it
-                // Edit form stays visible for continuous use
+               
             }
             catch (Exception ex)
             {
@@ -399,7 +433,7 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Check required text fields
+              
                 if (string.IsNullOrWhiteSpace(txtSaleDetailsId.Text) ||
                     string.IsNullOrWhiteSpace(txtSaleId.Text) ||
                     string.IsNullOrWhiteSpace(txtMedicineId.Text) ||
@@ -410,7 +444,7 @@ namespace PharmacyManagementSystem
                     return false;
                 }
 
-                // Validate numeric fields
+                
                 if (!int.TryParse(txtSaleDetailsId.Text, out int saleDetailId) || saleDetailId <= 0)
                 {
                     MessageBox.Show("Please enter a valid Sale Detail ID (positive integer).", "Validation Error", 
@@ -459,9 +493,9 @@ namespace PharmacyManagementSystem
                     return false;
                 }
 
-                // Business logic validation
+                
                 decimal expectedSubtotal = quantity * unitPrice;
-                if (Math.Abs(subtotal - expectedSubtotal) > 0.01m) // Allow small floating point differences
+                if (Math.Abs(subtotal - expectedSubtotal) > 0.01m) 
                 {
                     var result = MessageBox.Show($"Subtotal ({subtotal:C}) doesn't match calculated value ({expectedSubtotal:C}). Continue anyway?", 
                         "Subtotal Mismatch", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -482,7 +516,7 @@ namespace PharmacyManagementSystem
             }
         }
 
-        // Auto-calculate subtotal when quantity or unit price changes
+        
         private void txtQuantity_TextChanged(object sender, EventArgs e)
         {
             CalculateSubtotal();
@@ -513,37 +547,31 @@ namespace PharmacyManagementSystem
         #endregion
 
         #region Public Methods for External Access
-        /// <summary>
-        /// Public method to refresh sales data from external forms
-        /// </summary>
+        
         public void RefreshSalesData()
         {
             this.LoadSalesInfo();
         }
 
-        /// <summary>
-        /// Public method to search sales data from external forms
-        /// </summary>
-        /// <param name="searchTerm">Term to search for</param>
+       
+        
         public void SearchSalesData(string searchTerm)
         {
             this.txtSearch.Text = searchTerm;
         }
 
-        /// <summary>
-        /// Public method to manually show the edit form for testing
-        /// </summary>
+        
         public void ShowEditFormForTesting()
         {
             try
             {
-                // Show save button
+                
                 this.btnSave.Visible = true;
                 
-                // Update control layout
+                
                 this.pnlControls.Height = 280;
                 
-                // Populate with test data
+                
                 txtSaleDetailsId.Text = "1";
                 txtSaleId.Text = "1";
                 txtMedicineId.Text = "1";

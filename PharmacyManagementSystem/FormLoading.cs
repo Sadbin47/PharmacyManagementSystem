@@ -22,7 +22,7 @@ namespace PharmacyManagementSystem
         {
             timer = new Timer();
 
-            timer.Interval = 1; // change it to 200
+            timer.Interval = 100;
 
             timer.Tick += Timer_Tick;
 

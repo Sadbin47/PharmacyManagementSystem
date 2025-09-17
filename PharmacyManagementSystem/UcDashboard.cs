@@ -32,17 +32,17 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Get manager count
-                var managersQuery = "SELECT COUNT(*) FROM SignIn WHERE Role = 'manager'";
+                
+                var managersQuery = "SELECT COUNT(*) FROM Role WHERE Role = 'manager'";
                 var managers = this.Da.ExecuteQueryTable(managersQuery);
                 lblManagerCount.Text = managers.Rows[0][0].ToString();
 
-                // Get salesman count
-                var salesmenQuery = "SELECT COUNT(*) FROM SignIn WHERE Role = 'salesman'";
+               
+                var salesmenQuery = "SELECT COUNT(*) FROM Role WHERE Role = 'salesman'";
                 var salesmen = this.Da.ExecuteQueryTable(salesmenQuery);
                 lblSalesmanCount.Text = salesmen.Rows[0][0].ToString();
 
-                // Get medicines count
+                
                 try
                 {
                     var medicinesQuery = "SELECT COUNT(*) FROM Medicine";
@@ -66,7 +66,7 @@ namespace PharmacyManagementSystem
         private void SetupAutoRefresh()
         {
             refreshTimer = new Timer();
-            refreshTimer.Interval = 5000; // Refresh every 5 seconds
+            refreshTimer.Interval = 5000; 
             refreshTimer.Tick += (s, e) => LoadLiveCounts();
             refreshTimer.Start();
         }

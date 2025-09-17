@@ -23,7 +23,7 @@ namespace PharmacyManagementSystem
                 this.SetupDataGridView();
                 this.InitializeEvents();
                 this.ClearAll();
-                // Auto-load users on startup as requested
+                
                 this.PopulateGridView();
             }
             catch (Exception ex)
@@ -38,7 +38,7 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Wire up event handlers
+               
                 this.btnShowALL.Click += btnShowALL_Click;
                 this.btnDelete.Click += btnDelete_Click;
                 this.btnSave.Click += btnSave_Click;
@@ -46,7 +46,7 @@ namespace PharmacyManagementSystem
                 this.tbSearch.TextChanged += tbSearch_TextChanged;
                 this.Load += UcViewUser_Load;
                 
-                // Initially hide the save button - only show when editing
+                
                 this.btnSave.Visible = false;
             }
             catch (Exception ex)
@@ -73,11 +73,11 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Map DataGridView columns to database columns
+                
                 dgvUsers.Columns["UserId"].DataPropertyName = "UserId";
                 dgvUsers.Columns["UserName"].DataPropertyName = "UserName";
                 dgvUsers.Columns["Password"].DataPropertyName = "Password";
-                dgvUsers.Columns["Role"].DataPropertyName = "Role";
+                
             }
             catch (Exception ex)
             {
@@ -88,7 +88,7 @@ namespace PharmacyManagementSystem
         #endregion
 
         #region Data Display Methods
-        private void PopulateGridView(string sql = "SELECT UserId, UserName, Password, Role FROM SignIn")
+        private void PopulateGridView(string sql = "SELECT UserId, UserName, Password FROM Users")
         {
             try
             {
@@ -96,8 +96,8 @@ namespace PharmacyManagementSystem
                 this.dgvUsers.AutoGenerateColumns = false;
                 this.dgvUsers.DataSource = ds.Tables[0];
                 
-                // Update status in title
-                this.lblTitle.Text = $"💊 View User ({ds.Tables[0].Rows.Count} users)";
+                
+                this.lblTitle.Text = $"💊 View User ({ds.Tables[0].Rows.Count} Users)";
             }
             catch (Exception ex)
             {
@@ -112,7 +112,7 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Show all users and clear search/form
+                
                 this.PopulateGridView();
                 this.tbSearch.Clear();
                 this.ClearAll();
@@ -147,7 +147,7 @@ namespace PharmacyManagementSystem
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    var sql = $"DELETE FROM SignIn WHERE UserId = '{userId.Replace("'", "''")}'";
+                    var sql = $"DELETE FROM Users WHERE UserId = '{userId.Replace("'", "''")}'";
                     int result = this.Da.ExecuteDMLQuery(sql);
 
                     if (result > 0)
@@ -182,14 +182,14 @@ namespace PharmacyManagementSystem
                     return;
                 }
 
-                // Sanitize inputs to prevent SQL injection
+                
                 string userId = txtUserId.Text.Trim().Replace("'", "''");
                 string userName = txtUserName.Text.Trim().Replace("'", "''");
                 string password = txtPassword.Text.Trim().Replace("'", "''");
-                string role = cmbUserSelect.Text.Replace("'", "''");
+                
 
-                // Check if user ID already exists
-                var checkQuery = $"SELECT COUNT(*) FROM SignIn WHERE UserId = '{userId}'";
+               
+                var checkQuery = $"SELECT COUNT(*) FROM Users WHERE UserId = '{userId}'";
                 var checkResult = this.Da.ExecuteQueryTable(checkQuery);
                 int count = Convert.ToInt32(checkResult.Rows[0][0]);
 
@@ -198,19 +198,19 @@ namespace PharmacyManagementSystem
 
                 if (count > 0)
                 {
-                    // Update existing record
-                    sql = $@"UPDATE SignIn SET 
+                    
+                    sql = $@"UPDATE Users SET 
                             UserName = '{userName}',
                             Password = '{password}',
-                            Role = '{role}'
+                        
                             WHERE UserId = '{userId}'";
                     operation = "updated";
                 }
                 else
                 {
-                    // Insert new record
-                    sql = $@"INSERT INTO SignIn (UserId, UserName, Password, Role)
-                            VALUES ('{userId}', '{userName}', '{password}', '{role}')";
+                    
+                    sql = $@"INSERT INTO Users (UserId, UserName, Password)
+                            VALUES ('{userId}', '{userName}', '{password}')";
                     operation = "added";
                 }
 
@@ -245,22 +245,18 @@ namespace PharmacyManagementSystem
                 {
                     var selectedRow = dgvUsers.SelectedRows[0];
                     
-                    // Load data into form controls for editing
+                  
                     txtUserId.Text = selectedRow.Cells["UserId"].Value?.ToString() ?? "";
                     txtUserName.Text = selectedRow.Cells["UserName"].Value?.ToString() ?? "";
                     txtPassword.Text = selectedRow.Cells["Password"].Value?.ToString() ?? "";
                     
-                    // Set role in combobox
-                    string role = selectedRow.Cells["Role"].Value?.ToString() ?? "";
-                    if (cmbUserSelect.Items.Contains(role))
-                    {
-                        cmbUserSelect.Text = role;
-                    }
                     
-                    // Show save button when editing
+                    
+                    
+                    
                     this.btnSave.Visible = true;
                     
-                    // Focus on first editable field
+                    
                     txtUserName.Focus();
                 }
             }
@@ -275,24 +271,23 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Automatic search functionality as requested
+                
                 if (string.IsNullOrWhiteSpace(tbSearch.Text))
                 {
-                    this.PopulateGridView(); // Show all if search is empty
+                    this.PopulateGridView(); 
                     return;
                 }
 
-                var searchTerm = tbSearch.Text.Trim().Replace("'", "''"); // Prevent SQL injection
-                var sql = $@"SELECT UserId, UserName, Password, Role FROM SignIn WHERE 
-                           UserName LIKE '%{searchTerm}%' OR 
-                           Role LIKE '%{searchTerm}%' OR
+                var searchTerm = tbSearch.Text.Trim().Replace("'", "''"); 
+                var sql = $@"SELECT UserId, UserName, Password FROM Users WHERE 
+                           UserName LIKE '%{searchTerm}%' OR                
                            UserId LIKE '%{searchTerm}%'";
 
                 this.PopulateGridView(sql);
             }
             catch (Exception ex)
             {
-                // Don't show error for real-time search to avoid interrupting user typing
+                
                 System.Diagnostics.Debug.WriteLine($"Search error: {ex.Message}");
             }
         }
@@ -303,24 +298,24 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Clear all form fields
+                
                 txtUserId.Clear();
                 txtUserName.Clear();
                 txtPassword.Clear();
                 
-                // Don't clear search box when called from other buttons
+                
                 if (this.ActiveControl != tbSearch)
                 {
                     tbSearch.Clear();
                 }
                 
-                cmbUserSelect.SelectedIndex = -1;
+                
                 dgvUsers.ClearSelection();
                 
-                // Hide save button when clearing
+                
                 this.btnSave.Visible = false;
                 
-                // Focus on first input
+                
                 txtUserId.Focus();
             }
             catch (Exception ex)
@@ -334,16 +329,16 @@ namespace PharmacyManagementSystem
         {
             try
             {
-                // Check required text fields
+
                 if (string.IsNullOrWhiteSpace(txtUserId.Text) ||
                     string.IsNullOrWhiteSpace(txtUserName.Text) ||
-                    string.IsNullOrWhiteSpace(txtPassword.Text) ||
-                    cmbUserSelect.SelectedIndex == -1)
+                    string.IsNullOrWhiteSpace(txtPassword.Text) )
+                    
                 {
                     return false;
                 }
 
-                // Validate User ID
+                
                 if (txtUserId.Text.Trim().Length < 2)
                 {
                     MessageBox.Show("User ID must be at least 2 characters long.", "Validation Error", 
@@ -352,7 +347,7 @@ namespace PharmacyManagementSystem
                     return false;
                 }
 
-                // Validate Username
+               
                 if (txtUserName.Text.Trim().Length < 3)
                 {
                     MessageBox.Show("Username must be at least 3 characters long.", "Validation Error", 
@@ -361,7 +356,7 @@ namespace PharmacyManagementSystem
                     return false;
                 }
 
-                // Validate Password
+                
                 if (txtPassword.Text.Length < 4)
                 {
                     MessageBox.Show("Password must be at least 4 characters long.", "Validation Error", 
@@ -382,7 +377,7 @@ namespace PharmacyManagementSystem
         #endregion
 
         #region Legacy Methods (kept for compatibility)
-        // Keep the old method name for any external references
+        
         public void LoadSignInData()
         {
             this.PopulateGridView();
@@ -390,8 +385,7 @@ namespace PharmacyManagementSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            // This method is now handled by tbSearch_TextChanged for real-time search
-            // But keep it for any existing button references
+            
             tbSearch_TextChanged(sender, e);
         }
         #endregion
