@@ -37,7 +37,6 @@ namespace PharmacyManagementSystem
 
         private void AutoCaptureSalesmanID()
         {
-            // Set salesman ID based on login status
             if (FormLogin.IsUserLoggedIn() && !string.IsNullOrEmpty(FormLogin.LoggedInUserId))
             {
                 txtSalesmanID.Text = FormLogin.LoggedInUserId;
@@ -349,7 +348,7 @@ namespace PharmacyManagementSystem
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    int saleId = GenerateId("SELECT MAX(SaleId) + 1 FROM Sales");
+                    int saleId = GenerateId("SELECT COUNT(*) + 1 FROM Sales");
 
                     this.Sql = "INSERT INTO Sales (SaleId, SaleDate, SalesmanID, CustomerName, TotalAmount, PaymentMethod) " +
                               "VALUES ('" + saleId + "', " +

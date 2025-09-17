@@ -52,7 +52,6 @@ namespace PharmacyManagementSystem
                 this.dgvMedicineList.AutoGenerateColumns = false;
                 this.dgvMedicineList.DataSource = this.Ds.Tables[0];
                 
-                // Update status
                 this.lblSubTitle.Text = $"Total Records: {this.Ds.Tables[0].Rows.Count} • Last Updated: {DateTime.Now:HH:mm:ss}";
             }
             catch (Exception ex)
@@ -225,7 +224,6 @@ namespace PharmacyManagementSystem
                 }
                 else
                 {
-                    // Insert new record
                     this.Sql = "INSERT INTO Medicine (MedicineId, Name, Category, UnitPrice, UnitCost, BatchNumber, Manufacturer, ExpiryDate, UnitAvailable) " +
                               "VALUES ('" + txtMedID.Text + "', " +
                               "'" + txtName.Text.Trim() + "', " +

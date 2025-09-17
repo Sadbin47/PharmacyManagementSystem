@@ -201,8 +201,7 @@ namespace PharmacyManagementSystem
                     
                     sql = $@"UPDATE Users SET 
                             UserName = '{userName}',
-                            Password = '{password}',
-                        
+                            Password = '{password}'
                             WHERE UserId = '{userId}'";
                     operation = "updated";
                 }
