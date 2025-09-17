@@ -64,17 +64,17 @@
             this.lblUnitPrice = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             this.dgvMedicineList = new System.Windows.Forms.DataGridView();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.logoImageBox = new System.Windows.Forms.PictureBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.lblSubTitle = new System.Windows.Forms.Label();
-            this.accentPanel = new System.Windows.Forms.Panel();
             this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.unitavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.logoImageBox = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblSubTitle = new System.Windows.Forms.Label();
+            this.accentPanel = new System.Windows.Forms.Panel();
             this.pnlSalesModule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicineList)).BeginInit();
@@ -148,6 +148,7 @@
             this.txtSalesmanID.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalesmanID.Location = new System.Drawing.Point(598, 357);
             this.txtSalesmanID.Name = "txtSalesmanID";
+            this.txtSalesmanID.ReadOnly = true;
             this.txtSalesmanID.Size = new System.Drawing.Size(100, 23);
             this.txtSalesmanID.TabIndex = 155;
             // 
@@ -528,6 +529,49 @@
             this.dgvMedicineList.TabIndex = 128;
             this.dgvMedicineList.DoubleClick += new System.EventHandler(this.dgvMedicineList_DoubleClick);
             // 
+            // medicineId
+            // 
+            this.medicineId.DataPropertyName = "MedicineId";
+            this.medicineId.HeaderText = "ID";
+            this.medicineId.Name = "medicineId";
+            this.medicineId.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.DataPropertyName = "Name";
+            this.name.HeaderText = "Medicine Name";
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.DataPropertyName = "Category";
+            this.category.HeaderText = "Category";
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // unitprice
+            // 
+            this.unitprice.DataPropertyName = "UnitPrice";
+            this.unitprice.HeaderText = "Price";
+            this.unitprice.Name = "unitprice";
+            this.unitprice.ReadOnly = true;
+            // 
+            // expirydate
+            // 
+            this.expirydate.DataPropertyName = "ExpiryDate";
+            this.expirydate.HeaderText = "Expiry Date";
+            this.expirydate.Name = "expirydate";
+            this.expirydate.ReadOnly = true;
+            // 
+            // unitavailable
+            // 
+            this.unitavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitavailable.DataPropertyName = "UnitAvailable";
+            this.unitavailable.HeaderText = "Total Units";
+            this.unitavailable.Name = "unitavailable";
+            this.unitavailable.ReadOnly = true;
+            // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
@@ -582,49 +626,6 @@
             this.accentPanel.Name = "accentPanel";
             this.accentPanel.Size = new System.Drawing.Size(1075, 5);
             this.accentPanel.TabIndex = 3;
-            // 
-            // medicineId
-            // 
-            this.medicineId.DataPropertyName = "MedicineId";
-            this.medicineId.HeaderText = "ID";
-            this.medicineId.Name = "medicineId";
-            this.medicineId.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "Name";
-            this.name.HeaderText = "Medicine Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.DataPropertyName = "Category";
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // unitprice
-            // 
-            this.unitprice.DataPropertyName = "UnitPrice";
-            this.unitprice.HeaderText = "Price";
-            this.unitprice.Name = "unitprice";
-            this.unitprice.ReadOnly = true;
-            // 
-            // expirydate
-            // 
-            this.expirydate.DataPropertyName = "ExpiryDate";
-            this.expirydate.HeaderText = "Expiry Date";
-            this.expirydate.Name = "expirydate";
-            this.expirydate.ReadOnly = true;
-            // 
-            // unitavailable
-            // 
-            this.unitavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unitavailable.DataPropertyName = "UnitAvailable";
-            this.unitavailable.HeaderText = "Total Units";
-            this.unitavailable.Name = "unitavailable";
-            this.unitavailable.ReadOnly = true;
             // 
             // UcSell
             // 

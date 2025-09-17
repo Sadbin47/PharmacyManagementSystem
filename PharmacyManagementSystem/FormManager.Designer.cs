@@ -41,6 +41,7 @@
             this.logoImageBox = new System.Windows.Forms.PictureBox();
             this.headerPanel = new System.Windows.Forms.Panel();
             this.pnlInfoPlace = new System.Windows.Forms.Panel();
+            this.btnManagerLogout = new System.Windows.Forms.Button();
             this.pnlManagement.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.headerPanel.SuspendLayout();
@@ -50,10 +51,10 @@
             // 
             this.btnDashboard.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnDashboard.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboard.Location = new System.Drawing.Point(32, 37);
-            this.btnDashboard.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDashboard.Location = new System.Drawing.Point(43, 46);
+            this.btnDashboard.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(130, 39);
+            this.btnDashboard.Size = new System.Drawing.Size(173, 48);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = false;
@@ -63,10 +64,10 @@
             // 
             this.btnSignUp.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnSignUp.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSignUp.Location = new System.Drawing.Point(32, 103);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSignUp.Location = new System.Drawing.Point(43, 127);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(130, 39);
+            this.btnSignUp.Size = new System.Drawing.Size(173, 48);
             this.btnSignUp.TabIndex = 1;
             this.btnSignUp.Text = "Add User";
             this.btnSignUp.UseVisualStyleBackColor = false;
@@ -76,10 +77,10 @@
             // 
             this.btnViewUser.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnViewUser.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewUser.Location = new System.Drawing.Point(32, 167);
-            this.btnViewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewUser.Location = new System.Drawing.Point(43, 206);
+            this.btnViewUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewUser.Name = "btnViewUser";
-            this.btnViewUser.Size = new System.Drawing.Size(130, 39);
+            this.btnViewUser.Size = new System.Drawing.Size(173, 48);
             this.btnViewUser.TabIndex = 2;
             this.btnViewUser.Text = "View User";
             this.btnViewUser.UseVisualStyleBackColor = false;
@@ -89,10 +90,10 @@
             // 
             this.btnLogOut.BackColor = System.Drawing.Color.Red;
             this.btnLogOut.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogOut.Location = new System.Drawing.Point(32, 353);
-            this.btnLogOut.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogOut.Location = new System.Drawing.Point(43, 469);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(130, 39);
+            this.btnLogOut.Size = new System.Drawing.Size(173, 48);
             this.btnLogOut.TabIndex = 4;
             this.btnLogOut.Text = "Exit";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -102,10 +103,10 @@
             // 
             this.btnSalesInfo.BackColor = System.Drawing.Color.LightSeaGreen;
             this.btnSalesInfo.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalesInfo.Location = new System.Drawing.Point(32, 234);
-            this.btnSalesInfo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalesInfo.Location = new System.Drawing.Point(43, 288);
+            this.btnSalesInfo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSalesInfo.Name = "btnSalesInfo";
-            this.btnSalesInfo.Size = new System.Drawing.Size(130, 39);
+            this.btnSalesInfo.Size = new System.Drawing.Size(173, 48);
             this.btnSalesInfo.TabIndex = 5;
             this.btnSalesInfo.Text = "Sales Info";
             this.btnSalesInfo.UseVisualStyleBackColor = false;
@@ -114,24 +115,26 @@
             // pnlManagement
             // 
             this.pnlManagement.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.pnlManagement.Controls.Add(this.btnManagerLogout);
             this.pnlManagement.Controls.Add(this.btnSalesInfo);
             this.pnlManagement.Controls.Add(this.btnLogOut);
             this.pnlManagement.Controls.Add(this.btnViewUser);
             this.pnlManagement.Controls.Add(this.btnSignUp);
             this.pnlManagement.Controls.Add(this.btnDashboard);
-            this.pnlManagement.Location = new System.Drawing.Point(0, 98);
-            this.pnlManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlManagement.Location = new System.Drawing.Point(0, 121);
+            this.pnlManagement.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlManagement.Name = "pnlManagement";
-            this.pnlManagement.Size = new System.Drawing.Size(194, 523);
+            this.pnlManagement.Size = new System.Drawing.Size(259, 644);
             this.pnlManagement.TabIndex = 9;
             // 
             // accentPanel
             // 
             this.accentPanel.BackColor = System.Drawing.Color.BlueViolet;
             this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.accentPanel.Location = new System.Drawing.Point(0, 95);
+            this.accentPanel.Location = new System.Drawing.Point(0, 117);
+            this.accentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.accentPanel.Name = "accentPanel";
-            this.accentPanel.Size = new System.Drawing.Size(909, 5);
+            this.accentPanel.Size = new System.Drawing.Size(1213, 6);
             this.accentPanel.TabIndex = 3;
             // 
             // lblSubTitle
@@ -139,9 +142,10 @@
             this.lblSubTitle.AutoSize = true;
             this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
-            this.lblSubTitle.Location = new System.Drawing.Point(115, 65);
+            this.lblSubTitle.Location = new System.Drawing.Point(153, 80);
+            this.lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(385, 21);
+            this.lblSubTitle.Size = new System.Drawing.Size(482, 28);
             this.lblSubTitle.TabIndex = 2;
             this.lblSubTitle.Text = "Manage System • Shop Control • Analytics Dashboard";
             // 
@@ -150,9 +154,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblTitle.Location = new System.Drawing.Point(110, 20);
+            this.lblTitle.Location = new System.Drawing.Point(147, 25);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(282, 45);
+            this.lblTitle.Size = new System.Drawing.Size(352, 54);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "◆ Manager Panel";
             // 
@@ -160,9 +165,10 @@
             // 
             this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
             this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Location = new System.Drawing.Point(40, 25);
+            this.logoImageBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.Size = new System.Drawing.Size(80, 74);
             this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoImageBox.TabIndex = 0;
             this.logoImageBox.TabStop = false;
@@ -176,29 +182,43 @@
             this.headerPanel.Controls.Add(this.accentPanel);
             this.headerPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.headerPanel.Location = new System.Drawing.Point(0, 0);
+            this.headerPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.headerPanel.Name = "headerPanel";
-            this.headerPanel.Size = new System.Drawing.Size(909, 100);
+            this.headerPanel.Size = new System.Drawing.Size(1213, 123);
             this.headerPanel.TabIndex = 8;
             // 
             // pnlInfoPlace
             // 
-            this.pnlInfoPlace.Location = new System.Drawing.Point(194, 100);
-            this.pnlInfoPlace.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlInfoPlace.Location = new System.Drawing.Point(259, 123);
+            this.pnlInfoPlace.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pnlInfoPlace.Name = "pnlInfoPlace";
-            this.pnlInfoPlace.Size = new System.Drawing.Size(712, 521);
+            this.pnlInfoPlace.Size = new System.Drawing.Size(949, 641);
             this.pnlInfoPlace.TabIndex = 10;
+            // 
+            // btnManagerLogout
+            // 
+            this.btnManagerLogout.BackColor = System.Drawing.Color.Red;
+            this.btnManagerLogout.Font = new System.Drawing.Font("Calibri", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManagerLogout.Location = new System.Drawing.Point(43, 408);
+            this.btnManagerLogout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnManagerLogout.Name = "btnManagerLogout";
+            this.btnManagerLogout.Size = new System.Drawing.Size(173, 48);
+            this.btnManagerLogout.TabIndex = 6;
+            this.btnManagerLogout.Text = "Log Out";
+            this.btnManagerLogout.UseVisualStyleBackColor = false;
+            this.btnManagerLogout.Click += new System.EventHandler(this.btnManagerLogout_Click);
             // 
             // FormManager
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(909, 630);
+            this.ClientSize = new System.Drawing.Size(1213, 775);
             this.Controls.Add(this.pnlInfoPlace);
             this.Controls.Add(this.headerPanel);
             this.Controls.Add(this.pnlManagement);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormManager";
             this.Text = "FormManager";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormManager_FormClosed);
@@ -224,5 +244,6 @@
         private System.Windows.Forms.PictureBox logoImageBox;
         private System.Windows.Forms.Panel headerPanel;
         private System.Windows.Forms.Panel pnlInfoPlace;
+        private System.Windows.Forms.Button btnManagerLogout;
     }
 }

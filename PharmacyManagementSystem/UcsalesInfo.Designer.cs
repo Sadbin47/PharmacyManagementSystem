@@ -108,7 +108,7 @@
             this.pnlSearch.Controls.Add(this.txtSearch);
             this.pnlSearch.Controls.Add(this.lblSearch);
             this.pnlSearch.Location = new System.Drawing.Point(4, 18);
-            this.pnlSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pnlSearch.Name = "pnlSearch";
             this.pnlSearch.Size = new System.Drawing.Size(306, 98);
             this.pnlSearch.TabIndex = 0;
@@ -120,7 +120,7 @@
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
             this.txtSearch.Location = new System.Drawing.Point(20, 49);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(272, 27);
             this.txtSearch.TabIndex = 1;
@@ -143,7 +143,7 @@
             this.pnlButtons.Controls.Add(this.btnDelete);
             this.pnlButtons.Controls.Add(this.btnSave);
             this.pnlButtons.Location = new System.Drawing.Point(319, 18);
-            this.pnlButtons.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlButtons.Margin = new System.Windows.Forms.Padding(4);
             this.pnlButtons.Name = "pnlButtons";
             this.pnlButtons.Size = new System.Drawing.Size(384, 98);
             this.pnlButtons.TabIndex = 1;
@@ -156,7 +156,7 @@
             this.btnRefresh.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefresh.ForeColor = System.Drawing.Color.White;
             this.btnRefresh.Location = new System.Drawing.Point(13, 18);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(113, 62);
             this.btnRefresh.TabIndex = 0;
@@ -171,7 +171,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
             this.btnDelete.Location = new System.Drawing.Point(140, 18);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(113, 62);
             this.btnDelete.TabIndex = 1;
@@ -186,7 +186,7 @@
             this.btnSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Location = new System.Drawing.Point(267, 18);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(113, 62);
             this.btnSave.TabIndex = 2;
@@ -207,7 +207,7 @@
             this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
             this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
             this.logoImageBox.Location = new System.Drawing.Point(40, 25);
-            this.logoImageBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logoImageBox.Margin = new System.Windows.Forms.Padding(4);
             this.logoImageBox.Name = "logoImageBox";
             this.logoImageBox.Size = new System.Drawing.Size(80, 74);
             this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -231,7 +231,7 @@
             this.accentPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(69)))), ((int)(((byte)(19)))));
             this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.accentPanel.Location = new System.Drawing.Point(0, 117);
-            this.accentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.accentPanel.Margin = new System.Windows.Forms.Padding(4);
             this.accentPanel.Name = "accentPanel";
             this.accentPanel.Size = new System.Drawing.Size(973, 6);
             this.accentPanel.TabIndex = 3;
@@ -261,7 +261,7 @@
             this.dgvSalesInfo.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvSalesInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.dgvSalesInfo.Location = new System.Drawing.Point(0, 487);
-            this.dgvSalesInfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvSalesInfo.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSalesInfo.Name = "dgvSalesInfo";
             this.dgvSalesInfo.ReadOnly = true;
             this.dgvSalesInfo.RowHeadersWidth = 51;
@@ -313,7 +313,7 @@
             this.pnlControls.Controls.Add(this.pnlStats);
             this.pnlControls.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlControls.Location = new System.Drawing.Point(0, 123);
-            this.pnlControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlControls.Margin = new System.Windows.Forms.Padding(4);
             this.pnlControls.Name = "pnlControls";
             this.pnlControls.Size = new System.Drawing.Size(973, 321);
             this.pnlControls.TabIndex = 135;
@@ -445,7 +445,7 @@
             this.pnlStats.Controls.Add(this.pnlStatCard2);
             this.pnlStats.Controls.Add(this.pnlStatCard1);
             this.pnlStats.Location = new System.Drawing.Point(711, 25);
-            this.pnlStats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlStats.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStats.Name = "pnlStats";
             this.pnlStats.Size = new System.Drawing.Size(253, 292);
             this.pnlStats.TabIndex = 3;
@@ -456,7 +456,7 @@
             this.pnlStatCard3.Controls.Add(this.lblAvgSaleValue);
             this.pnlStatCard3.Controls.Add(this.lblAvgSaleTitle);
             this.pnlStatCard3.Location = new System.Drawing.Point(13, 196);
-            this.pnlStatCard3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlStatCard3.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStatCard3.Name = "pnlStatCard3";
             this.pnlStatCard3.Size = new System.Drawing.Size(227, 86);
             this.pnlStatCard3.TabIndex = 2;
@@ -481,9 +481,9 @@
             this.lblAvgSaleTitle.Location = new System.Drawing.Point(13, 12);
             this.lblAvgSaleTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblAvgSaleTitle.Name = "lblAvgSaleTitle";
-            this.lblAvgSaleTitle.Size = new System.Drawing.Size(157, 23);
+            this.lblAvgSaleTitle.Size = new System.Drawing.Size(128, 23);
             this.lblAvgSaleTitle.TabIndex = 0;
-            this.lblAvgSaleTitle.Text = "💰 Avg Sale Value";
+            this.lblAvgSaleTitle.Text = "Avg Sale Value";
             // 
             // pnlStatCard2
             // 
@@ -491,7 +491,7 @@
             this.pnlStatCard2.Controls.Add(this.lblTotalSalesValue);
             this.pnlStatCard2.Controls.Add(this.lblTotalSalesTitle);
             this.pnlStatCard2.Location = new System.Drawing.Point(13, 100);
-            this.pnlStatCard2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlStatCard2.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStatCard2.Name = "pnlStatCard2";
             this.pnlStatCard2.Size = new System.Drawing.Size(227, 86);
             this.pnlStatCard2.TabIndex = 1;
@@ -516,9 +516,9 @@
             this.lblTotalSalesTitle.Location = new System.Drawing.Point(13, 14);
             this.lblTotalSalesTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTotalSalesTitle.Name = "lblTotalSalesTitle";
-            this.lblTotalSalesTitle.Size = new System.Drawing.Size(123, 23);
+            this.lblTotalSalesTitle.Size = new System.Drawing.Size(94, 23);
             this.lblTotalSalesTitle.TabIndex = 0;
-            this.lblTotalSalesTitle.Text = "💸 Total Sales";
+            this.lblTotalSalesTitle.Text = "Total Sales";
             // 
             // pnlStatCard1
             // 
@@ -526,7 +526,7 @@
             this.pnlStatCard1.Controls.Add(this.lblRecordCountValue);
             this.pnlStatCard1.Controls.Add(this.lblRecordCountTitle);
             this.pnlStatCard1.Location = new System.Drawing.Point(13, 6);
-            this.pnlStatCard1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlStatCard1.Margin = new System.Windows.Forms.Padding(4);
             this.pnlStatCard1.Name = "pnlStatCard1";
             this.pnlStatCard1.Size = new System.Drawing.Size(227, 86);
             this.pnlStatCard1.TabIndex = 0;
@@ -564,7 +564,7 @@
             this.pnlHeader.Controls.Add(this.accentPanel);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4);
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(973, 123);
             this.pnlHeader.TabIndex = 134;
@@ -577,7 +577,7 @@
             this.Controls.Add(this.dgvSalesInfo);
             this.Controls.Add(this.pnlControls);
             this.Controls.Add(this.pnlHeader);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UcsalesInfo";
             this.Size = new System.Drawing.Size(973, 670);
             this.Load += new System.EventHandler(this.UcsalesInfo_Load);

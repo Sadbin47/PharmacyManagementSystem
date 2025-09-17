@@ -20,5 +20,3 @@ namespace PharmacyManagementSystem
         }
     }
 }
-
-//taskkill /f /im PharmacyManagementSystem.exe

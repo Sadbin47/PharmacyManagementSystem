@@ -44,6 +44,7 @@
             this.txtUserId = new System.Windows.Forms.TextBox();
             this.pnlPassword = new System.Windows.Forms.Label();
             this.pnlUserId = new System.Windows.Forms.Label();
+            this.chkPassword = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.pnlLogin.SuspendLayout();
             this.pnlHeader.SuspendLayout();
@@ -129,6 +130,7 @@
             // 
             this.pnlSignIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.pnlSignIn.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSignIn.Controls.Add(this.chkPassword);
             this.pnlSignIn.Controls.Add(this.lblSignIn);
             this.pnlSignIn.Controls.Add(this.btnCancel);
             this.pnlSignIn.Controls.Add(this.btnLogin);
@@ -236,6 +238,19 @@
             this.pnlUserId.TabIndex = 3;
             this.pnlUserId.Text = "UserID";
             // 
+            // chkPassword
+            // 
+            this.chkPassword.AutoSize = true;
+            this.chkPassword.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            this.chkPassword.ForeColor = System.Drawing.Color.White;
+            this.chkPassword.Location = new System.Drawing.Point(60, 254);
+            this.chkPassword.Name = "chkPassword";
+            this.chkPassword.Size = new System.Drawing.Size(108, 17);
+            this.chkPassword.TabIndex = 10;
+            this.chkPassword.Text = "Show Password";
+            this.chkPassword.UseVisualStyleBackColor = true;
+            this.chkPassword.CheckedChanged += new System.EventHandler(this.chkPassword_CheckedChanged);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -277,5 +292,6 @@
         private System.Windows.Forms.TextBox txtUserId;
         private System.Windows.Forms.Label pnlPassword;
         private System.Windows.Forms.Label pnlUserId;
+        private System.Windows.Forms.CheckBox chkPassword;
     }
 }

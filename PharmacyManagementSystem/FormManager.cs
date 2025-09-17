@@ -69,5 +69,12 @@ namespace PharmacyManagementSystem
             Application.Exit();
         }
 
+        private void btnManagerLogout_Click(object sender, EventArgs e)
+        {
+            FormLogin.Logout();
+            this.Hide();
+            FormLogin login = new FormLogin();
+            login.Show();
+        }
     }
 }

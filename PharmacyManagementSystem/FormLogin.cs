@@ -71,5 +71,17 @@ namespace PharmacyManagementSystem
         {
             return !string.IsNullOrEmpty(LoggedInUserId);
         }
+
+        private void chkPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkPassword.Checked == true)
+            {
+                txtPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                txtPassword.UseSystemPasswordChar = false;
+            }
+        }
     }
 }

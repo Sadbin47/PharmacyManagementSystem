@@ -151,11 +151,11 @@ namespace PharmacyManagementSystem
                 var totalQuery = "SELECT ISNULL(SUM(Subtotal), 0) FROM SalesDetails";
                 var totalResult = this.Da.ExecuteQueryTable(totalQuery);
                 decimal totalSales = Convert.ToDecimal(totalResult.Rows[0][0]);
-                this.lblTotalSalesValue.Text = totalSales.ToString("C");
+                this.lblTotalSalesValue.Text = totalSales.ToString("");
 
                 
                 decimal avgSale = totalRecords > 0 ? totalSales / totalRecords : 0;
-                this.lblAvgSaleValue.Text = avgSale.ToString("C");
+                this.lblAvgSaleValue.Text = avgSale.ToString("");
             }
             catch (Exception ex)
             {
@@ -164,8 +164,8 @@ namespace PharmacyManagementSystem
                 
                 
                 this.lblRecordCountValue.Text = "0";
-                this.lblTotalSalesValue.Text = "$0.00";
-                this.lblAvgSaleValue.Text = "$0.00";
+                this.lblTotalSalesValue.Text = "0.00";
+                this.lblAvgSaleValue.Text = "0.00";
             }
         }
         #endregion

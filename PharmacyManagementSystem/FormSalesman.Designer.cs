@@ -47,15 +47,6 @@
             this.sortComboBox = new System.Windows.Forms.ComboBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvMedicineList = new System.Windows.Forms.DataGridView();
-            this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitcost = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.batchnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnledit = new System.Windows.Forms.Panel();
             this.txtUnitAvailable = new System.Windows.Forms.TextBox();
             this.lblUnitAvailable = new System.Windows.Forms.Label();
@@ -75,6 +66,15 @@
             this.lblCatagory = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblMedicineID = new System.Windows.Forms.Label();
+            this.medicineId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.category = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitprice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitcost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.batchnumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.expirydate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitavailable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoImageBox)).BeginInit();
             this.pnlCRUD.SuspendLayout();
@@ -91,17 +91,19 @@
             this.pnlHeader.Controls.Add(this.accentPanel);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Size = new System.Drawing.Size(1074, 100);
+            this.pnlHeader.Size = new System.Drawing.Size(1432, 123);
             this.pnlHeader.TabIndex = 4;
             // 
             // logoImageBox
             // 
             this.logoImageBox.BackColor = System.Drawing.Color.Transparent;
             this.logoImageBox.Image = global::PharmacyManagementSystem.Properties.Resources.pngegg;
-            this.logoImageBox.Location = new System.Drawing.Point(30, 20);
+            this.logoImageBox.Location = new System.Drawing.Point(40, 25);
+            this.logoImageBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logoImageBox.Name = "logoImageBox";
-            this.logoImageBox.Size = new System.Drawing.Size(60, 60);
+            this.logoImageBox.Size = new System.Drawing.Size(80, 74);
             this.logoImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoImageBox.TabIndex = 0;
             this.logoImageBox.TabStop = false;
@@ -111,9 +113,10 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.DarkTurquoise;
-            this.lblTitle.Location = new System.Drawing.Point(110, 20);
+            this.lblTitle.Location = new System.Drawing.Point(147, 25);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(288, 45);
+            this.lblTitle.Size = new System.Drawing.Size(361, 54);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "◆ Salesman Panel";
             // 
@@ -122,9 +125,10 @@
             this.lblSubTitle.AutoSize = true;
             this.lblSubTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSubTitle.ForeColor = System.Drawing.Color.Cyan;
-            this.lblSubTitle.Location = new System.Drawing.Point(115, 65);
+            this.lblSubTitle.Location = new System.Drawing.Point(153, 80);
+            this.lblSubTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSubTitle.Name = "lblSubTitle";
-            this.lblSubTitle.Size = new System.Drawing.Size(459, 21);
+            this.lblSubTitle.Size = new System.Drawing.Size(574, 28);
             this.lblSubTitle.TabIndex = 2;
             this.lblSubTitle.Text = "Manage System • Inventory Management\' • Analytics Dashboard";
             // 
@@ -132,9 +136,10 @@
             // 
             this.accentPanel.BackColor = System.Drawing.Color.BlueViolet;
             this.accentPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.accentPanel.Location = new System.Drawing.Point(0, 95);
+            this.accentPanel.Location = new System.Drawing.Point(0, 117);
+            this.accentPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.accentPanel.Name = "accentPanel";
-            this.accentPanel.Size = new System.Drawing.Size(1074, 5);
+            this.accentPanel.Size = new System.Drawing.Size(1432, 6);
             this.accentPanel.TabIndex = 3;
             // 
             // pnlCRUD
@@ -150,9 +155,10 @@
             this.pnlCRUD.Controls.Add(this.btnShowALL);
             this.pnlCRUD.Controls.Add(this.sortComboBox);
             this.pnlCRUD.Controls.Add(this.btnDelete);
-            this.pnlCRUD.Location = new System.Drawing.Point(362, 100);
+            this.pnlCRUD.Location = new System.Drawing.Point(483, 123);
+            this.pnlCRUD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnlCRUD.Name = "pnlCRUD";
-            this.pnlCRUD.Size = new System.Drawing.Size(497, 247);
+            this.pnlCRUD.Size = new System.Drawing.Size(663, 304);
             this.pnlCRUD.TabIndex = 9;
             // 
             // lblInfo
@@ -160,9 +166,10 @@
             this.lblInfo.AutoSize = true;
             this.lblInfo.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInfo.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.lblInfo.Location = new System.Drawing.Point(185, 3);
+            this.lblInfo.Location = new System.Drawing.Point(247, 4);
+            this.lblInfo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(294, 19);
+            this.lblInfo.Size = new System.Drawing.Size(351, 23);
             this.lblInfo.TabIndex = 12;
             this.lblInfo.Text = "(Search By Name/Category/Manufacturer)";
             // 
@@ -174,9 +181,10 @@
             this.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogOut.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.ForeColor = System.Drawing.Color.White;
-            this.btnLogOut.Location = new System.Drawing.Point(292, 192);
+            this.btnLogOut.Location = new System.Drawing.Point(389, 236);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLogOut.Name = "btnLogOut";
-            this.btnLogOut.Size = new System.Drawing.Size(100, 35);
+            this.btnLogOut.Size = new System.Drawing.Size(133, 43);
             this.btnLogOut.TabIndex = 11;
             this.btnLogOut.Text = "Log Out";
             this.btnLogOut.UseVisualStyleBackColor = false;
@@ -190,9 +198,10 @@
             this.btnSellItems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSellItems.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSellItems.ForeColor = System.Drawing.Color.White;
-            this.btnSellItems.Location = new System.Drawing.Point(3, 170);
+            this.btnSellItems.Location = new System.Drawing.Point(4, 209);
+            this.btnSellItems.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSellItems.Name = "btnSellItems";
-            this.btnSellItems.Size = new System.Drawing.Size(111, 35);
+            this.btnSellItems.Size = new System.Drawing.Size(148, 43);
             this.btnSellItems.TabIndex = 10;
             this.btnSellItems.Text = "💵 Sell Items";
             this.btnSellItems.UseVisualStyleBackColor = false;
@@ -206,9 +215,10 @@
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.ForeColor = System.Drawing.Color.White;
-            this.btnClear.Location = new System.Drawing.Point(3, 129);
+            this.btnClear.Location = new System.Drawing.Point(4, 159);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(111, 35);
+            this.btnClear.Size = new System.Drawing.Size(148, 43);
             this.btnClear.TabIndex = 9;
             this.btnClear.Text = "⬜ Clear";
             this.btnClear.UseVisualStyleBackColor = false;
@@ -219,9 +229,10 @@
             this.searchLabel.AutoSize = true;
             this.searchLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchLabel.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.searchLabel.Location = new System.Drawing.Point(121, 3);
+            this.searchLabel.Location = new System.Drawing.Point(161, 4);
+            this.searchLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.searchLabel.Name = "searchLabel";
-            this.searchLabel.Size = new System.Drawing.Size(58, 19);
+            this.searchLabel.Size = new System.Drawing.Size(68, 23);
             this.searchLabel.TabIndex = 0;
             this.searchLabel.Text = "Search:";
             // 
@@ -230,9 +241,10 @@
             this.sortLabel.AutoSize = true;
             this.sortLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortLabel.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.sortLabel.Location = new System.Drawing.Point(121, 73);
+            this.sortLabel.Location = new System.Drawing.Point(161, 90);
+            this.sortLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sortLabel.Name = "sortLabel";
-            this.sortLabel.Size = new System.Drawing.Size(62, 19);
+            this.sortLabel.Size = new System.Drawing.Size(74, 23);
             this.sortLabel.TabIndex = 3;
             this.sortLabel.Text = "Sort By:";
             // 
@@ -244,9 +256,10 @@
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(3, 6);
+            this.btnAdd.Location = new System.Drawing.Point(4, 7);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(111, 35);
+            this.btnAdd.Size = new System.Drawing.Size(148, 43);
             this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "➕ Add";
             this.btnAdd.UseVisualStyleBackColor = false;
@@ -258,9 +271,10 @@
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.White;
-            this.txtSearch.Location = new System.Drawing.Point(125, 25);
+            this.txtSearch.Location = new System.Drawing.Point(167, 31);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(180, 27);
+            this.txtSearch.Size = new System.Drawing.Size(239, 32);
             this.txtSearch.TabIndex = 1;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -272,9 +286,10 @@
             this.btnShowALL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnShowALL.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowALL.ForeColor = System.Drawing.Color.White;
-            this.btnShowALL.Location = new System.Drawing.Point(3, 47);
+            this.btnShowALL.Location = new System.Drawing.Point(4, 58);
+            this.btnShowALL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnShowALL.Name = "btnShowALL";
-            this.btnShowALL.Size = new System.Drawing.Size(111, 35);
+            this.btnShowALL.Size = new System.Drawing.Size(148, 43);
             this.btnShowALL.TabIndex = 8;
             this.btnShowALL.Text = "🔄 Show All";
             this.btnShowALL.UseVisualStyleBackColor = false;
@@ -288,9 +303,10 @@
             this.sortComboBox.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sortComboBox.ForeColor = System.Drawing.Color.White;
             this.sortComboBox.FormattingEnabled = true;
-            this.sortComboBox.Location = new System.Drawing.Point(125, 95);
+            this.sortComboBox.Location = new System.Drawing.Point(167, 117);
+            this.sortComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.sortComboBox.Name = "sortComboBox";
-            this.sortComboBox.Size = new System.Drawing.Size(180, 28);
+            this.sortComboBox.Size = new System.Drawing.Size(239, 33);
             this.sortComboBox.TabIndex = 4;
             this.sortComboBox.SelectedIndexChanged += new System.EventHandler(this.sortComboBox_SelectedIndexChanged);
             // 
@@ -302,9 +318,10 @@
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(3, 88);
+            this.btnDelete.Location = new System.Drawing.Point(4, 108);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(111, 35);
+            this.btnDelete.Size = new System.Drawing.Size(148, 43);
             this.btnDelete.TabIndex = 7;
             this.btnDelete.Text = "🗑️ Delete";
             this.btnDelete.UseVisualStyleBackColor = false;
@@ -330,89 +347,16 @@
             this.unitavailable});
             this.dgvMedicineList.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dgvMedicineList.GridColor = System.Drawing.SystemColors.ButtonShadow;
-            this.dgvMedicineList.Location = new System.Drawing.Point(0, 380);
-            this.dgvMedicineList.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvMedicineList.Location = new System.Drawing.Point(0, 468);
+            this.dgvMedicineList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvMedicineList.Name = "dgvMedicineList";
             this.dgvMedicineList.ReadOnly = true;
             this.dgvMedicineList.RowHeadersWidth = 62;
             this.dgvMedicineList.RowTemplate.Height = 28;
             this.dgvMedicineList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMedicineList.Size = new System.Drawing.Size(1074, 244);
+            this.dgvMedicineList.Size = new System.Drawing.Size(1432, 300);
             this.dgvMedicineList.TabIndex = 13;
             this.dgvMedicineList.DoubleClick += new System.EventHandler(this.dgvMedicineList_DoubleClick);
-            // 
-            // medicineId
-            // 
-            this.medicineId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.medicineId.DataPropertyName = "MedicineId";
-            this.medicineId.HeaderText = "Medicine ID";
-            this.medicineId.MinimumWidth = 8;
-            this.medicineId.Name = "medicineId";
-            this.medicineId.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.name.DataPropertyName = "Name";
-            this.name.HeaderText = "Name";
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // category
-            // 
-            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.category.DataPropertyName = "Category";
-            this.category.HeaderText = "Category";
-            this.category.Name = "category";
-            this.category.ReadOnly = true;
-            // 
-            // unitprice
-            // 
-            this.unitprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unitprice.DataPropertyName = "UnitPrice";
-            this.unitprice.HeaderText = "UnitPrice";
-            this.unitprice.Name = "unitprice";
-            this.unitprice.ReadOnly = true;
-            // 
-            // unitcost
-            // 
-            this.unitcost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unitcost.DataPropertyName = "UnitCost";
-            this.unitcost.HeaderText = "UnitCost";
-            this.unitcost.Name = "unitcost";
-            this.unitcost.ReadOnly = true;
-            // 
-            // batchnumber
-            // 
-            this.batchnumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.batchnumber.DataPropertyName = "BatchNumber";
-            this.batchnumber.HeaderText = "BatchNumber";
-            this.batchnumber.Name = "batchnumber";
-            this.batchnumber.ReadOnly = true;
-            // 
-            // manufacturer
-            // 
-            this.manufacturer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.manufacturer.DataPropertyName = "Manufacturer";
-            this.manufacturer.HeaderText = "Manufacturer";
-            this.manufacturer.Name = "manufacturer";
-            this.manufacturer.ReadOnly = true;
-            // 
-            // expirydate
-            // 
-            this.expirydate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.expirydate.DataPropertyName = "ExpiryDate";
-            this.expirydate.HeaderText = "ExpiryDate";
-            this.expirydate.Name = "expirydate";
-            this.expirydate.ReadOnly = true;
-            // 
-            // unitavailable
-            // 
-            this.unitavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.unitavailable.DataPropertyName = "UnitAvailable";
-            this.unitavailable.HeaderText = "Stock";
-            this.unitavailable.Name = "unitavailable";
-            this.unitavailable.ReadOnly = true;
             // 
             // pnledit
             // 
@@ -435,18 +379,19 @@
             this.pnledit.Controls.Add(this.lblName);
             this.pnledit.Controls.Add(this.lblMedicineID);
             this.pnledit.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnledit.Location = new System.Drawing.Point(0, 100);
+            this.pnledit.Location = new System.Drawing.Point(0, 123);
+            this.pnledit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pnledit.Name = "pnledit";
-            this.pnledit.Size = new System.Drawing.Size(348, 280);
+            this.pnledit.Size = new System.Drawing.Size(464, 345);
             this.pnledit.TabIndex = 14;
             // 
             // txtUnitAvailable
             // 
             this.txtUnitAvailable.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitAvailable.Location = new System.Drawing.Point(154, 253);
-            this.txtUnitAvailable.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUnitAvailable.Location = new System.Drawing.Point(205, 311);
+            this.txtUnitAvailable.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUnitAvailable.Name = "txtUnitAvailable";
-            this.txtUnitAvailable.Size = new System.Drawing.Size(166, 23);
+            this.txtUnitAvailable.Size = new System.Drawing.Size(220, 27);
             this.txtUnitAvailable.TabIndex = 48;
             // 
             // lblUnitAvailable
@@ -454,10 +399,9 @@
             this.lblUnitAvailable.AutoSize = true;
             this.lblUnitAvailable.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitAvailable.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblUnitAvailable.Location = new System.Drawing.Point(30, 253);
-            this.lblUnitAvailable.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUnitAvailable.Location = new System.Drawing.Point(40, 311);
             this.lblUnitAvailable.Name = "lblUnitAvailable";
-            this.lblUnitAvailable.Size = new System.Drawing.Size(89, 17);
+            this.lblUnitAvailable.Size = new System.Drawing.Size(108, 21);
             this.lblUnitAvailable.TabIndex = 47;
             this.lblUnitAvailable.Text = "Unit Available";
             // 
@@ -478,9 +422,10 @@
             "Injections ",
             "Creams",
             "Inhalers"});
-            this.cmbCatagory.Location = new System.Drawing.Point(154, 67);
+            this.cmbCatagory.Location = new System.Drawing.Point(205, 82);
+            this.cmbCatagory.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbCatagory.Name = "cmbCatagory";
-            this.cmbCatagory.Size = new System.Drawing.Size(166, 23);
+            this.cmbCatagory.Size = new System.Drawing.Size(220, 28);
             this.cmbCatagory.TabIndex = 46;
             // 
             // dtpExpiryDate
@@ -489,65 +434,66 @@
             this.dtpExpiryDate.CustomFormat = "dd-MM-yyyy";
             this.dtpExpiryDate.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpExpiryDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpExpiryDate.Location = new System.Drawing.Point(154, 224);
+            this.dtpExpiryDate.Location = new System.Drawing.Point(205, 276);
+            this.dtpExpiryDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dtpExpiryDate.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
             this.dtpExpiryDate.Name = "dtpExpiryDate";
-            this.dtpExpiryDate.Size = new System.Drawing.Size(166, 23);
+            this.dtpExpiryDate.Size = new System.Drawing.Size(220, 27);
             this.dtpExpiryDate.TabIndex = 45;
             // 
             // txtManuFacturer
             // 
             this.txtManuFacturer.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtManuFacturer.Location = new System.Drawing.Point(154, 186);
-            this.txtManuFacturer.Margin = new System.Windows.Forms.Padding(2);
+            this.txtManuFacturer.Location = new System.Drawing.Point(205, 229);
+            this.txtManuFacturer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtManuFacturer.Name = "txtManuFacturer";
-            this.txtManuFacturer.Size = new System.Drawing.Size(166, 23);
+            this.txtManuFacturer.Size = new System.Drawing.Size(220, 27);
             this.txtManuFacturer.TabIndex = 44;
             // 
             // txtBatchNo
             // 
             this.txtBatchNo.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBatchNo.Location = new System.Drawing.Point(154, 157);
-            this.txtBatchNo.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBatchNo.Location = new System.Drawing.Point(205, 193);
+            this.txtBatchNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBatchNo.Name = "txtBatchNo";
-            this.txtBatchNo.Size = new System.Drawing.Size(166, 23);
+            this.txtBatchNo.Size = new System.Drawing.Size(220, 27);
             this.txtBatchNo.TabIndex = 43;
             // 
             // txtUnitCost
             // 
             this.txtUnitCost.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitCost.Location = new System.Drawing.Point(154, 126);
-            this.txtUnitCost.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUnitCost.Location = new System.Drawing.Point(205, 155);
+            this.txtUnitCost.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUnitCost.Name = "txtUnitCost";
-            this.txtUnitCost.Size = new System.Drawing.Size(166, 23);
+            this.txtUnitCost.Size = new System.Drawing.Size(220, 27);
             this.txtUnitCost.TabIndex = 42;
             // 
             // txtUnitPrice
             // 
             this.txtUnitPrice.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUnitPrice.Location = new System.Drawing.Point(154, 95);
-            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(2);
+            this.txtUnitPrice.Location = new System.Drawing.Point(205, 117);
+            this.txtUnitPrice.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUnitPrice.Name = "txtUnitPrice";
-            this.txtUnitPrice.Size = new System.Drawing.Size(166, 23);
+            this.txtUnitPrice.Size = new System.Drawing.Size(220, 27);
             this.txtUnitPrice.TabIndex = 41;
             // 
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(154, 36);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtName.Location = new System.Drawing.Point(205, 44);
+            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(166, 23);
+            this.txtName.Size = new System.Drawing.Size(220, 27);
             this.txtName.TabIndex = 40;
             // 
             // txtMedID
             // 
             this.txtMedID.Font = new System.Drawing.Font("Cambria", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMedID.Location = new System.Drawing.Point(154, 6);
-            this.txtMedID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMedID.Location = new System.Drawing.Point(205, 7);
+            this.txtMedID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMedID.Name = "txtMedID";
             this.txtMedID.ReadOnly = true;
-            this.txtMedID.Size = new System.Drawing.Size(166, 23);
+            this.txtMedID.Size = new System.Drawing.Size(220, 27);
             this.txtMedID.TabIndex = 39;
             // 
             // lblExpiryDate
@@ -555,10 +501,9 @@
             this.lblExpiryDate.AutoSize = true;
             this.lblExpiryDate.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExpiryDate.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblExpiryDate.Location = new System.Drawing.Point(30, 224);
-            this.lblExpiryDate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblExpiryDate.Location = new System.Drawing.Point(40, 276);
             this.lblExpiryDate.Name = "lblExpiryDate";
-            this.lblExpiryDate.Size = new System.Drawing.Size(72, 17);
+            this.lblExpiryDate.Size = new System.Drawing.Size(87, 21);
             this.lblExpiryDate.TabIndex = 38;
             this.lblExpiryDate.Text = "ExpiryDate";
             // 
@@ -567,10 +512,9 @@
             this.lvlManuFacturer.AutoSize = true;
             this.lvlManuFacturer.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvlManuFacturer.ForeColor = System.Drawing.SystemColors.Window;
-            this.lvlManuFacturer.Location = new System.Drawing.Point(30, 192);
-            this.lvlManuFacturer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lvlManuFacturer.Location = new System.Drawing.Point(40, 236);
             this.lvlManuFacturer.Name = "lvlManuFacturer";
-            this.lvlManuFacturer.Size = new System.Drawing.Size(92, 17);
+            this.lvlManuFacturer.Size = new System.Drawing.Size(110, 21);
             this.lvlManuFacturer.TabIndex = 37;
             this.lvlManuFacturer.Text = "ManuFacturer";
             // 
@@ -579,10 +523,9 @@
             this.lblBatchNo.AutoSize = true;
             this.lblBatchNo.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBatchNo.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblBatchNo.Location = new System.Drawing.Point(28, 160);
-            this.lblBatchNo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBatchNo.Location = new System.Drawing.Point(37, 197);
             this.lblBatchNo.Name = "lblBatchNo";
-            this.lblBatchNo.Size = new System.Drawing.Size(93, 17);
+            this.lblBatchNo.Size = new System.Drawing.Size(112, 21);
             this.lblBatchNo.TabIndex = 36;
             this.lblBatchNo.Text = "Batch Number";
             // 
@@ -591,10 +534,9 @@
             this.lblUnitCost.AutoSize = true;
             this.lblUnitCost.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitCost.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblUnitCost.Location = new System.Drawing.Point(30, 129);
-            this.lblUnitCost.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUnitCost.Location = new System.Drawing.Point(40, 159);
             this.lblUnitCost.Name = "lblUnitCost";
-            this.lblUnitCost.Size = new System.Drawing.Size(62, 17);
+            this.lblUnitCost.Size = new System.Drawing.Size(75, 21);
             this.lblUnitCost.TabIndex = 35;
             this.lblUnitCost.Text = "Unit Cost";
             // 
@@ -603,10 +545,9 @@
             this.lblUnitPrice.AutoSize = true;
             this.lblUnitPrice.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUnitPrice.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblUnitPrice.Location = new System.Drawing.Point(30, 98);
-            this.lblUnitPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUnitPrice.Location = new System.Drawing.Point(40, 121);
             this.lblUnitPrice.Name = "lblUnitPrice";
-            this.lblUnitPrice.Size = new System.Drawing.Size(61, 17);
+            this.lblUnitPrice.Size = new System.Drawing.Size(75, 21);
             this.lblUnitPrice.TabIndex = 34;
             this.lblUnitPrice.Text = "UnitPrice";
             // 
@@ -615,10 +556,9 @@
             this.lblCatagory.AutoSize = true;
             this.lblCatagory.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCatagory.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblCatagory.Location = new System.Drawing.Point(30, 67);
-            this.lblCatagory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCatagory.Location = new System.Drawing.Point(40, 82);
             this.lblCatagory.Name = "lblCatagory";
-            this.lblCatagory.Size = new System.Drawing.Size(61, 17);
+            this.lblCatagory.Size = new System.Drawing.Size(72, 21);
             this.lblCatagory.TabIndex = 33;
             this.lblCatagory.Text = "Catagory";
             // 
@@ -627,10 +567,9 @@
             this.lblName.AutoSize = true;
             this.lblName.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblName.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblName.Location = new System.Drawing.Point(30, 39);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblName.Location = new System.Drawing.Point(40, 48);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(42, 17);
+            this.lblName.Size = new System.Drawing.Size(52, 21);
             this.lblName.TabIndex = 32;
             this.lblName.Text = "Name";
             // 
@@ -639,24 +578,107 @@
             this.lblMedicineID.AutoSize = true;
             this.lblMedicineID.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMedicineID.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMedicineID.Location = new System.Drawing.Point(30, 9);
-            this.lblMedicineID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMedicineID.Location = new System.Drawing.Point(40, 11);
             this.lblMedicineID.Name = "lblMedicineID";
-            this.lblMedicineID.Size = new System.Drawing.Size(78, 17);
+            this.lblMedicineID.Size = new System.Drawing.Size(96, 21);
             this.lblMedicineID.TabIndex = 31;
             this.lblMedicineID.Text = "Medicine ID";
             // 
+            // medicineId
+            // 
+            this.medicineId.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.medicineId.DataPropertyName = "MedicineId";
+            this.medicineId.HeaderText = "Medicine ID";
+            this.medicineId.MinimumWidth = 8;
+            this.medicineId.Name = "medicineId";
+            this.medicineId.ReadOnly = true;
+            // 
+            // name
+            // 
+            this.name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.name.DataPropertyName = "Name";
+            this.name.HeaderText = "Name";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            // 
+            // category
+            // 
+            this.category.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.category.DataPropertyName = "Category";
+            this.category.HeaderText = "Category";
+            this.category.MinimumWidth = 6;
+            this.category.Name = "category";
+            this.category.ReadOnly = true;
+            // 
+            // unitprice
+            // 
+            this.unitprice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitprice.DataPropertyName = "UnitPrice";
+            this.unitprice.HeaderText = "UnitPrice";
+            this.unitprice.MinimumWidth = 6;
+            this.unitprice.Name = "unitprice";
+            this.unitprice.ReadOnly = true;
+            // 
+            // unitcost
+            // 
+            this.unitcost.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitcost.DataPropertyName = "UnitCost";
+            this.unitcost.HeaderText = "UnitCost";
+            this.unitcost.MinimumWidth = 6;
+            this.unitcost.Name = "unitcost";
+            this.unitcost.ReadOnly = true;
+            // 
+            // batchnumber
+            // 
+            this.batchnumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.batchnumber.DataPropertyName = "BatchNumber";
+            this.batchnumber.HeaderText = "BatchNumber";
+            this.batchnumber.MinimumWidth = 6;
+            this.batchnumber.Name = "batchnumber";
+            this.batchnumber.ReadOnly = true;
+            // 
+            // manufacturer
+            // 
+            this.manufacturer.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.manufacturer.DataPropertyName = "Manufacturer";
+            this.manufacturer.HeaderText = "Manufacturer";
+            this.manufacturer.MinimumWidth = 6;
+            this.manufacturer.Name = "manufacturer";
+            this.manufacturer.ReadOnly = true;
+            // 
+            // expirydate
+            // 
+            this.expirydate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.expirydate.DataPropertyName = "ExpiryDate";
+            this.expirydate.HeaderText = "ExpiryDate";
+            this.expirydate.MinimumWidth = 6;
+            this.expirydate.Name = "expirydate";
+            this.expirydate.ReadOnly = true;
+            // 
+            // unitavailable
+            // 
+            this.unitavailable.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.unitavailable.DataPropertyName = "UnitAvailable";
+            this.unitavailable.HeaderText = "Unit Available";
+            this.unitavailable.MinimumWidth = 6;
+            this.unitavailable.Name = "unitavailable";
+            this.unitavailable.ReadOnly = true;
+            // 
             // FormSalesman
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(1074, 624);
+            this.ClientSize = new System.Drawing.Size(1432, 768);
             this.Controls.Add(this.pnledit);
             this.Controls.Add(this.dgvMedicineList);
             this.Controls.Add(this.pnlCRUD);
             this.Controls.Add(this.pnlHeader);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FormSalesman";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormSalesman";
@@ -690,15 +712,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.DataGridView dgvMedicineList;
-        private System.Windows.Forms.DataGridViewTextBoxColumn medicineId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn category;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitprice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitcost;
-        private System.Windows.Forms.DataGridViewTextBoxColumn batchnumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn expirydate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn unitavailable;
         private System.Windows.Forms.Panel pnledit;
         private System.Windows.Forms.TextBox txtUnitAvailable;
         private System.Windows.Forms.Label lblUnitAvailable;
@@ -721,5 +734,14 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Button btnSellItems;
         private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medicineId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn category;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitprice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitcost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn batchnumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn manufacturer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn expirydate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn unitavailable;
     }
 }
